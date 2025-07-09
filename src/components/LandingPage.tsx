@@ -144,15 +144,13 @@ const LandingPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {(t('problem.issues', { returnObjects: true }) as string[]).map((issue: string, index: number) => (
                 <CardReveal key={index} delay={index * 0.1}>
-                  <div className="relative p-8 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
-                        <span className="text-red-400 text-xl">✕</span>
-                      </div>
-                      <div>
-                        <p className="text-white text-lg">{issue}</p>
-                        <div className="mt-3 w-16 h-1 bg-gradient-to-r from-red-500 to-pink-500 rounded-full"></div>
-                      </div>
+                  <div className="flex flex-col items-center space-y-4 p-0">
+                    <div className="flex-shrink-0 w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
+                      <span className="text-red-400 text-xl">✕</span>
+                    </div>
+                    <div>
+                      <p className="text-white text-lg text-center">{issue}</p>
+                      <div className="mt-3 w-16 h-1 bg-gradient-to-r from-red-500 to-pink-500 rounded-full mx-auto"></div>
                     </div>
                   </div>
                 </CardReveal>
@@ -179,14 +177,14 @@ const LandingPage: React.FC = () => {
               {features.map((feature, index) => (
                 <StaggeredItem key={index}>
                   <motion.div
-                    className="relative p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300 group"
+                    className="relative p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300 group text-center"
                     whileHover={{ scale: 1.02, y: -5 }}
                   >
-                    <div className="flex items-start space-x-4">
+                    <div className="flex flex-col items-center space-y-4">
                       <div className={`flex-shrink-0 w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
                         <feature.icon className="w-6 h-6 text-white" />
                       </div>
-                      <p className="text-white text-base leading-relaxed">{feature.text}</p>
+                      <p className="text-white text-base leading-relaxed text-center">{feature.text}</p>
                     </div>
                     <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r ${feature.color} rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
                   </motion.div>
