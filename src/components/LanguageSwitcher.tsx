@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -12,8 +12,21 @@ const LanguageSwitcher: React.FC = () => {
     { code: 'fr', name: 'Français', flag: '🇫🇷' }
   ];
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  // Track the current language and update on i18n language change
+  const [currentLang, setCurrentLang] = useState(i18n.language);
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleLangChange = (lng: string) => setCurrentLang(lng);
+    i18n.on('languageChanged', handleLangChange);
+    // In case i18n.language is set after mount
+    setCurrentLang(i18n.language);
+    return () => {
+      i18n.off('languageChanged', handleLangChange);
+    };
+  }, [i18n]);
+
+  const currentLanguage = languages.find(lang => lang.code === currentLang) || languages[0];
 
   return (
     <div className="relative">
@@ -50,7 +63,7 @@ const LanguageSwitcher: React.FC = () => {
                   setIsOpen(false);
                 }}
                 className={`w-full px-4 py-3 text-left hover:bg-white/10 flex items-center space-x-3 transition-colors duration-200 ${
-                  i18n.language === language.code ? 'bg-purple-500/20 text-purple-200' : 'text-white'
+                  currentLang === language.code ? 'bg-purple-500/20 text-purple-200' : 'text-white'
                 }`}
                 whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
                 whileTap={{ scale: 0.98 }}

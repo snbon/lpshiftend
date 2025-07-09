@@ -8,10 +8,18 @@ const resources = {
       hero: {
         title: "ShiftEnd: Het digitale dagontvangstenboek",
         subtitle: "Wettelijk correct. Supersimpel. Zonder GKS.",
-        cta: "Start gratis proefperiode"
+        cta: "Start gratis proefperiode",
+        legalBadge: "Wettelijk goedgekeurd voor Belgische horeca",
+        demo: "Bekijk demo",
+        trust: {
+          encryption: "256-bit encryptie",
+          eu: "EU-gebaseerd",
+          fod: "FOD-compliant"
+        }
       },
       problem: {
         title: "Problemen met papieren logs en Excel",
+        subtitle: "Stop met handmatige administratie en juridische risico's",
         issues: [
           "Handmatig werk en tijdrovende administratie",
           "Juridische risico's door fouten",
@@ -21,6 +29,7 @@ const resources = {
       },
       features: {
         title: "Waarom ShiftEnd?",
+        subtitle: "Alles wat u nodig heeft voor wettelijke compliance",
         items: [
           "Dagelijkse input: cash, bank, maaltijdcheques, ecocheques, etc.",
           "Voeg vrije notities toe (btw, correcties, opmerking)",
@@ -34,6 +43,7 @@ const resources = {
       },
       legal: {
         title: "Wettelijke Compliance",
+        subtitle: "Volledig compliant met Belgische wetgeving",
         requirements: [
           "Dagontvangstenboek verplicht voor niet-GKS horeca",
           "Niet wijzigbaar na bewaren",
@@ -44,8 +54,10 @@ const resources = {
       },
       pricing: {
         title: "Prijzen",
+        subtitle: "Eenvoudige prijzen, geen verrassingen",
         price: "€9/maand",
         description: "Geen setup, 40% winstmarge ingebouwd",
+        details: "Geen setup • Geen verborgen kosten • 30 dagen gratis proefperiode",
         tooltip: "Prijzenlogica: €9/maand voor wettelijke compliance zonder gedoe"
       },
       validation: {
@@ -54,7 +66,7 @@ const resources = {
       },
       cta: {
         title: "Vraag gratis toegang aan",
-        placeholder: "Uw e-mailadres",
+        subtitle: "Begin vandaag nog met wettelijke compliance",
         button: "Aanvragen"
       },
       footer: {
@@ -69,10 +81,18 @@ const resources = {
       hero: {
         title: "ShiftEnd: The Digital Daily Revenue Log",
         subtitle: "Legally compliant. Super simple. Without GKS.",
-        cta: "Start free trial"
+        cta: "Start free trial",
+        legalBadge: "Legally approved for Belgian horeca",
+        demo: "View demo",
+        trust: {
+          encryption: "256-bit encryption",
+          eu: "EU-based",
+          fod: "FOD-compliant"
+        }
       },
       problem: {
         title: "Problems with paper logs and Excel",
+        subtitle: "Stop manual administration and legal risks",
         issues: [
           "Manual work and time-consuming administration",
           "Legal risks due to errors",
@@ -82,6 +102,7 @@ const resources = {
       },
       features: {
         title: "Why ShiftEnd?",
+        subtitle: "Everything you need for legal compliance",
         items: [
           "Daily input: cash, bank, meal vouchers, eco vouchers, etc.",
           "Add free notes (VAT, corrections, remarks)",
@@ -95,6 +116,7 @@ const resources = {
       },
       legal: {
         title: "Legal Compliance",
+        subtitle: "Fully compliant with Belgian law",
         requirements: [
           "Daily revenue log required for non-GKS hospitality",
           "Not changeable after saving",
@@ -105,8 +127,10 @@ const resources = {
       },
       pricing: {
         title: "Pricing",
+        subtitle: "Simple pricing, no surprises",
         price: "€9/month",
         description: "No setup, 40% profit margin built-in",
+        details: "No setup • No hidden fees • 30 days free trial",
         tooltip: "Pricing logic: €9/month for legal compliance without hassle"
       },
       validation: {
@@ -115,7 +139,7 @@ const resources = {
       },
       cta: {
         title: "Request free access",
-        placeholder: "Your email address",
+        subtitle: "Start your legal compliance today",
         button: "Request"
       },
       footer: {
@@ -130,10 +154,18 @@ const resources = {
       hero: {
         title: "ShiftEnd: Le registre quotidien des recettes numérique",
         subtitle: "Conforme à la loi. Super simple. Sans GKS.",
-        cta: "Commencer l'essai gratuit"
+        cta: "Commencer l'essai gratuit",
+        legalBadge: "Approuvé légalement pour l'horeca belge",
+        demo: "Voir la démo",
+        trust: {
+          encryption: "Chiffrement 256 bits",
+          eu: "Basé dans l'UE",
+          fod: "Conforme SPF"
+        }
       },
       problem: {
         title: "Problèmes avec les registres papier et Excel",
+        subtitle: "Arrêtez l'administration manuelle et les risques juridiques",
         issues: [
           "Travail manuel et administration chronophage",
           "Risques juridiques dus aux erreurs",
@@ -143,6 +175,7 @@ const resources = {
       },
       features: {
         title: "Pourquoi ShiftEnd?",
+        subtitle: "Tout ce dont vous avez besoin pour la conformité légale",
         items: [
           "Saisie quotidienne: espèces, banque, tickets repas, éco-chèques, etc.",
           "Ajoutez des notes libres (TVA, corrections, remarques)",
@@ -156,6 +189,7 @@ const resources = {
       },
       legal: {
         title: "Conformité Légale",
+        subtitle: "Entièrement conforme à la législation belge",
         requirements: [
           "Registre quotidien des recettes obligatoire pour l'horeca non-GKS",
           "Non modifiable après sauvegarde",
@@ -166,8 +200,10 @@ const resources = {
       },
       pricing: {
         title: "Tarification",
+        subtitle: "Tarification simple, pas de surprises",
         price: "€9/mois",
         description: "Pas de configuration, 40% de marge bénéficiaire intégrée",
+        details: "Pas de configuration • Pas de frais cachés • 30 jours d'essai gratuit",
         tooltip: "Logique de tarification: €9/mois pour la conformité légale sans tracas"
       },
       validation: {
@@ -176,7 +212,7 @@ const resources = {
       },
       cta: {
         title: "Demander l'accès gratuit",
-        placeholder: "Votre adresse e-mail",
+        subtitle: "Commencez votre conformité légale aujourd'hui",
         button: "Demander"
       },
       footer: {

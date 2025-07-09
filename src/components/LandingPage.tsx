@@ -65,7 +65,7 @@ const LandingPage: React.FC = () => {
             >
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
                 <Star className="w-4 h-4 text-yellow-400 mr-2" />
-                <span className="text-sm text-white/90">Wettelijk goedgekeurd voor Belgische horeca</span>
+                <span className="text-sm text-white/90">{t('hero.legalBadge')}</span>
               </div>
             </motion.div>
 
@@ -92,7 +92,7 @@ const LandingPage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <span className="flex items-center">
-                    Start gratis proefperiode
+                    {t('hero.cta')}
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </motion.button>
@@ -102,7 +102,7 @@ const LandingPage: React.FC = () => {
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Bekijk demo
+                  {t('hero.demo')}
                 </motion.button>
               </div>
             </FadeIn>
@@ -112,15 +112,15 @@ const LandingPage: React.FC = () => {
               <div className="mt-16 flex flex-wrap justify-center items-center gap-8 text-white/60">
                 <div className="flex items-center space-x-2">
                   <Lock className="w-4 h-4" />
-                  <span className="text-sm">256-bit encryptie</span>
+                  <span className="text-sm">{t('hero.trust.encryption')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Globe className="w-4 h-4" />
-                  <span className="text-sm">EU-gebaseerd</span>
+                  <span className="text-sm">{t('hero.trust.eu')}</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Award className="w-4 h-4" />
-                  <span className="text-sm">FOD-compliant</span>
+                  <span className="text-sm">{t('hero.trust.fod')}</span>
                 </div>
               </div>
             </FadeIn>
@@ -136,7 +136,7 @@ const LandingPage: React.FC = () => {
                   {t('problem.title')}
                 </h2>
                 <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                  Stop met handmatige administratie en juridische risico's
+                  {t('problem.subtitle')}
                 </p>
               </div>
             </FadeIn>
@@ -170,7 +170,7 @@ const LandingPage: React.FC = () => {
                   {t('features.title')}
                 </h2>
                 <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-                  Alles wat u nodig heeft voor wettelijke compliance
+                  {t('features.subtitle')}
                 </p>
               </div>
             </FadeIn>
@@ -205,7 +205,7 @@ const LandingPage: React.FC = () => {
                   {t('legal.title')}
                 </h2>
                 <p className="text-xl text-gray-400">
-                  Volledig compliant met Belgische wetgeving
+                  {t('legal.subtitle')}
                 </p>
               </div>
             </FadeIn>
@@ -244,7 +244,7 @@ const LandingPage: React.FC = () => {
                   {t('pricing.title')}
                 </h2>
                 <p className="text-xl text-gray-400">
-                  Eenvoudige prijzen, geen verrassingen
+                  {t('pricing.subtitle')}
                 </p>
               </div>
             </FadeIn>
@@ -264,11 +264,11 @@ const LandingPage: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Start gratis proefperiode
+                  {t('hero.cta')}
                 </motion.button>
                 
                 <div className="mt-6 text-sm text-gray-400">
-                  Geen setup • Geen verborgen kosten • 30 dagen gratis proefperiode
+                  {t('pricing.details')}
                 </div>
               </div>
             </CardReveal>
@@ -309,7 +309,7 @@ const LandingPage: React.FC = () => {
                     {t('cta.title')}
                   </h2>
                   <p className="text-xl text-gray-300 mb-8">
-                    Begin vandaag nog met wettelijke compliance
+                    {t('cta.subtitle')}
                   </p>
                   <motion.button
                     onClick={() => setIsEmailModalOpen(true)}
