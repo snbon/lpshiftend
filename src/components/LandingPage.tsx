@@ -48,7 +48,7 @@ const LandingPage: React.FC = () => {
       {/* Main Content Container */}
       <main className="relative w-full">
         {/* Hero Section */}
-        <section className="relative pt-32 pb-20 overflow-hidden">
+        <section className="relative pt-32 pb-20">
           {/* Background Effects */}
           <div className="absolute inset-0">
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
@@ -70,7 +70,9 @@ const LandingPage: React.FC = () => {
             </motion.div>
 
             <FadeIn delay={0.2}>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight">
+              <h1
+                className="relative block text-3xl sm:text-5xl md:text-7xl font-bold mb-6 md:mb-10 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-[1.1] break-words text-balance descender-fix"
+              >
                 {t('hero.title')}
               </h1>
             </FadeIn>

@@ -57,3 +57,9 @@ h1, h2, h3, h4, h5, h6, p, div, section, article, aside, nav, header, footer, ma
   margin: 0;
   padding: 0;
 }
+
+.descender-fix::after {
+  content: '';
+  display: block;
+  height: 0.18em;
+}
