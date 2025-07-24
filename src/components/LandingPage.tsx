@@ -98,6 +98,7 @@ const LandingPage: React.FC = () => {
                 </motion.button>
                 
                 <motion.button
+                  onClick={() => window.open('https://demo.shiftend.be', '_blank')}
                   className="px-8 py-4 border border-white/20 rounded-xl text-lg font-semibold text-white hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
