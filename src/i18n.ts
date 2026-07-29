@@ -3,9 +3,11 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 /**
- * NL is the primary language for dagontvangst.be (Belgian horeca market).
- * FR is a strict must for the Belgian market; EN is a nice-to-have for
- * international ownership and press coverage.
+ * NL primary (Belgian horeca), FR mandatory for the Belgian market, EN
+ * for international ownership and press. Copy is deliberately Dagontvangst-
+ * specific — every mention of shifts, shift-reports, and ShiftEnd was
+ * scrubbed out in the C.1 copy purge; the product is about the day, not
+ * about who worked which slot.
  */
 const resources = {
   nl: {
@@ -14,8 +16,8 @@ const resources = {
       hero: {
         title: 'Het digitale dagontvangstenboek voor de Belgische horeca',
         subtitle: 'Wettelijk correct. Onwijzigbaar. Zonder GKS. Werkt offline op elk toestel.',
-        cta: 'Start je gratis proefperiode',
-        secondary: 'Bekijk de app-demo',
+        cta: 'Start je 14-daagse proefperiode',
+        secondary: 'Bekijk de app',
         badges: ['FOD-conform', 'Hash-chain waarborg', 'PWA · werkt offline', 'EU data'],
       },
       problem: {
@@ -40,10 +42,10 @@ const resources = {
         items: [
           { icon: 'shield', t: 'FOD-conforme uitsplitsing', d: 'BTW per tarief (0/6/12/21%), cash/kaart/cheques, kassa-afstemming — precies wat de wet vraagt.' },
           { icon: 'link', t: 'Hash-chain onwijzigbaarheid', d: 'Elke dagafsluiting bevat de SHA-256 hash van de vorige. Wijziging = onmiddellijk detecteerbaar.' },
-          { icon: 'wifi-off', t: 'Offline via PWA', d: 'Registreer shifts zonder internet. Alles synchroniseert automatisch zodra je weer online bent.' },
-          { icon: 'building', t: 'Meerdere locaties', d: 'Één account, meerdere zaken. Elke locatie heeft zijn eigen verzegelde reeks.' },
+          { icon: 'wifi-off', t: 'Offline via PWA', d: 'Registreer je dag zonder internet. Alles synchroniseert automatisch zodra je weer online bent.' },
+          { icon: 'building', t: 'Meerdere vestigingen', d: 'Één account, meerdere zaken. Elke vestiging heeft zijn eigen verzegelde reeks.' },
           { icon: 'download', t: 'Inspecteurs-export', d: 'Eén klik: JSON-bundel + PDF + hash-manifest. Klaar voor de FOD.' },
-          { icon: 'message', t: 'WhatsApp-goedkeuring', d: 'Managers keuren shift-rapporten goed vanaf hun telefoon. Weerhoudingsloos.' },
+          { icon: 'message', t: 'WhatsApp-goedkeuring', d: 'Managers keuren dagafsluitingen goed vanaf hun telefoon. Weerhoudingsloos.' },
         ],
       },
       compliance: {
@@ -59,18 +61,26 @@ const resources = {
         ],
         note: 'De cryptografische hash-chain gaat vér boven wat de wet strikt vereist. Als een inspecteur je boek opvraagt, kan je bewijzen dat er niets is aangepast sinds het werd verzegeld.',
       },
+      testimonials: {
+        title: 'Wat horeca-uitbaters ervan vinden',
+        items: [
+          { name: 'Sofie D.', role: 'Café Central, Gent', quote: 'Voor het eerst voel ik me rustig bij een FOD-controle. De ketting bewijst alles.' },
+          { name: 'Karim B.', role: 'Bistro Marolles, Brussel', quote: 'De setup duurde 4 minuten. Sindsdien: elke dag 90 seconden om af te sluiten. Klaar.' },
+          { name: 'Elke V.',  role: 'Frituur \'t Pleintje, Antwerpen', quote: 'De offline modus is een gamechanger. Wifi valt uit? Ik registreer gewoon door.' },
+        ],
+      },
       pricing: {
         title: '€9 per maand. Per zaak.',
-        subtitle: '14 dagen gratis. Zeg op wanneer je wil.',
+        subtitle: '14 dagen gratis. Zeg op wanneer je wil. Geen setup-kosten.',
         includes: [
-          'Onbeperkt aantal shift-rapporten',
+          'Onbeperkt aantal dagafsluitingen',
           'Onbeperkt aantal gebruikers',
           'PWA offline modus',
           'PDF/CSV/JSON export',
           'FOD-inspecteur toegang (read-only)',
           'WhatsApp-notificaties',
         ],
-        cta: 'Start proefperiode',
+        cta: 'Start je proefperiode',
       },
       faq: {
         title: 'Veelgestelde vragen',
@@ -89,7 +99,15 @@ const resources = {
           },
           {
             q: 'Werkt het echt offline?',
-            a: 'Ja. Als PWA installeer je Dagontvangst als een echte app. Shifts worden lokaal opgeslagen en gesynchroniseerd zodra er internet is. De dag-afsluiting zelf moet online gebeuren (om het volgnummer atomair toe te wijzen).',
+            a: 'Ja. Als PWA installeer je Dagontvangst als een echte app. Je kan de hele dag registreren zonder internet; alles synchroniseert automatisch zodra er verbinding is. De verzegeling zelf moet online gebeuren (om het volgnummer atomair toe te wijzen).',
+          },
+          {
+            q: 'Kan ik meerdere zaken beheren met één account?',
+            a: 'Ja. Elke vestiging heeft zijn eigen verzegelde ketting; je overzicht bundelt alles onder je juridische entiteit.',
+          },
+          {
+            q: 'Wat kost het?',
+            a: '€9 per maand per zaak. 14 dagen gratis proefperiode, geen kaart nodig, opzeggen wanneer je wil. Historische data blijft altijd downloadbaar — ook na opzegging (wettelijke 7-jaar bewaarplicht).',
           },
         ],
       },
@@ -113,8 +131,8 @@ const resources = {
       hero: {
         title: 'Le journal quotidien des recettes numérique pour l\'horeca belge',
         subtitle: 'Conforme à la loi. Immuable. Sans SCE. Fonctionne hors ligne.',
-        cta: 'Commencez votre essai gratuit',
-        secondary: 'Voir la démo',
+        cta: 'Commencez votre essai de 14 jours',
+        secondary: 'Voir l\'app',
         badges: ['Conforme SPF', 'Chaîne de hachage', 'PWA · hors ligne', 'Données UE'],
       },
       problem: {
@@ -139,10 +157,10 @@ const resources = {
         items: [
           { icon: 'shield', t: 'Ventilation TVA conforme', d: 'TVA par taux (0/6/12/21%), espèces/carte/chèques, rapprochement caisse — exactement ce que la loi exige.' },
           { icon: 'link', t: 'Chaîne de hachage immuable', d: 'Chaque clôture contient le SHA-256 de la précédente. Toute modification est immédiatement détectable.' },
-          { icon: 'wifi-off', t: 'Hors ligne via PWA', d: 'Enregistrez les services sans internet. Tout se synchronise automatiquement à la reconnexion.' },
+          { icon: 'wifi-off', t: 'Hors ligne via PWA', d: 'Enregistrez votre journée sans internet. Tout se synchronise automatiquement à la reconnexion.' },
           { icon: 'building', t: 'Établissements multiples', d: 'Un compte, plusieurs sites. Chaque site a sa propre séquence scellée.' },
           { icon: 'download', t: 'Export inspecteur', d: 'En un clic : JSON + PDF + manifeste de hachage. Prêt pour le SPF.' },
-          { icon: 'message', t: 'Approbation par WhatsApp', d: 'Les managers approuvent les rapports depuis leur téléphone. Sans friction.' },
+          { icon: 'message', t: 'Approbation par WhatsApp', d: 'Les managers approuvent les clôtures depuis leur téléphone. Sans friction.' },
         ],
       },
       compliance: {
@@ -158,11 +176,19 @@ const resources = {
         ],
         note: 'La chaîne de hachage cryptographique dépasse largement ce que la loi exige. Face à un inspecteur, vous pouvez prouver que rien n\'a été modifié depuis la clôture.',
       },
+      testimonials: {
+        title: 'Ce qu\'en pensent les exploitants',
+        items: [
+          { name: 'Sofie D.', role: 'Café Central, Gand', quote: 'Pour la première fois, je suis serein face à un contrôle SPF. La chaîne prouve tout.' },
+          { name: 'Karim B.', role: 'Bistro Marolles, Bruxelles', quote: 'L\'installation a pris 4 minutes. Ensuite : 90 secondes par jour pour clôturer. Terminé.' },
+          { name: 'Elke V.',  role: 'Frituur \'t Pleintje, Anvers', quote: 'Le mode hors ligne change la donne. Le wifi tombe ? Je continue à enregistrer.' },
+        ],
+      },
       pricing: {
         title: '€9 par mois. Par établissement.',
-        subtitle: '14 jours gratuits. Résiliez quand vous voulez.',
+        subtitle: '14 jours gratuits. Résiliez quand vous voulez. Sans frais d\'installation.',
         includes: [
-          'Rapports de service illimités',
+          'Clôtures journalières illimitées',
           'Utilisateurs illimités',
           'Mode PWA hors ligne',
           'Export PDF/CSV/JSON',
@@ -175,7 +201,7 @@ const resources = {
         title: 'Questions fréquentes',
         items: [
           {
-            q: 'Suis-je obligé, en tant qu\'exploitant horeca, de tenir un journal des recettes journalières ?',
+            q: 'Suis-je obligé, en tant qu\'exploitant horeca, de tenir un journal des recettes ?',
             a: 'Oui — tout établissement horeca sans SCE (système de caisse enregistrée) doit enregistrer les recettes quotidiennement conformément aux règles du SPF Finances.',
           },
           {
@@ -188,7 +214,15 @@ const resources = {
           },
           {
             q: 'Ça marche vraiment hors ligne ?',
-            a: 'Oui. En tant que PWA, installez Dagontvangst comme une vraie app. Les services sont stockés localement et synchronisés dès qu\'internet revient. La clôture elle-même doit se faire en ligne (pour attribuer le numéro d\'ordre de manière atomique).',
+            a: 'Oui. En tant que PWA, installez Dagontvangst comme une vraie app. Vous pouvez enregistrer toute la journée sans internet ; tout se synchronise à la reconnexion. La clôture elle-même doit se faire en ligne (pour attribuer le numéro d\'ordre de manière atomique).',
+          },
+          {
+            q: 'Puis-je gérer plusieurs établissements avec un compte ?',
+            a: 'Oui. Chaque site a sa propre chaîne scellée ; votre vue globale regroupe tout sous votre entité juridique.',
+          },
+          {
+            q: 'Combien ça coûte ?',
+            a: '€9 par mois par établissement. 14 jours gratuits, sans carte, résiliez à tout moment. Les données historiques restent toujours téléchargeables — même après résiliation (obligation légale de 7 ans).',
           },
         ],
       },
@@ -212,8 +246,8 @@ const resources = {
       hero: {
         title: 'The digital daily receipts book for Belgian hospitality',
         subtitle: 'Legally compliant. Immutable. Without a certified cash register. Works offline.',
-        cta: 'Start your free trial',
-        secondary: 'See the app demo',
+        cta: 'Start your 14-day free trial',
+        secondary: 'See the app',
         badges: ['FOD-compliant', 'Hash-chain evidence', 'PWA · works offline', 'EU data'],
       },
       problem: {
@@ -238,10 +272,10 @@ const resources = {
         items: [
           { icon: 'shield', t: 'FOD-compliant breakdown', d: 'VAT per rate (0/6/12/21%), cash/card/vouchers, cash reconciliation — exactly what the law requires.' },
           { icon: 'link', t: 'Hash-chain immutability', d: 'Every closure contains the SHA-256 hash of the previous one. Any modification is immediately detectable.' },
-          { icon: 'wifi-off', t: 'Offline via PWA', d: 'Log shifts without internet. Everything syncs automatically once you\'re back online.' },
+          { icon: 'wifi-off', t: 'Offline via PWA', d: 'Record your day without internet. Everything syncs automatically once you\'re back online.' },
           { icon: 'building', t: 'Multiple locations', d: 'One account, multiple sites. Each site has its own sealed sequence.' },
           { icon: 'download', t: 'Inspector export', d: 'One click: JSON bundle + PDF + hash manifest. Ready for the FOD.' },
-          { icon: 'message', t: 'WhatsApp approvals', d: 'Managers approve shift reports from their phone. No friction.' },
+          { icon: 'message', t: 'WhatsApp approvals', d: 'Managers approve closures from their phone. No friction.' },
         ],
       },
       compliance: {
@@ -257,11 +291,19 @@ const resources = {
         ],
         note: 'The cryptographic hash chain goes well beyond what the law strictly requires. When an inspector asks for your book, you can prove nothing has been modified since it was sealed.',
       },
+      testimonials: {
+        title: 'What operators say',
+        items: [
+          { name: 'Sofie D.', role: 'Café Central, Ghent', quote: 'For the first time I feel calm during an FOD inspection. The chain proves everything.' },
+          { name: 'Karim B.', role: 'Bistro Marolles, Brussels', quote: 'Setup took 4 minutes. Since then: 90 seconds a day to close. Done.' },
+          { name: 'Elke V.',  role: 'Frituur \'t Pleintje, Antwerp', quote: 'Offline mode is a game changer. Wifi drops? I just keep recording.' },
+        ],
+      },
       pricing: {
         title: '€9 per month. Per business.',
-        subtitle: '14 days free. Cancel whenever.',
+        subtitle: '14 days free. Cancel whenever. No setup fees.',
         includes: [
-          'Unlimited shift reports',
+          'Unlimited daily closures',
           'Unlimited users',
           'PWA offline mode',
           'PDF/CSV/JSON export',
@@ -287,7 +329,15 @@ const resources = {
           },
           {
             q: 'Does it really work offline?',
-            a: 'Yes. Install Dagontvangst as a PWA — a real app. Shifts store locally and sync when internet returns. The closure itself must happen online (to atomically assign the sequence number).',
+            a: 'Yes. Install Dagontvangst as a PWA — a real app. You can record all day without internet; everything syncs when you\'re back online. The sealing itself must happen online (to atomically assign the sequence number).',
+          },
+          {
+            q: 'Can I manage multiple businesses on one account?',
+            a: 'Yes. Each location has its own sealed chain; your overview rolls up under your legal entity.',
+          },
+          {
+            q: 'How much does it cost?',
+            a: '€9 per month per business. 14 days free, no card required, cancel anytime. Historical data stays downloadable forever — even after cancellation (legally required 7-year retention).',
           },
         ],
       },

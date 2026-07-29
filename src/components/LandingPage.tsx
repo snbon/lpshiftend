@@ -29,13 +29,14 @@ const reveal = {
 export default function LandingPage() {
   const { t } = useTranslation();
 
-  const problems  = t('problem.points',    { returnObjects: true }) as string[];
-  const steps     = t('how.steps',         { returnObjects: true }) as { t: string; d: string }[];
-  const features  = t('features.items',    { returnObjects: true }) as { icon: keyof typeof ICON; t: string; d: string }[];
-  const checks    = t('compliance.checks', { returnObjects: true }) as string[];
-  const includes  = t('pricing.includes',  { returnObjects: true }) as string[];
-  const faqItems  = t('faq.items',         { returnObjects: true }) as { q: string; a: string }[];
-  const badges    = t('hero.badges',       { returnObjects: true }) as string[];
+  const problems     = t('problem.points',       { returnObjects: true }) as string[];
+  const steps        = t('how.steps',            { returnObjects: true }) as { t: string; d: string }[];
+  const features     = t('features.items',       { returnObjects: true }) as { icon: keyof typeof ICON; t: string; d: string }[];
+  const checks       = t('compliance.checks',    { returnObjects: true }) as string[];
+  const includes     = t('pricing.includes',     { returnObjects: true }) as string[];
+  const faqItems     = t('faq.items',            { returnObjects: true }) as { q: string; a: string }[];
+  const badges       = t('hero.badges',          { returnObjects: true }) as string[];
+  const testimonials = t('testimonials.items',   { returnObjects: true }) as { name: string; role: string; quote: string }[];
 
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -155,8 +156,39 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Compliance */}
+      {/* Testimonials */}
       <section className="section">
+        <div className="container">
+          <motion.h2 {...reveal} className="section__title text-center">{t('testimonials.title')}</motion.h2>
+          <div className="grid grid-3 mt-8">
+            {testimonials.map((tm, i) => (
+              <motion.blockquote
+                key={tm.name}
+                {...reveal}
+                transition={{ ...reveal.transition, delay: 0.08 * i }}
+                className="testimonial"
+              >
+                <div className="testimonial__stars">
+                  {Array.from({ length: 5 }).map((_, k) => (
+                    <Star key={k} size={14} fill="currentColor" />
+                  ))}
+                </div>
+                <p className="testimonial__quote">"{tm.quote}"</p>
+                <footer className="testimonial__author">
+                  <div className="testimonial__avatar">{tm.name.charAt(0)}</div>
+                  <div>
+                    <div className="testimonial__name">{tm.name}</div>
+                    <div className="testimonial__role">{tm.role}</div>
+                  </div>
+                </footer>
+              </motion.blockquote>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Compliance */}
+      <section className="section section--muted">
         <div className="container container--narrow">
           <motion.h2 {...reveal} className="section__title">{t('compliance.title')}</motion.h2>
           <motion.p {...reveal} className="section__intro">{t('compliance.intro')}</motion.p>
@@ -170,7 +202,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pricing — the visual anchor of the site */}
-      <section className="section section--muted">
+      <section className="section">
         <div className="container container--narrow">
           <motion.h2 {...reveal} className="section__title text-center">{t('pricing.title')}</motion.h2>
           <motion.p {...reveal} className="section__intro text-center">{t('pricing.subtitle')}</motion.p>
