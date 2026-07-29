@@ -1,14 +1,11 @@
-import React from 'react';
 import './i18n';
 import LandingPage from './components/LandingPage';
 import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="app">
       <LandingPage />
     </div>
   );
 }
-
-export default App;
