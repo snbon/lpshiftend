@@ -283,5 +283,108 @@
   },
   "footer": {
     "made_in": "Gemaakt in België voor Belgische horeca"
+  },
+  "landing": {
+    "header": {
+      "sign_in": "Inloggen",
+      "try_free": "Gratis proberen"
+    },
+    "hero": {
+      "badges": ["FOD-conform", "Hash-chain", "PWA offline", "EU-data"],
+      "title_line1": "Digitaal dagontvangstenboek",
+      "title_line2": "voor Belgische horeca",
+      "subtitle": "Verzegel elke dag met één klik. Onwijzigbaar, hash-geketend en altijd klaar voor een FOD-controle.",
+      "cta_primary": "Start je gratis proefperiode",
+      "cta_secondary": "Meer info",
+      "quote": "\"Eindelijk gemoedsrust bij een BTW-controle.\" — Sofie D., Gent",
+      "chain_title": "Live dagafsluiting",
+      "chain_footer": "Ketting geverifieerd — 3 afsluitingen"
+    },
+    "problem": {
+      "title": "Papieren registers zijn een tikkende tijdbom",
+      "subtitle": "Elke fout, elke doorhaling, elk ontbrekend dagblad kan een boete opleveren bij een FOD-controle.",
+      "items": [
+        { "title": "Manuele fouten", "desc": "Rekenfout in de BTW-uitsplitsing? Te laat ontdekt is te laat gecorrigeerd." },
+        { "title": "Excel is niet onwijzigbaar", "desc": "Spreadsheets kunnen altijd gewijzigd worden. Een inspecteur weet dat ook." },
+        { "title": "BTW-splitsing vergeten", "desc": "Elk tarief (0/6/12/21%) moet apart bijgehouden worden. Per dag." },
+        { "title": "Auditspoor ontbreekt", "desc": "Zonder bewijs van integriteit staat je advocaat met lege handen." }
+      ]
+    },
+    "how": {
+      "title": "Hoe het werkt",
+      "steps": [
+        { "num": "01", "title": "Registreer je zaak",       "desc": "Maak een account aan, voeg je vestiging toe met BTW-nummer en adres. Klaar in 2 minuten." },
+        { "num": "02", "title": "Sluit elke dag af",         "desc": "Voer de BTW-lijnen en betaalmethoden in. De kassa-afstemming en hash worden automatisch berekend." },
+        { "num": "03", "title": "Verzegeld & verifieerbaar", "desc": "De afsluiting is onwijzigbaar in de ketting opgeslagen. Download een FOD-bundel wanneer nodig." }
+      ]
+    },
+    "features": {
+      "title": "Alles wat je nodig hebt",
+      "items": [
+        { "title": "FOD-conform",              "desc": "Voldoet aan de Belgische regelgeving voor dagontvangstenboeken." },
+        { "title": "Hash-chain immutabiliteit","desc": "Elke afsluiting is cryptografisch geketend. Manipulatie is onmogelijk." },
+        { "title": "Offline PWA",              "desc": "Werkt ook zonder internet. Synchroniseert automatisch bij verbinding." },
+        { "title": "Multi-vestiging",          "desc": "Beheer al je zaken vanuit één account met rolgebaseerde toegang." },
+        { "title": "Export PDF/CSV/JSON",      "desc": "Download elk moment een inspecteur-klaar bundel." },
+        { "title": "WhatsApp notificaties",    "desc": "Ontvang bevestigingen en herinneringen via WhatsApp." }
+      ]
+    },
+    "testimonials": {
+      "title": "Wat klanten zeggen",
+      "items": [
+        { "name": "Sofie D.", "role": "Eigenaar, Brasserie Gent",     "text": "Eindelijk geen papieren registers meer. De ketting geeft me gemoedsrust bij een BTW-controle." },
+        { "name": "Karim B.", "role": "Manager, Restaurant Brussel",  "text": "Onboarding in 5 minuten. De FOD-export werkt perfect — onze accountant is blij." },
+        { "name": "Elke V.",  "role": "Uitbaatster, Café Antwerpen",  "text": "De PWA werkt ook als het wifi even uitvalt. Mijn personeel vergeet nooit meer af te sluiten." }
+      ]
+    },
+    "compliance": {
+      "title": "De FOD-Financiën checklist",
+      "subtitle": "Dagontvangst voldoet aan alle wettelijke vereisten voor het Belgische dagontvangstenboek.",
+      "items": [
+        "Doorlopende nummering per boekjaar",
+        "Onwijzigbaarheid na afsluiting",
+        "BTW-uitsplitsing per tarief (0/6/12/21%)",
+        "Kassa-afstemming met kasverschil",
+        "7 jaar bewaarplicht ingebouwd",
+        "Export in FOD-leesbaar formaat"
+      ],
+      "bonus": "Bonus: hash-chain maakt elke wijziging detecteerbaar — zelfs bij een database-inbraak."
+    },
+    "pricing": {
+      "title": "Eenvoudige prijs",
+      "subtitle": "Geen verborgen kosten. Geen installatie.",
+      "price": "€9",
+      "period": "/ maand / vestiging",
+      "trial_note": "14 dagen gratis, geen kredietkaart vereist",
+      "features": [
+        "Onbeperkt afsluitingen",
+        "Onbeperkt gebruikers",
+        "PWA offline modus",
+        "PDF/CSV/JSON export",
+        "FOD-inspecteur toegang",
+        "Hash-chain waarborg"
+      ],
+      "cta": "Start 14 dagen gratis"
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": [
+        { "q": "Is een digitaal dagontvangstenboek verplicht?", "a": "Ja, voor Belgische horeca-ondernemingen die niet met een gecertificeerd kassasysteem werken is een manueel of digitaal dagontvangstenboek verplicht. Dagontvangst automatiseert de vereiste opmaak." },
+        { "q": "Hoe verloopt een FOD-controle?",                "a": "De inspecteur vraagt een export van de afsluitingen voor een bepaalde periode. Met Dagontvangst download je een JSON- of PDF-bundel met de hash-manifest — bewijs van integriteit dat de FOD accepteert." },
+        { "q": "Wat als ik een fout heb gemaakt?",              "a": "Correcties zijn append-only: het origineel blijft intact en een nieuwe correctie-afsluiting wordt aan de ketting toegevoegd met verwijzing naar het origineel. Zo voldoe je aan de eis van onwijzigbaarheid." },
+        { "q": "Werkt het ook als ik meerdere zaken heb?",      "a": "Ja. Eén account ondersteunt meerdere vestigingen. Elk met hun eigen gesloten ketting, rollen en statistieken." }
+      ]
+    },
+    "cta": {
+      "title": "Klaar om te starten?",
+      "subtitle": "14 dagen gratis, geen kredietkaart, opzegbaar op elk moment.",
+      "button": "Probeer nu gratis"
+    },
+    "footer": {
+      "made_in": "Gemaakt in België voor Belgische horeca",
+      "privacy": "Privacy",
+      "terms": "Voorwaarden",
+      "contact": "Contact"
+    }
   }
 }

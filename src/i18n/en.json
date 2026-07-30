@@ -283,5 +283,108 @@
   },
   "footer": {
     "made_in": "Made in Belgium for Belgian hospitality"
+  },
+  "landing": {
+    "header": {
+      "sign_in": "Sign in",
+      "try_free": "Try for free"
+    },
+    "hero": {
+      "badges": ["FOD-compliant", "Hash-chain", "PWA offline", "EU data"],
+      "title_line1": "Digital daily receipts book",
+      "title_line2": "for Belgian hospitality",
+      "subtitle": "Seal each day with one click. Immutable, hash-chained, and always ready for a FOD audit.",
+      "cta_primary": "Start your free trial",
+      "cta_secondary": "Learn more",
+      "quote": "\"Finally peace of mind during a VAT audit.\" — Sofie D., Ghent",
+      "chain_title": "Live daily closure",
+      "chain_footer": "Chain verified — 3 closures"
+    },
+    "problem": {
+      "title": "Paper registers are a ticking time bomb",
+      "subtitle": "Every mistake, every crossing-out, every missing day can trigger a fine during a FOD audit.",
+      "items": [
+        { "title": "Manual errors",              "desc": "Miscalculation in the VAT split? Caught too late, corrected too late." },
+        { "title": "Excel is not immutable",     "desc": "Spreadsheets can always be modified. Inspectors know this too." },
+        { "title": "Forgotten VAT split",        "desc": "Every rate (0/6/12/21%) must be tracked separately. Every day." },
+        { "title": "Missing audit trail",        "desc": "Without proof of integrity, your lawyer has nothing to work with." }
+      ]
+    },
+    "how": {
+      "title": "How it works",
+      "steps": [
+        { "num": "01", "title": "Register your business", "desc": "Create an account, add your location with VAT number and address. Done in 2 minutes." },
+        { "num": "02", "title": "Close each day",         "desc": "Enter VAT lines and payment methods. Cash reconciliation and hash are calculated automatically." },
+        { "num": "03", "title": "Sealed & verifiable",    "desc": "The closure is stored immutably in the chain. Download a FOD bundle whenever needed." }
+      ]
+    },
+    "features": {
+      "title": "Everything you need",
+      "items": [
+        { "title": "FOD-compliant",             "desc": "Meets Belgian regulations for daily receipts books." },
+        { "title": "Hash-chain immutability",   "desc": "Every closure is cryptographically chained. Tampering is impossible." },
+        { "title": "Offline PWA",               "desc": "Works even without internet. Syncs automatically on reconnect." },
+        { "title": "Multi-location",            "desc": "Manage all your locations from one account with role-based access." },
+        { "title": "Export PDF/CSV/JSON",       "desc": "Download an inspector-ready bundle at any moment." },
+        { "title": "WhatsApp notifications",    "desc": "Get confirmations and reminders via WhatsApp." }
+      ]
+    },
+    "testimonials": {
+      "title": "What customers say",
+      "items": [
+        { "name": "Sofie D.", "role": "Owner, Brasserie Ghent",       "text": "Finally no more paper registers. The chain gives me peace of mind during a VAT audit." },
+        { "name": "Karim B.", "role": "Manager, Restaurant Brussels", "text": "Onboarding in 5 minutes. The FOD export works perfectly — our accountant is happy." },
+        { "name": "Elke V.",  "role": "Owner, Café Antwerp",          "text": "The PWA works even when the wifi drops. My staff never forgets to close anymore." }
+      ]
+    },
+    "compliance": {
+      "title": "The FOD Finance checklist",
+      "subtitle": "Dagontvangst meets all legal requirements for the Belgian daily receipts book.",
+      "items": [
+        "Continuous numbering per fiscal year",
+        "Immutability after closing",
+        "VAT split per rate (0/6/12/21%)",
+        "Cash reconciliation with variance",
+        "7-year retention built in",
+        "Export in FOD-readable format"
+      ],
+      "bonus": "Bonus: the hash chain makes any change detectable — even in case of a database breach."
+    },
+    "pricing": {
+      "title": "Simple pricing",
+      "subtitle": "No hidden fees. No installation.",
+      "price": "€9",
+      "period": "/ month / location",
+      "trial_note": "14 days free, no credit card required",
+      "features": [
+        "Unlimited closures",
+        "Unlimited users",
+        "PWA offline mode",
+        "PDF/CSV/JSON export",
+        "FOD inspector access",
+        "Hash-chain guarantee"
+      ],
+      "cta": "Start 14 days free"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        { "q": "Is a digital daily receipts book mandatory?",   "a": "Yes, for Belgian hospitality businesses not using a certified POS system, a manual or digital daily receipts book is mandatory. Dagontvangst automates the required formatting." },
+        { "q": "How does a FOD audit work?",                    "a": "The inspector requests an export of closures for a given period. With Dagontvangst you download a JSON or PDF bundle with the hash manifest — proof of integrity that the FOD accepts." },
+        { "q": "What if I made a mistake?",                     "a": "Corrections are append-only: the original stays intact and a new corrective closure is added to the chain referencing the original. This meets the immutability requirement." },
+        { "q": "Does it work with multiple businesses?",        "a": "Yes. One account supports multiple locations. Each with their own sealed chain, roles, and analytics." }
+      ]
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "14 days free, no credit card, cancel anytime.",
+      "button": "Try it free now"
+    },
+    "footer": {
+      "made_in": "Made in Belgium for Belgian hospitality",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact"
+    }
   }
 }

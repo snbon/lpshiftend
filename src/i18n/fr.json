@@ -283,5 +283,108 @@
   },
   "footer": {
     "made_in": "Fait en Belgique pour l'horeca belge"
+  },
+  "landing": {
+    "header": {
+      "sign_in": "Se connecter",
+      "try_free": "Essai gratuit"
+    },
+    "hero": {
+      "badges": ["Conforme SPF", "Hash-chain", "PWA hors ligne", "Données UE"],
+      "title_line1": "Journal des recettes journalières numérique",
+      "title_line2": "pour l'horeca belge",
+      "subtitle": "Scellez chaque journée en un clic. Immuable, chaîne de hachage, toujours prêt pour un contrôle SPF.",
+      "cta_primary": "Démarrer votre essai gratuit",
+      "cta_secondary": "En savoir plus",
+      "quote": "\"Enfin la tranquillité d'esprit lors d'un contrôle TVA.\" — Sofie D., Gand",
+      "chain_title": "Clôture du jour en direct",
+      "chain_footer": "Chaîne vérifiée — 3 clôtures"
+    },
+    "problem": {
+      "title": "Les registres papier sont une bombe à retardement",
+      "subtitle": "Chaque erreur, chaque rature, chaque journée manquante peut entraîner une amende lors d'un contrôle SPF.",
+      "items": [
+        { "title": "Erreurs manuelles",           "desc": "Erreur de calcul dans la ventilation TVA ? Découvert trop tard, corrigé trop tard." },
+        { "title": "Excel n'est pas immuable",    "desc": "Les feuilles de calcul peuvent toujours être modifiées. L'inspecteur le sait aussi." },
+        { "title": "Ventilation TVA oubliée",     "desc": "Chaque taux (0/6/12/21%) doit être suivi séparément. Chaque jour." },
+        { "title": "Piste d'audit manquante",     "desc": "Sans preuve d'intégrité, votre avocat est démuni." }
+      ]
+    },
+    "how": {
+      "title": "Comment ça marche",
+      "steps": [
+        { "num": "01", "title": "Enregistrez votre établissement", "desc": "Créez un compte, ajoutez votre établissement avec numéro de TVA et adresse. Prêt en 2 minutes." },
+        { "num": "02", "title": "Clôturez chaque jour",             "desc": "Saisissez les lignes TVA et les moyens de paiement. Le rapprochement caisse et le hash sont calculés automatiquement." },
+        { "num": "03", "title": "Scellé et vérifiable",             "desc": "La clôture est stockée immuable dans la chaîne. Téléchargez un paquet SPF à tout moment." }
+      ]
+    },
+    "features": {
+      "title": "Tout ce dont vous avez besoin",
+      "items": [
+        { "title": "Conforme SPF",                "desc": "Répond à la réglementation belge sur les journaux de recettes journalières." },
+        { "title": "Immuabilité par hash-chain",  "desc": "Chaque clôture est chaînée cryptographiquement. Toute manipulation est impossible." },
+        { "title": "PWA hors ligne",              "desc": "Fonctionne aussi sans internet. Synchronisation automatique à la reconnexion." },
+        { "title": "Multi-établissement",         "desc": "Gérez tous vos établissements depuis un seul compte avec accès par rôle." },
+        { "title": "Export PDF/CSV/JSON",         "desc": "Téléchargez à tout moment un paquet prêt pour l'inspecteur." },
+        { "title": "Notifications WhatsApp",      "desc": "Recevez confirmations et rappels via WhatsApp." }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients",
+      "items": [
+        { "name": "Sofie D.", "role": "Propriétaire, Brasserie Gand",   "text": "Enfin plus de registres papier. La chaîne me donne l'esprit tranquille lors d'un contrôle TVA." },
+        { "name": "Karim B.", "role": "Manager, Restaurant Bruxelles",  "text": "Configuration en 5 minutes. L'export SPF fonctionne parfaitement — notre comptable est ravi." },
+        { "name": "Elke V.",  "role": "Gérante, Café Anvers",           "text": "La PWA fonctionne même quand le wifi coupe. Mon personnel n'oublie plus jamais de clôturer." }
+      ]
+    },
+    "compliance": {
+      "title": "La checklist SPF Finances",
+      "subtitle": "Dagontvangst répond à toutes les exigences légales du journal des recettes journalières belge.",
+      "items": [
+        "Numérotation continue par exercice",
+        "Immuabilité après clôture",
+        "Ventilation TVA par taux (0/6/12/21%)",
+        "Rapprochement caisse avec écart",
+        "Conservation 7 ans intégrée",
+        "Export au format lisible par le SPF"
+      ],
+      "bonus": "Bonus : la hash-chain rend toute modification détectable — même en cas d'intrusion en base de données."
+    },
+    "pricing": {
+      "title": "Tarif simple",
+      "subtitle": "Pas de frais cachés. Aucune installation.",
+      "price": "€9",
+      "period": "/ mois / établissement",
+      "trial_note": "14 jours gratuits, sans carte de crédit",
+      "features": [
+        "Clôtures illimitées",
+        "Utilisateurs illimités",
+        "Mode PWA hors ligne",
+        "Export PDF/CSV/JSON",
+        "Accès inspecteur SPF",
+        "Garantie hash-chain"
+      ],
+      "cta": "Commencer 14 jours gratuits"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        { "q": "Un journal de recettes numérique est-il obligatoire ?", "a": "Oui, pour les entreprises horeca belges qui n'utilisent pas de caisse enregistreuse certifiée, un journal des recettes manuel ou numérique est obligatoire. Dagontvangst automatise la mise en forme requise." },
+        { "q": "Comment se déroule un contrôle SPF ?",                  "a": "L'inspecteur demande un export des clôtures pour une période donnée. Avec Dagontvangst, vous téléchargez un paquet JSON ou PDF avec le manifeste de hachage — preuve d'intégrité acceptée par le SPF." },
+        { "q": "Que faire en cas d'erreur ?",                            "a": "Les corrections sont append-only : l'original reste intact et une nouvelle clôture corrective est ajoutée à la chaîne avec référence à l'original. Vous respectez ainsi l'exigence d'immuabilité." },
+        { "q": "Fonctionne-t-il si j'ai plusieurs établissements ?",     "a": "Oui. Un seul compte prend en charge plusieurs établissements. Chacun avec sa propre chaîne fermée, ses rôles et ses statistiques." }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "subtitle": "14 jours gratuits, sans carte de crédit, résiliable à tout moment.",
+      "button": "Essayez maintenant gratuitement"
+    },
+    "footer": {
+      "made_in": "Fait en Belgique pour l'horeca belge",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "contact": "Contact"
+    }
   }
 }
