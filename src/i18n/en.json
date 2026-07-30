@@ -1,0 +1,390 @@
+{
+  "app": {
+    "title": "Dagontvangst",
+    "tagline": "Digital daily receipts book",
+    "install": "Install app"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "new_closure": "New closure",
+    "closures": "Daily closures",
+    "history": "History",
+    "analytics": "Analytics",
+    "locations": "Locations",
+    "team": "Team",
+    "billing": "Billing",
+    "settings": "Settings",
+    "logout": "Log out"
+  },
+  "auth": {
+    "login_title": "Welcome back",
+    "login_subtitle": "Sign in to open your daily receipts book",
+    "register_title": "Create an account",
+    "register_subtitle": "Start your 14-day free trial",
+    "email": "Email",
+    "password": "Password",
+    "password_confirm": "Confirm password",
+    "name": "Name",
+    "login": "Sign in",
+    "register": "Register",
+    "forgot": "Forgot password?",
+    "no_account": "No account yet?",
+    "have_account": "Already have an account?",
+    "create_account": "Create account",
+    "sign_in": "Sign in",
+    "invalid": "Invalid email or password",
+    "verify_email": "Please confirm your email address first.",
+    "resend": "Resend confirmation email",
+    "resent": "Confirmation email sent",
+    "terms_notice": "By registering you agree to our terms and privacy policy."
+  },
+  "onboarding": {
+    "title": "Welcome to Dagontvangst",
+    "subtitle": "Let's set up your business. Takes 2 minutes.",
+    "choose": "What would you like to do?",
+    "create_option": "I'm the owner",
+    "create_desc": "Register my business and start recording daily receipts",
+    "join_option": "I've been invited",
+    "join_desc": "I have an invitation code from my employer",
+    "location_name": "Business name",
+    "legal_name": "Legal name (if different)",
+    "vat_number": "VAT number",
+    "vat_hint": "Format: BE0123.456.789",
+    "kbo_number": "KBO number",
+    "address": "Address",
+    "phone": "Phone",
+    "timezone": "Timezone",
+    "create_button": "Create location",
+    "join_code": "Invitation code",
+    "join_code_hint": "8 characters, from your manager",
+    "join_button": "Join team",
+    "waiting": "Or wait for an invitation from your manager",
+    "success": "Your location has been created.",
+    "invalid_vat": "Invalid VAT number (expected BE + 10 digits)"
+  },
+  "invitation": {
+    "title": "Invitation",
+    "loading": "Loading invitation…",
+    "invalid": "This invitation has expired or is invalid.",
+    "you_are_invited": "You are invited to",
+    "by": "by",
+    "as": "as",
+    "accept": "Accept invitation",
+    "create_password": "Choose a password to get started"
+  },
+  "dashboard": {
+    "today": "Today",
+    "no_closure_yet": "No closure yet",
+    "day_open": "Day is open",
+    "day_sealed": "Day sealed",
+    "start_today": "Start recording today's receipts.",
+    "continue_open": "Add VAT lines and payments, then close.",
+    "sealed_at": "Sealed at",
+    "open_day": "Open the day",
+    "continue_day": "Continue",
+    "view_closure": "View closure",
+    "kpi_gross": "30d gross",
+    "kpi_vat": "30d VAT",
+    "kpi_closures": "closures",
+    "kpi_vat_owed": "owed",
+    "payment_mix": "Payment mix — 30 days",
+    "no_data": "No data yet",
+    "recent": "Recent closures",
+    "see_all": "See all",
+    "empty_title": "No closures yet",
+    "empty_desc": "As soon as you close today, the first entry in your sealed chain appears here."
+  },
+  "closure": {
+    "title": "Daily closure",
+    "close_day": "Close the day",
+    "sealed": "Sealed",
+    "sequence": "Sequence",
+    "chain_ok": "Chain OK",
+    "chain_broken": "Chain broken",
+    "verify_chain": "Verify chain",
+    "seal_confirm_title": "Seal this day?",
+    "seal_confirm_body": "Once sealed, this closure becomes immutable. Corrections are made via append-only correction entries.",
+    "seal_button": "Seal permanently",
+    "correction": "Correction",
+    "correction_of": "Correction of closure",
+    "correction_reason": "Reason for correction",
+    "correction_min": "min. 20 chars",
+    "correction_desc": "Corrections are append-only: the original stays intact; a new closure is added to the chain referencing the original.",
+    "start_correction": "Start correction",
+    "add_correction": "Add correction",
+    "gross": "Gross",
+    "net": "Net",
+    "vat": "VAT",
+    "cash_variance": "Cash variance",
+    "download": "Download bundle",
+    "download_json": "JSON + hash manifest",
+    "download_soon": "coming soon",
+    "back_to_history": "Back to history",
+    "open_day": "Open the day",
+    "vat_grid": {
+      "title": "VAT breakdown",
+      "hint": "Enter amounts incl. VAT (gross). Net and VAT are calculated automatically.",
+      "rate": "VAT rate",
+      "gross": "Gross (incl. VAT)",
+      "net": "Net (excl. VAT)",
+      "vat": "VAT",
+      "add_line": "Add line"
+    },
+    "payments": {
+      "title": "Payment methods",
+      "hint": "Enter revenue only, WITHOUT tips. Tips are entered separately in cash reconciliation.",
+      "cash": "Cash",
+      "card": "Bank/card",
+      "voucher": "Voucher",
+      "other_electronic": "Other electronic",
+      "sum": "Total payments",
+      "reconciled": "Reconciled ✓",
+      "not_reconciled": "Not reconciled"
+    },
+    "cash": {
+      "title": "Cash reconciliation",
+      "hint": "Expected closing cash = opening float + cash receipts + cash tips.",
+      "opening": "Opening float",
+      "closing": "Closing cash (counted)",
+      "expected": "Expected closing cash",
+      "drops": "Cash drops",
+      "tips_cash": "Tips — cash",
+      "tips_card": "Tips — card",
+      "tips_hint": "Not included in payment methods above",
+      "variance": "Cash variance"
+    },
+    "errors": {
+      "reconciliation": "Reconciliation failed",
+      "no_revenue": "Add at least one VAT line with an amount greater than €0.",
+      "payments_mismatch": "Payment methods don't sum to gross total.",
+      "vat_mismatch": "VAT line invalid: net + VAT must equal gross.",
+      "cash_variance": "Cash variance exceeds €0.01 tolerance."
+    }
+  },
+  "history": {
+    "title": "Sealed closures",
+    "subtitle": "All daily closures, chronological and immutable",
+    "filter_all": "All",
+    "filter_open": "Open",
+    "filter_sealed": "Sealed",
+    "filter_corrected": "Corrected",
+    "col_date": "Date",
+    "col_seq": "#",
+    "col_gross": "Gross",
+    "col_vat": "VAT",
+    "col_hash": "Hash",
+    "col_status": "Status",
+    "empty": "No closures found for this filter."
+  },
+  "analytics": {
+    "title": "Analytics",
+    "subtitle": "Sealed closures only",
+    "range_30d": "30 days",
+    "range_90d": "90 days",
+    "range_ytd": "Since Jan 1",
+    "cross_location": "All locations",
+    "revenue": "Revenue per day",
+    "vat_breakdown": "VAT per rate",
+    "payment_mix": "Payment mix",
+    "cash_variance": "Cash variance per day"
+  },
+  "billing": {
+    "title": "Billing",
+    "subtitle": "Manage your Dagontvangst subscription",
+    "status_none": "No active subscription",
+    "status_active": "Active",
+    "status_trial": "Trial",
+    "status_cancelled": "Cancelled — active until",
+    "trial_ends": "Trial ends on",
+    "price": "€9 / month / location",
+    "features": [
+      "Unlimited closures",
+      "Unlimited users",
+      "PWA offline mode",
+      "PDF/CSV/JSON export",
+      "FOD-inspector access (read-only)",
+      "Hash-chain evidence"
+    ],
+    "start_trial": "Start 14-day free trial",
+    "manage": "Manage payment & invoices",
+    "no_stripe": "Billing isn't configured yet. You can keep using the app."
+  },
+  "team": {
+    "title": "Team",
+    "subtitle": "Manage your team members and their roles",
+    "invite": "Invite team member",
+    "invite_email": "Email address",
+    "invite_role": "Role",
+    "role_owner": "Owner",
+    "role_manager": "Manager",
+    "role_employee": "Employee",
+    "send_invite": "Send invitation",
+    "invite_sent": "Invitation sent",
+    "col_name": "Name",
+    "col_email": "Email",
+    "col_role": "Role",
+    "col_status": "Status",
+    "pending": "Pending invitation",
+    "resend": "Resend",
+    "remove": "Remove",
+    "cancel_invite": "Cancel invitation",
+    "change_role": "Change role",
+    "empty_title": "No team members yet",
+    "empty_desc": "Invite your first team member.",
+    "remove_warning": "The user will lose access to this location."
+  },
+  "locations": {
+    "title": "Locations",
+    "subtitle": "All locations under your legal entity",
+    "new": "New location",
+    "edit": "Edit location",
+    "empty_title": "No locations yet",
+    "empty_desc": "Add your first location to get started.",
+    "updated": "Location updated",
+    "created": "Location created",
+    "save_error": "Failed to save",
+    "name_required": "Name is required"
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile",
+    "profile_desc": "Change your name and email",
+    "preferences": "Preferences",
+    "preferences_desc": "Theme and language",
+    "notifications": "Notifications",
+    "notifications_desc": "Channels for approvals and reminders",
+    "notify_email": "Email",
+    "notify_whatsapp": "WhatsApp",
+    "danger": "Danger zone",
+    "danger_desc": "Irreversible actions",
+    "logout": "Log out",
+    "delete_account": "Delete account"
+  },
+  "inspector": {
+    "title": "FOD inspector access",
+    "subtitle": "Read-only. Every action is logged.",
+    "select_location": "Choose location",
+    "export": "Export bundle",
+    "verify": "Verify chain"
+  },
+  "actions": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "delete": "Delete",
+    "edit": "Edit"
+  },
+  "language": "Language",
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "footer": {
+    "made_in": "Made in Belgium for Belgian hospitality"
+  },
+  "landing": {
+    "header": {
+      "sign_in": "Sign in",
+      "try_free": "Try for free"
+    },
+    "hero": {
+      "badges": ["FOD-compliant", "Hash-chain", "PWA offline", "EU data"],
+      "title_line1": "Digital daily receipts book",
+      "title_line2": "for Belgian hospitality",
+      "subtitle": "Seal each day with one click. Immutable, hash-chained, and always ready for a FOD audit.",
+      "cta_primary": "Start your free trial",
+      "cta_secondary": "Learn more",
+      "quote": "\"Finally peace of mind during a VAT audit.\" — Sofie D., Ghent",
+      "chain_title": "Live daily closure",
+      "chain_footer": "Chain verified — 3 closures"
+    },
+    "problem": {
+      "title": "Paper registers are a ticking time bomb",
+      "subtitle": "Every mistake, every crossing-out, every missing day can trigger a fine during a FOD audit.",
+      "items": [
+        { "title": "Manual errors",              "desc": "Miscalculation in the VAT split? Caught too late, corrected too late." },
+        { "title": "Excel is not immutable",     "desc": "Spreadsheets can always be modified. Inspectors know this too." },
+        { "title": "Forgotten VAT split",        "desc": "Every rate (0/6/12/21%) must be tracked separately. Every day." },
+        { "title": "Missing audit trail",        "desc": "Without proof of integrity, your lawyer has nothing to work with." }
+      ]
+    },
+    "how": {
+      "title": "How it works",
+      "steps": [
+        { "num": "01", "title": "Register your business", "desc": "Create an account, add your location with VAT number and address. Done in 2 minutes." },
+        { "num": "02", "title": "Close each day",         "desc": "Enter VAT lines and payment methods. Cash reconciliation and hash are calculated automatically." },
+        { "num": "03", "title": "Sealed & verifiable",    "desc": "The closure is stored immutably in the chain. Download a FOD bundle whenever needed." }
+      ]
+    },
+    "features": {
+      "title": "Everything you need",
+      "items": [
+        { "title": "FOD-compliant",             "desc": "Meets Belgian regulations for daily receipts books." },
+        { "title": "Hash-chain immutability",   "desc": "Every closure is cryptographically chained. Tampering is impossible." },
+        { "title": "Offline PWA",               "desc": "Works even without internet. Syncs automatically on reconnect." },
+        { "title": "Multi-location",            "desc": "Manage all your locations from one account with role-based access." },
+        { "title": "Export PDF/CSV/JSON",       "desc": "Download an inspector-ready bundle at any moment." },
+        { "title": "WhatsApp notifications",    "desc": "Get confirmations and reminders via WhatsApp." }
+      ]
+    },
+    "testimonials": {
+      "title": "What customers say",
+      "items": [
+        { "name": "Sofie D.", "role": "Owner, Brasserie Ghent",       "text": "Finally no more paper registers. The chain gives me peace of mind during a VAT audit." },
+        { "name": "Karim B.", "role": "Manager, Restaurant Brussels", "text": "Onboarding in 5 minutes. The FOD export works perfectly — our accountant is happy." },
+        { "name": "Elke V.",  "role": "Owner, Café Antwerp",          "text": "The PWA works even when the wifi drops. My staff never forgets to close anymore." }
+      ]
+    },
+    "compliance": {
+      "title": "The FOD Finance checklist",
+      "subtitle": "Dagontvangst meets all legal requirements for the Belgian daily receipts book.",
+      "items": [
+        "Continuous numbering per fiscal year",
+        "Immutability after closing",
+        "VAT split per rate (0/6/12/21%)",
+        "Cash reconciliation with variance",
+        "7-year retention built in",
+        "Export in FOD-readable format"
+      ],
+      "bonus": "Bonus: the hash chain makes any change detectable — even in case of a database breach."
+    },
+    "pricing": {
+      "title": "Simple pricing",
+      "subtitle": "No hidden fees. No installation.",
+      "price": "€9",
+      "period": "/ month / location",
+      "trial_note": "14 days free, no credit card required",
+      "features": [
+        "Unlimited closures",
+        "Unlimited users",
+        "PWA offline mode",
+        "PDF/CSV/JSON export",
+        "FOD inspector access",
+        "Hash-chain guarantee"
+      ],
+      "cta": "Start 14 days free"
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        { "q": "Is a digital daily receipts book mandatory?",   "a": "Yes, for Belgian hospitality businesses not using a certified POS system, a manual or digital daily receipts book is mandatory. Dagontvangst automates the required formatting." },
+        { "q": "How does a FOD audit work?",                    "a": "The inspector requests an export of closures for a given period. With Dagontvangst you download a JSON or PDF bundle with the hash manifest — proof of integrity that the FOD accepts." },
+        { "q": "What if I made a mistake?",                     "a": "Corrections are append-only: the original stays intact and a new corrective closure is added to the chain referencing the original. This meets the immutability requirement." },
+        { "q": "Does it work with multiple businesses?",        "a": "Yes. One account supports multiple locations. Each with their own sealed chain, roles, and analytics." }
+      ]
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "subtitle": "14 days free, no credit card, cancel anytime.",
+      "button": "Try it free now"
+    },
+    "footer": {
+      "made_in": "Made in Belgium for Belgian hospitality",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact"
+    }
+  }
+}

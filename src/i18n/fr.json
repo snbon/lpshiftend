@@ -1,0 +1,390 @@
+{
+  "app": {
+    "title": "Dagontvangst",
+    "tagline": "Journal des recettes journalières numérique",
+    "install": "Installer comme app"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "new_closure": "Nouvelle clôture",
+    "closures": "Clôtures journalières",
+    "history": "Historique",
+    "analytics": "Analyse",
+    "locations": "Établissements",
+    "team": "Équipe",
+    "billing": "Abonnement",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "auth": {
+    "login_title": "Bon retour",
+    "login_subtitle": "Connectez-vous pour ouvrir votre journal",
+    "register_title": "Créer un compte",
+    "register_subtitle": "Démarrez votre essai gratuit de 14 jours",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "password_confirm": "Confirmez le mot de passe",
+    "name": "Nom",
+    "login": "Se connecter",
+    "register": "S'inscrire",
+    "forgot": "Mot de passe oublié ?",
+    "no_account": "Pas encore de compte ?",
+    "have_account": "Déjà un compte ?",
+    "create_account": "Créer un compte",
+    "sign_in": "Se connecter",
+    "invalid": "E-mail ou mot de passe invalide",
+    "verify_email": "Confirmez d'abord votre adresse e-mail.",
+    "resend": "Renvoyer l'e-mail de confirmation",
+    "resent": "E-mail de confirmation envoyé",
+    "terms_notice": "En vous inscrivant, vous acceptez nos conditions et notre politique de confidentialité."
+  },
+  "onboarding": {
+    "title": "Bienvenue chez Dagontvangst",
+    "subtitle": "Configurons votre établissement. Cela prend 2 minutes.",
+    "choose": "Que souhaitez-vous faire ?",
+    "create_option": "Je suis propriétaire",
+    "create_desc": "Enregistrer mon établissement et commencer",
+    "join_option": "Je suis invité",
+    "join_desc": "J'ai un code d'invitation de mon employeur",
+    "location_name": "Nom de l'établissement",
+    "legal_name": "Nom légal (si différent)",
+    "vat_number": "Numéro de TVA",
+    "vat_hint": "Format : BE0123.456.789",
+    "kbo_number": "Numéro BCE",
+    "address": "Adresse",
+    "phone": "Téléphone",
+    "timezone": "Fuseau horaire",
+    "create_button": "Créer l'établissement",
+    "join_code": "Code d'invitation",
+    "join_code_hint": "8 caractères, reçu de votre manager",
+    "join_button": "Rejoindre l'équipe",
+    "waiting": "Ou attendez une invitation de votre manager",
+    "success": "Votre établissement est créé.",
+    "invalid_vat": "Numéro TVA invalide (attendu BE + 10 chiffres)"
+  },
+  "invitation": {
+    "title": "Invitation",
+    "loading": "Chargement de l'invitation…",
+    "invalid": "Cette invitation a expiré ou n'est pas valide.",
+    "you_are_invited": "Vous êtes invité pour",
+    "by": "par",
+    "as": "en tant que",
+    "accept": "Accepter l'invitation",
+    "create_password": "Choisissez un mot de passe pour démarrer"
+  },
+  "dashboard": {
+    "today": "Aujourd'hui",
+    "no_closure_yet": "Pas encore de clôture",
+    "day_open": "Journée ouverte",
+    "day_sealed": "Journée scellée",
+    "start_today": "Commencez à enregistrer vos recettes du jour.",
+    "continue_open": "Ajoutez les lignes TVA et les paiements, puis clôturez.",
+    "sealed_at": "Scellée le",
+    "open_day": "Ouvrir la journée",
+    "continue_day": "Continuer",
+    "view_closure": "Voir la clôture",
+    "kpi_gross": "30j brut",
+    "kpi_vat": "30j TVA",
+    "kpi_closures": "clôtures",
+    "kpi_vat_owed": "à payer",
+    "payment_mix": "Répartition des paiements — 30 jours",
+    "no_data": "Pas encore de données",
+    "recent": "Clôtures récentes",
+    "see_all": "Tout voir",
+    "empty_title": "Pas encore de clôtures",
+    "empty_desc": "Dès que vous clôturez aujourd'hui, la première entrée apparaît ici dans votre chaîne scellée."
+  },
+  "closure": {
+    "title": "Clôture journalière",
+    "close_day": "Clôturer la journée",
+    "sealed": "Scellé",
+    "sequence": "Numéro",
+    "chain_ok": "Chaîne OK",
+    "chain_broken": "Chaîne rompue",
+    "verify_chain": "Vérifier la chaîne",
+    "seal_confirm_title": "Sceller cette journée ?",
+    "seal_confirm_body": "Une fois scellée, cette clôture devient immuable. Les corrections se font via des entrées additionnelles append-only.",
+    "seal_button": "Sceller définitivement",
+    "correction": "Correction",
+    "correction_of": "Correction de la clôture",
+    "correction_reason": "Motif de correction",
+    "correction_min": "min. 20 caractères",
+    "correction_desc": "Les corrections sont append-only : l'original reste intact ; une nouvelle clôture est ajoutée à la chaîne avec référence à l'original.",
+    "start_correction": "Démarrer la correction",
+    "add_correction": "Ajouter une correction",
+    "gross": "Brut",
+    "net": "Net",
+    "vat": "TVA",
+    "cash_variance": "Écart caisse",
+    "download": "Télécharger le paquet",
+    "download_json": "JSON + manifeste de hachage",
+    "download_soon": "bientôt",
+    "back_to_history": "Retour à l'historique",
+    "open_day": "Ouvrir la journée",
+    "vat_grid": {
+      "title": "Ventilation TVA",
+      "hint": "Saisissez les montants TVA comprise (brut). Le net et la TVA sont calculés automatiquement.",
+      "rate": "Taux de TVA",
+      "gross": "Brut (TVA comprise)",
+      "net": "Net (hors TVA)",
+      "vat": "TVA",
+      "add_line": "Ajouter une ligne"
+    },
+    "payments": {
+      "title": "Modes de paiement",
+      "hint": "Saisissez uniquement le chiffre d'affaires, SANS les pourboires. Les pourboires sont saisis séparément.",
+      "cash": "Espèces",
+      "card": "Banque/carte",
+      "voucher": "Chèque/bon",
+      "other_electronic": "Autre électronique",
+      "sum": "Total paiements",
+      "reconciled": "Concordant ✓",
+      "not_reconciled": "Non concordant"
+    },
+    "cash": {
+      "title": "Rapprochement caisse",
+      "hint": "Caisse de clôture attendue = fond d'ouverture + recettes espèces + pourboires espèces.",
+      "opening": "Fond d'ouverture",
+      "closing": "Caisse de clôture (comptée)",
+      "expected": "Caisse de clôture attendue",
+      "drops": "Prélèvements",
+      "tips_cash": "Pourboires — espèces",
+      "tips_card": "Pourboires — carte",
+      "tips_hint": "Non compris dans les modes de paiement ci-dessus",
+      "variance": "Écart caisse"
+    },
+    "errors": {
+      "reconciliation": "Échec du rapprochement",
+      "no_revenue": "Ajoutez au moins une ligne TVA avec un montant supérieur à €0.",
+      "payments_mismatch": "La somme des paiements ne correspond pas au total brut.",
+      "vat_mismatch": "Ligne TVA invalide : net + TVA doit être égal au brut.",
+      "cash_variance": "L'écart de caisse dépasse la tolérance de €0,01."
+    }
+  },
+  "history": {
+    "title": "Clôtures scellées",
+    "subtitle": "Toutes les clôtures journalières, chronologiques et immuables",
+    "filter_all": "Toutes",
+    "filter_open": "Ouvertes",
+    "filter_sealed": "Scellées",
+    "filter_corrected": "Corrigées",
+    "col_date": "Date",
+    "col_seq": "N°",
+    "col_gross": "Brut",
+    "col_vat": "TVA",
+    "col_hash": "Hash",
+    "col_status": "Statut",
+    "empty": "Aucune clôture trouvée pour ce filtre."
+  },
+  "analytics": {
+    "title": "Analyse",
+    "subtitle": "Uniquement clôtures scellées",
+    "range_30d": "30 jours",
+    "range_90d": "90 jours",
+    "range_ytd": "Depuis le 1er janvier",
+    "cross_location": "Tous les établissements",
+    "revenue": "Chiffre d'affaires par jour",
+    "vat_breakdown": "TVA par taux",
+    "payment_mix": "Répartition des paiements",
+    "cash_variance": "Écart caisse par jour"
+  },
+  "billing": {
+    "title": "Abonnement",
+    "subtitle": "Gérez votre abonnement Dagontvangst",
+    "status_none": "Aucun abonnement actif",
+    "status_active": "Actif",
+    "status_trial": "Période d'essai",
+    "status_cancelled": "Résilié — actif jusqu'au",
+    "trial_ends": "La période d'essai se termine le",
+    "price": "€9 / mois / établissement",
+    "features": [
+      "Clôtures illimitées",
+      "Utilisateurs illimités",
+      "Mode PWA hors ligne",
+      "Export PDF/CSV/JSON",
+      "Accès inspecteur SPF (lecture seule)",
+      "Garantie chaîne de hachage"
+    ],
+    "start_trial": "Démarrer l'essai de 14 jours",
+    "manage": "Gérer paiement & factures",
+    "no_stripe": "Le paiement n'est pas encore configuré. Vous pouvez continuer à utiliser l'app."
+  },
+  "team": {
+    "title": "Équipe",
+    "subtitle": "Gérez vos collaborateurs et leurs rôles",
+    "invite": "Inviter un membre",
+    "invite_email": "Adresse e-mail",
+    "invite_role": "Rôle",
+    "role_owner": "Propriétaire",
+    "role_manager": "Manager",
+    "role_employee": "Employé",
+    "send_invite": "Envoyer l'invitation",
+    "invite_sent": "Invitation envoyée",
+    "col_name": "Nom",
+    "col_email": "E-mail",
+    "col_role": "Rôle",
+    "col_status": "Statut",
+    "pending": "Invitation en attente",
+    "resend": "Renvoyer",
+    "remove": "Retirer",
+    "cancel_invite": "Annuler l'invitation",
+    "change_role": "Changer le rôle",
+    "empty_title": "Aucun membre d'équipe",
+    "empty_desc": "Invitez votre premier collaborateur.",
+    "remove_warning": "L'utilisateur perdra son accès à cet établissement."
+  },
+  "locations": {
+    "title": "Établissements",
+    "subtitle": "Tous les établissements sous votre entité juridique",
+    "new": "Nouvel établissement",
+    "edit": "Modifier l'établissement",
+    "empty_title": "Pas encore d'établissements",
+    "empty_desc": "Ajoutez votre premier établissement pour commencer.",
+    "updated": "Établissement mis à jour",
+    "created": "Établissement créé",
+    "save_error": "Erreur lors de l'enregistrement",
+    "name_required": "Le nom est obligatoire"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "profile": "Profil",
+    "profile_desc": "Modifiez votre nom et votre e-mail",
+    "preferences": "Préférences",
+    "preferences_desc": "Thème et langue",
+    "notifications": "Notifications",
+    "notifications_desc": "Canaux d'approbation et rappels",
+    "notify_email": "E-mail",
+    "notify_whatsapp": "WhatsApp",
+    "danger": "Zone de danger",
+    "danger_desc": "Actions irréversibles",
+    "logout": "Déconnexion",
+    "delete_account": "Supprimer le compte"
+  },
+  "inspector": {
+    "title": "Accès inspecteur SPF",
+    "subtitle": "Lecture seule. Chaque action est journalisée.",
+    "select_location": "Choisir un établissement",
+    "export": "Exporter le paquet",
+    "verify": "Vérifier la chaîne"
+  },
+  "actions": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "delete": "Supprimer",
+    "edit": "Modifier"
+  },
+  "language": "Langue",
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre"
+  },
+  "footer": {
+    "made_in": "Fait en Belgique pour l'horeca belge"
+  },
+  "landing": {
+    "header": {
+      "sign_in": "Se connecter",
+      "try_free": "Essai gratuit"
+    },
+    "hero": {
+      "badges": ["Conforme SPF", "Hash-chain", "PWA hors ligne", "Données UE"],
+      "title_line1": "Journal des recettes journalières numérique",
+      "title_line2": "pour l'horeca belge",
+      "subtitle": "Scellez chaque journée en un clic. Immuable, chaîne de hachage, toujours prêt pour un contrôle SPF.",
+      "cta_primary": "Démarrer votre essai gratuit",
+      "cta_secondary": "En savoir plus",
+      "quote": "\"Enfin la tranquillité d'esprit lors d'un contrôle TVA.\" — Sofie D., Gand",
+      "chain_title": "Clôture du jour en direct",
+      "chain_footer": "Chaîne vérifiée — 3 clôtures"
+    },
+    "problem": {
+      "title": "Les registres papier sont une bombe à retardement",
+      "subtitle": "Chaque erreur, chaque rature, chaque journée manquante peut entraîner une amende lors d'un contrôle SPF.",
+      "items": [
+        { "title": "Erreurs manuelles",           "desc": "Erreur de calcul dans la ventilation TVA ? Découvert trop tard, corrigé trop tard." },
+        { "title": "Excel n'est pas immuable",    "desc": "Les feuilles de calcul peuvent toujours être modifiées. L'inspecteur le sait aussi." },
+        { "title": "Ventilation TVA oubliée",     "desc": "Chaque taux (0/6/12/21%) doit être suivi séparément. Chaque jour." },
+        { "title": "Piste d'audit manquante",     "desc": "Sans preuve d'intégrité, votre avocat est démuni." }
+      ]
+    },
+    "how": {
+      "title": "Comment ça marche",
+      "steps": [
+        { "num": "01", "title": "Enregistrez votre établissement", "desc": "Créez un compte, ajoutez votre établissement avec numéro de TVA et adresse. Prêt en 2 minutes." },
+        { "num": "02", "title": "Clôturez chaque jour",             "desc": "Saisissez les lignes TVA et les moyens de paiement. Le rapprochement caisse et le hash sont calculés automatiquement." },
+        { "num": "03", "title": "Scellé et vérifiable",             "desc": "La clôture est stockée immuable dans la chaîne. Téléchargez un paquet SPF à tout moment." }
+      ]
+    },
+    "features": {
+      "title": "Tout ce dont vous avez besoin",
+      "items": [
+        { "title": "Conforme SPF",                "desc": "Répond à la réglementation belge sur les journaux de recettes journalières." },
+        { "title": "Immuabilité par hash-chain",  "desc": "Chaque clôture est chaînée cryptographiquement. Toute manipulation est impossible." },
+        { "title": "PWA hors ligne",              "desc": "Fonctionne aussi sans internet. Synchronisation automatique à la reconnexion." },
+        { "title": "Multi-établissement",         "desc": "Gérez tous vos établissements depuis un seul compte avec accès par rôle." },
+        { "title": "Export PDF/CSV/JSON",         "desc": "Téléchargez à tout moment un paquet prêt pour l'inspecteur." },
+        { "title": "Notifications WhatsApp",      "desc": "Recevez confirmations et rappels via WhatsApp." }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que disent nos clients",
+      "items": [
+        { "name": "Sofie D.", "role": "Propriétaire, Brasserie Gand",   "text": "Enfin plus de registres papier. La chaîne me donne l'esprit tranquille lors d'un contrôle TVA." },
+        { "name": "Karim B.", "role": "Manager, Restaurant Bruxelles",  "text": "Configuration en 5 minutes. L'export SPF fonctionne parfaitement — notre comptable est ravi." },
+        { "name": "Elke V.",  "role": "Gérante, Café Anvers",           "text": "La PWA fonctionne même quand le wifi coupe. Mon personnel n'oublie plus jamais de clôturer." }
+      ]
+    },
+    "compliance": {
+      "title": "La checklist SPF Finances",
+      "subtitle": "Dagontvangst répond à toutes les exigences légales du journal des recettes journalières belge.",
+      "items": [
+        "Numérotation continue par exercice",
+        "Immuabilité après clôture",
+        "Ventilation TVA par taux (0/6/12/21%)",
+        "Rapprochement caisse avec écart",
+        "Conservation 7 ans intégrée",
+        "Export au format lisible par le SPF"
+      ],
+      "bonus": "Bonus : la hash-chain rend toute modification détectable — même en cas d'intrusion en base de données."
+    },
+    "pricing": {
+      "title": "Tarif simple",
+      "subtitle": "Pas de frais cachés. Aucune installation.",
+      "price": "€9",
+      "period": "/ mois / établissement",
+      "trial_note": "14 jours gratuits, sans carte de crédit",
+      "features": [
+        "Clôtures illimitées",
+        "Utilisateurs illimités",
+        "Mode PWA hors ligne",
+        "Export PDF/CSV/JSON",
+        "Accès inspecteur SPF",
+        "Garantie hash-chain"
+      ],
+      "cta": "Commencer 14 jours gratuits"
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        { "q": "Un journal de recettes numérique est-il obligatoire ?", "a": "Oui, pour les entreprises horeca belges qui n'utilisent pas de caisse enregistreuse certifiée, un journal des recettes manuel ou numérique est obligatoire. Dagontvangst automatise la mise en forme requise." },
+        { "q": "Comment se déroule un contrôle SPF ?",                  "a": "L'inspecteur demande un export des clôtures pour une période donnée. Avec Dagontvangst, vous téléchargez un paquet JSON ou PDF avec le manifeste de hachage — preuve d'intégrité acceptée par le SPF." },
+        { "q": "Que faire en cas d'erreur ?",                            "a": "Les corrections sont append-only : l'original reste intact et une nouvelle clôture corrective est ajoutée à la chaîne avec référence à l'original. Vous respectez ainsi l'exigence d'immuabilité." },
+        { "q": "Fonctionne-t-il si j'ai plusieurs établissements ?",     "a": "Oui. Un seul compte prend en charge plusieurs établissements. Chacun avec sa propre chaîne fermée, ses rôles et ses statistiques." }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à commencer ?",
+      "subtitle": "14 jours gratuits, sans carte de crédit, résiliable à tout moment.",
+      "button": "Essayez maintenant gratuitement"
+    },
+    "footer": {
+      "made_in": "Fait en Belgique pour l'horeca belge",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "contact": "Contact"
+    }
+  }
+}

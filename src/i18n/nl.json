@@ -1,0 +1,390 @@
+{
+  "app": {
+    "title": "Dagontvangst",
+    "tagline": "Digitaal dagontvangstenboek",
+    "install": "Installeer als app"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "new_closure": "Nieuwe afsluiting",
+    "closures": "Dagafsluitingen",
+    "history": "Historiek",
+    "analytics": "Analyse",
+    "locations": "Vestigingen",
+    "team": "Team",
+    "billing": "Abonnement",
+    "settings": "Instellingen",
+    "logout": "Uitloggen"
+  },
+  "auth": {
+    "login_title": "Welkom terug",
+    "login_subtitle": "Meld je aan om je dagontvangstenboek te openen",
+    "register_title": "Maak een account aan",
+    "register_subtitle": "Start je 14 dagen gratis proefperiode",
+    "email": "E-mailadres",
+    "password": "Wachtwoord",
+    "password_confirm": "Herhaal wachtwoord",
+    "name": "Naam",
+    "login": "Inloggen",
+    "register": "Registreren",
+    "forgot": "Wachtwoord vergeten?",
+    "no_account": "Nog geen account?",
+    "have_account": "Al een account?",
+    "create_account": "Account aanmaken",
+    "sign_in": "Meld aan",
+    "invalid": "Ongeldig e-mailadres of wachtwoord",
+    "verify_email": "Bevestig eerst je e-mailadres. Kijk in je inbox.",
+    "resend": "Bevestigingsmail opnieuw versturen",
+    "resent": "Bevestigingsmail verstuurd",
+    "terms_notice": "Door te registreren ga je akkoord met onze voorwaarden en privacybeleid."
+  },
+  "onboarding": {
+    "title": "Welkom bij Dagontvangst",
+    "subtitle": "Laten we je zaak instellen. Dit duurt 2 minuten.",
+    "choose": "Wat wil je doen?",
+    "create_option": "Ik ben eigenaar",
+    "create_desc": "Registreer mijn zaak en start met dagontvangsten",
+    "join_option": "Ik ben uitgenodigd",
+    "join_desc": "Ik heb een uitnodigingscode van mijn werkgever",
+    "location_name": "Naam van je zaak",
+    "legal_name": "Juridische naam (indien anders)",
+    "vat_number": "BTW-nummer",
+    "vat_hint": "Formaat: BE0123.456.789",
+    "kbo_number": "KBO-nummer",
+    "address": "Adres",
+    "phone": "Telefoonnummer",
+    "timezone": "Tijdzone",
+    "create_button": "Vestiging aanmaken",
+    "join_code": "Uitnodigingscode",
+    "join_code_hint": "8 tekens, van je manager ontvangen",
+    "join_button": "Team vervoegen",
+    "waiting": "Of wacht op een uitnodiging van je manager",
+    "success": "Je vestiging is aangemaakt.",
+    "invalid_vat": "Ongeldig BTW-nummer (verwacht BE + 10 cijfers)"
+  },
+  "invitation": {
+    "title": "Uitnodiging",
+    "loading": "Uitnodiging ophalen…",
+    "invalid": "Deze uitnodiging is verlopen of ongeldig.",
+    "you_are_invited": "Je bent uitgenodigd voor",
+    "by": "door",
+    "as": "als",
+    "accept": "Uitnodiging aanvaarden",
+    "create_password": "Kies een wachtwoord om te starten"
+  },
+  "dashboard": {
+    "today": "Vandaag",
+    "no_closure_yet": "Nog geen dagafsluiting",
+    "day_open": "Dag is open",
+    "day_sealed": "Dag verzegeld",
+    "start_today": "Start met het registreren van je dagontvangsten.",
+    "continue_open": "Voeg BTW-lijnen en betalingen toe, sluit dan af.",
+    "sealed_at": "Verzegeld op",
+    "open_day": "Dag openen",
+    "continue_day": "Verder werken",
+    "view_closure": "Bekijk afsluiting",
+    "kpi_gross": "30d bruto",
+    "kpi_vat": "30d BTW",
+    "kpi_closures": "afsluitingen",
+    "kpi_vat_owed": "verschuldigd",
+    "payment_mix": "Betaalmix — 30 dagen",
+    "no_data": "Nog geen data",
+    "recent": "Recente afsluitingen",
+    "see_all": "Alles bekijken",
+    "empty_title": "Nog geen afsluitingen",
+    "empty_desc": "Zodra je vandaag afsluit, verschijnt hier de eerste entry in je verzegelde ketting."
+  },
+  "closure": {
+    "title": "Dagafsluiting",
+    "close_day": "Dag afsluiten",
+    "sealed": "Verzegeld",
+    "sequence": "Volgnummer",
+    "chain_ok": "Ketting OK",
+    "chain_broken": "Ketting gebroken",
+    "verify_chain": "Ketting verifiëren",
+    "seal_confirm_title": "Verzegel deze dag?",
+    "seal_confirm_body": "Eenmaal verzegeld is deze afsluiting onwijzigbaar. Correcties gebeuren via append-only correctie-entries.",
+    "seal_button": "Definitief verzegelen",
+    "correction": "Correctie",
+    "correction_of": "Correctie op afsluiting",
+    "correction_reason": "Reden voor correctie",
+    "correction_min": "min. 20 tekens",
+    "correction_desc": "Correcties zijn append-only: het origineel blijft onaangeroerd; een nieuwe afsluiting wordt aan de ketting toegevoegd met verwijzing naar het origineel.",
+    "start_correction": "Correctie starten",
+    "add_correction": "Correctie toevoegen",
+    "gross": "Bruto",
+    "net": "Netto",
+    "vat": "BTW",
+    "cash_variance": "Kasverschil",
+    "download": "Download bundel",
+    "download_json": "JSON + hash-manifest",
+    "download_soon": "binnenkort",
+    "back_to_history": "Terug naar historiek",
+    "open_day": "Dag openen",
+    "vat_grid": {
+      "title": "BTW-uitsplitsing",
+      "hint": "Voer de bedragen in incl. BTW (bruto). Netto en BTW worden automatisch berekend.",
+      "rate": "BTW-tarief",
+      "gross": "Bruto (incl. BTW)",
+      "net": "Netto (excl. BTW)",
+      "vat": "BTW",
+      "add_line": "Regel toevoegen"
+    },
+    "payments": {
+      "title": "Betaalmethoden",
+      "hint": "Voer enkel de omzet in, ZONDER fooien. Fooien staan apart bij de kassa-afstemming.",
+      "cash": "Contant",
+      "card": "Bank/kaart",
+      "voucher": "Cheque/bon",
+      "other_electronic": "Andere elektronisch",
+      "sum": "Totaal betaalmethoden",
+      "reconciled": "Sluitend ✓",
+      "not_reconciled": "Niet sluitend"
+    },
+    "cash": {
+      "title": "Kassa-afstemming",
+      "hint": "Verwachte eindkas = beginkas + contante ontvangsten + fooien in cash.",
+      "opening": "Beginkas",
+      "closing": "Eindkas (geteld)",
+      "expected": "Verwachte eindkas",
+      "drops": "Kasafnames",
+      "tips_cash": "Fooi — contant",
+      "tips_card": "Fooi — kaart",
+      "tips_hint": "Niet inbegrepen in bovenstaande betaalmethoden",
+      "variance": "Kasverschil"
+    },
+    "errors": {
+      "reconciliation": "Afstemming mislukt",
+      "no_revenue": "Voeg minstens één BTW-regel in met een bedrag groter dan €0.",
+      "payments_mismatch": "De som van de betaalmethoden komt niet overeen met het brutototaal.",
+      "vat_mismatch": "BTW-regel klopt niet: netto + BTW moet gelijk zijn aan bruto.",
+      "cash_variance": "Kasverschil overschrijdt de tolerantie van €0,01."
+    }
+  },
+  "history": {
+    "title": "Verzegelde afsluitingen",
+    "subtitle": "Alle dagafsluitingen, chronologisch en niet-wijzigbaar",
+    "filter_all": "Alle",
+    "filter_open": "Open",
+    "filter_sealed": "Verzegeld",
+    "filter_corrected": "Gecorrigeerd",
+    "col_date": "Datum",
+    "col_seq": "Nr.",
+    "col_gross": "Bruto",
+    "col_vat": "BTW",
+    "col_hash": "Hash",
+    "col_status": "Status",
+    "empty": "Geen afsluitingen gevonden voor dit filter."
+  },
+  "analytics": {
+    "title": "Analyse",
+    "subtitle": "Alleen verzegelde afsluitingen",
+    "range_30d": "30 dagen",
+    "range_90d": "90 dagen",
+    "range_ytd": "Sinds 1 januari",
+    "cross_location": "Alle vestigingen",
+    "revenue": "Omzet per dag",
+    "vat_breakdown": "BTW per tarief",
+    "payment_mix": "Betaalmix",
+    "cash_variance": "Kasverschil per dag"
+  },
+  "billing": {
+    "title": "Abonnement",
+    "subtitle": "Beheer je Dagontvangst-abonnement",
+    "status_none": "Geen actief abonnement",
+    "status_active": "Actief",
+    "status_trial": "Proefperiode",
+    "status_cancelled": "Opgezegd — actief tot",
+    "trial_ends": "Proefperiode eindigt op",
+    "price": "€9 / maand / vestiging",
+    "features": [
+      "Onbeperkt aantal afsluitingen",
+      "Onbeperkt aantal gebruikers",
+      "PWA offline modus",
+      "PDF/CSV/JSON export",
+      "FOD-inspecteur toegang (read-only)",
+      "Hash-chain waarborg"
+    ],
+    "start_trial": "Start 14 dagen gratis",
+    "manage": "Betaling & facturen beheren",
+    "no_stripe": "Betaling is nog niet geconfigureerd. Je kan de app blijven gebruiken."
+  },
+  "team": {
+    "title": "Team",
+    "subtitle": "Beheer je medewerkers en hun rollen",
+    "invite": "Team lid uitnodigen",
+    "invite_email": "E-mailadres",
+    "invite_role": "Rol",
+    "role_owner": "Eigenaar",
+    "role_manager": "Manager",
+    "role_employee": "Medewerker",
+    "send_invite": "Uitnodiging versturen",
+    "invite_sent": "Uitnodiging verstuurd",
+    "col_name": "Naam",
+    "col_email": "E-mail",
+    "col_role": "Rol",
+    "col_status": "Status",
+    "pending": "Uitnodiging afwachtend",
+    "resend": "Opnieuw versturen",
+    "remove": "Verwijderen",
+    "cancel_invite": "Uitnodiging annuleren",
+    "change_role": "Rol wijzigen",
+    "empty_title": "Geen teamleden gevonden",
+    "empty_desc": "Nodig je eerste medewerker uit.",
+    "remove_warning": "De gebruiker verliest zijn toegang tot deze vestiging."
+  },
+  "locations": {
+    "title": "Vestigingen",
+    "subtitle": "Alle vestigingen die onder jouw juridische entiteit vallen",
+    "new": "Nieuwe vestiging",
+    "edit": "Vestiging bewerken",
+    "empty_title": "Nog geen vestigingen",
+    "empty_desc": "Voeg je eerste vestiging toe om te starten.",
+    "updated": "Vestiging bijgewerkt",
+    "created": "Vestiging aangemaakt",
+    "save_error": "Fout bij opslaan",
+    "name_required": "Naam is verplicht"
+  },
+  "settings": {
+    "title": "Instellingen",
+    "profile": "Profiel",
+    "profile_desc": "Wijzig je naam en e-mailadres",
+    "preferences": "Voorkeuren",
+    "preferences_desc": "Thema en taal",
+    "notifications": "Meldingen",
+    "notifications_desc": "Kanalen voor goedkeuringen en herinneringen",
+    "notify_email": "E-mail",
+    "notify_whatsapp": "WhatsApp",
+    "danger": "Gevarenzone",
+    "danger_desc": "Onomkeerbare acties",
+    "logout": "Uitloggen",
+    "delete_account": "Account verwijderen"
+  },
+  "inspector": {
+    "title": "FOD-inspecteur toegang",
+    "subtitle": "Alleen-lezen. Elke actie wordt gelogd.",
+    "select_location": "Kies vestiging",
+    "export": "Exporteer bundel",
+    "verify": "Verifieer ketting"
+  },
+  "actions": {
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "close": "Sluiten",
+    "confirm": "Bevestigen",
+    "back": "Terug",
+    "delete": "Verwijderen",
+    "edit": "Bewerken"
+  },
+  "language": "Taal",
+  "theme": {
+    "light": "Licht",
+    "dark": "Donker"
+  },
+  "footer": {
+    "made_in": "Gemaakt in België voor Belgische horeca"
+  },
+  "landing": {
+    "header": {
+      "sign_in": "Inloggen",
+      "try_free": "Gratis proberen"
+    },
+    "hero": {
+      "badges": ["FOD-conform", "Hash-chain", "PWA offline", "EU-data"],
+      "title_line1": "Digitaal dagontvangstenboek",
+      "title_line2": "voor Belgische horeca",
+      "subtitle": "Verzegel elke dag met één klik. Onwijzigbaar, hash-geketend en altijd klaar voor een FOD-controle.",
+      "cta_primary": "Start je gratis proefperiode",
+      "cta_secondary": "Meer info",
+      "quote": "\"Eindelijk gemoedsrust bij een BTW-controle.\" — Sofie D., Gent",
+      "chain_title": "Live dagafsluiting",
+      "chain_footer": "Ketting geverifieerd — 3 afsluitingen"
+    },
+    "problem": {
+      "title": "Papieren registers zijn een tikkende tijdbom",
+      "subtitle": "Elke fout, elke doorhaling, elk ontbrekend dagblad kan een boete opleveren bij een FOD-controle.",
+      "items": [
+        { "title": "Manuele fouten", "desc": "Rekenfout in de BTW-uitsplitsing? Te laat ontdekt is te laat gecorrigeerd." },
+        { "title": "Excel is niet onwijzigbaar", "desc": "Spreadsheets kunnen altijd gewijzigd worden. Een inspecteur weet dat ook." },
+        { "title": "BTW-splitsing vergeten", "desc": "Elk tarief (0/6/12/21%) moet apart bijgehouden worden. Per dag." },
+        { "title": "Auditspoor ontbreekt", "desc": "Zonder bewijs van integriteit staat je advocaat met lege handen." }
+      ]
+    },
+    "how": {
+      "title": "Hoe het werkt",
+      "steps": [
+        { "num": "01", "title": "Registreer je zaak",       "desc": "Maak een account aan, voeg je vestiging toe met BTW-nummer en adres. Klaar in 2 minuten." },
+        { "num": "02", "title": "Sluit elke dag af",         "desc": "Voer de BTW-lijnen en betaalmethoden in. De kassa-afstemming en hash worden automatisch berekend." },
+        { "num": "03", "title": "Verzegeld & verifieerbaar", "desc": "De afsluiting is onwijzigbaar in de ketting opgeslagen. Download een FOD-bundel wanneer nodig." }
+      ]
+    },
+    "features": {
+      "title": "Alles wat je nodig hebt",
+      "items": [
+        { "title": "FOD-conform",              "desc": "Voldoet aan de Belgische regelgeving voor dagontvangstenboeken." },
+        { "title": "Hash-chain immutabiliteit","desc": "Elke afsluiting is cryptografisch geketend. Manipulatie is onmogelijk." },
+        { "title": "Offline PWA",              "desc": "Werkt ook zonder internet. Synchroniseert automatisch bij verbinding." },
+        { "title": "Multi-vestiging",          "desc": "Beheer al je zaken vanuit één account met rolgebaseerde toegang." },
+        { "title": "Export PDF/CSV/JSON",      "desc": "Download elk moment een inspecteur-klaar bundel." },
+        { "title": "WhatsApp notificaties",    "desc": "Ontvang bevestigingen en herinneringen via WhatsApp." }
+      ]
+    },
+    "testimonials": {
+      "title": "Wat klanten zeggen",
+      "items": [
+        { "name": "Sofie D.", "role": "Eigenaar, Brasserie Gent",     "text": "Eindelijk geen papieren registers meer. De ketting geeft me gemoedsrust bij een BTW-controle." },
+        { "name": "Karim B.", "role": "Manager, Restaurant Brussel",  "text": "Onboarding in 5 minuten. De FOD-export werkt perfect — onze accountant is blij." },
+        { "name": "Elke V.",  "role": "Uitbaatster, Café Antwerpen",  "text": "De PWA werkt ook als het wifi even uitvalt. Mijn personeel vergeet nooit meer af te sluiten." }
+      ]
+    },
+    "compliance": {
+      "title": "De FOD-Financiën checklist",
+      "subtitle": "Dagontvangst voldoet aan alle wettelijke vereisten voor het Belgische dagontvangstenboek.",
+      "items": [
+        "Doorlopende nummering per boekjaar",
+        "Onwijzigbaarheid na afsluiting",
+        "BTW-uitsplitsing per tarief (0/6/12/21%)",
+        "Kassa-afstemming met kasverschil",
+        "7 jaar bewaarplicht ingebouwd",
+        "Export in FOD-leesbaar formaat"
+      ],
+      "bonus": "Bonus: hash-chain maakt elke wijziging detecteerbaar — zelfs bij een database-inbraak."
+    },
+    "pricing": {
+      "title": "Eenvoudige prijs",
+      "subtitle": "Geen verborgen kosten. Geen installatie.",
+      "price": "€9",
+      "period": "/ maand / vestiging",
+      "trial_note": "14 dagen gratis, geen kredietkaart vereist",
+      "features": [
+        "Onbeperkt afsluitingen",
+        "Onbeperkt gebruikers",
+        "PWA offline modus",
+        "PDF/CSV/JSON export",
+        "FOD-inspecteur toegang",
+        "Hash-chain waarborg"
+      ],
+      "cta": "Start 14 dagen gratis"
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "items": [
+        { "q": "Is een digitaal dagontvangstenboek verplicht?", "a": "Ja, voor Belgische horeca-ondernemingen die niet met een gecertificeerd kassasysteem werken is een manueel of digitaal dagontvangstenboek verplicht. Dagontvangst automatiseert de vereiste opmaak." },
+        { "q": "Hoe verloopt een FOD-controle?",                "a": "De inspecteur vraagt een export van de afsluitingen voor een bepaalde periode. Met Dagontvangst download je een JSON- of PDF-bundel met de hash-manifest — bewijs van integriteit dat de FOD accepteert." },
+        { "q": "Wat als ik een fout heb gemaakt?",              "a": "Correcties zijn append-only: het origineel blijft intact en een nieuwe correctie-afsluiting wordt aan de ketting toegevoegd met verwijzing naar het origineel. Zo voldoe je aan de eis van onwijzigbaarheid." },
+        { "q": "Werkt het ook als ik meerdere zaken heb?",      "a": "Ja. Eén account ondersteunt meerdere vestigingen. Elk met hun eigen gesloten ketting, rollen en statistieken." }
+      ]
+    },
+    "cta": {
+      "title": "Klaar om te starten?",
+      "subtitle": "14 dagen gratis, geen kredietkaart, opzegbaar op elk moment.",
+      "button": "Probeer nu gratis"
+    },
+    "footer": {
+      "made_in": "Gemaakt in België voor Belgische horeca",
+      "privacy": "Privacy",
+      "terms": "Voorwaarden",
+      "contact": "Contact"
+    }
+  }
+}
