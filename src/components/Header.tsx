@@ -28,7 +28,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
       <header className={`fixed top-0 inset-x-0 z-50 transition-all ${showBg ? 'bg-paper/90 backdrop-blur-md border-b border-hair' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-10 h-16 flex items-center gap-3 sm:gap-6">
           <Link to="/" onClick={close} className="flex items-center gap-2 shrink-0">
-            <div className="w-7 h-7 rounded-sm bg-ink text-paper flex items-center justify-center font-serif italic font-semibold">D</div>
+            <img src="/favicon.svg" alt="" width={28} height={28} className="rounded-md" />
             <span className="font-serif text-[17px] font-semibold tracking-tight">Dagontvangst</span>
           </Link>
           <div className="flex-1" />
