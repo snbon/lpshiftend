@@ -1,352 +1,628 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import i18n from './i18n';
 import {
   Shield, Link2, Wifi, MapPin, FileDown, MessageCircle,
-  Check, ChevronDown, ChevronUp, Lock, Hash, RotateCcw,
-  ArrowRight, Star,
+  Check, ChevronDown, ChevronUp, ArrowUpRight, ArrowRight,
 } from 'lucide-react';
+import { useRoute } from './lib/router';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { LegalPage } from './pages/Legal';
+import { ContactPage } from './pages/Contact';
 
 const APP_URL = (import.meta.env.VITE_APP_URL as string) ?? 'https://app.dagontvangst.be';
-
-const fade    = { hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0, transition: { duration: 0.5 } } };
-const stagger = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } };
-
-// Icons paired with translated feature blocks (order matches nl/fr/en JSON arrays).
 const FEATURE_ICONS = [Shield, Link2, Wifi, MapPin, FileDown, MessageCircle];
 
-// ── Scroll-reveal wrapper ────────────────────────────────────────────────────
-function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+// ── FAQ item ─────────────────────────────────────────────────────────────────
+function FaqItem({ q, a, idx }: { q: string; a: string; idx: number }) {
+  const [open, setOpen] = useState(false);
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.55, delay }}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-// ── Language switcher ────────────────────────────────────────────────────────
-function LangSwitcher() {
-  const [lang, setLang] = useState(i18n.language.slice(0, 2) as 'nl' | 'fr' | 'en');
-  function pick(l: 'nl' | 'fr' | 'en') { setLang(l); i18n.changeLanguage(l); }
-  return (
-    <div className="flex gap-1">
-      {(['nl', 'fr', 'en'] as const).map((l) => (
-        <button key={l} onClick={() => pick(l)}
-          className={`px-2 py-0.5 rounded text-xs font-medium uppercase transition ${lang === l ? 'bg-indigo-600 text-white' : 'text-gray-500 hover:text-gray-800'}`}>
-          {l}
-        </button>
-      ))}
+    <div className="border-t border-hair py-5">
+      <button onClick={() => setOpen((o) => !o)} className="flex items-start justify-between w-full text-left gap-6">
+        <div className="flex gap-4">
+          <span className="font-mono text-xs text-ink-2/60 mt-1">{String(idx + 1).padStart(2, '0')}</span>
+          <span className="font-serif text-lg leading-snug">{q}</span>
+        </div>
+        {open
+          ? <ChevronUp size={18} className="shrink-0 text-ink-2/60 mt-1.5" />
+          : <ChevronDown size={18} className="shrink-0 text-ink-2/60 mt-1.5" />}
+      </button>
+      {open && <p className="mt-4 ml-10 text-[15px] text-ink-2/80 leading-relaxed max-w-2xl">{a}</p>}
     </div>
   );
 }
 
-// ── Hash-chain visual ────────────────────────────────────────────────────────
-function HashChainVisual({ footerText }: { footerText: string }) {
-  const blocks = [
-    { seq: '#0001', hash: 'a3f9…', date: '28 jul' },
-    { seq: '#0002', hash: '7c2e…', date: '29 jul' },
-    { seq: '#0003', hash: 'e8b1…', date: '30 jul' },
-  ];
+// ── Wax-seal stamp ───────────────────────────────────────────────────────────
+function Seal({ text = 'VERZEGELD' }: { text?: string }) {
   return (
-    <div className="space-y-2">
-      {blocks.map((b, i) => (
-        <motion.div key={b.seq} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3 + i * 0.15 }}
-          className="bg-white/10 backdrop-blur rounded-xl px-4 py-3 flex items-center gap-4 text-white text-sm">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/20 shrink-0">
-            <Lock size={14} />
+    <div className="animate-stamp absolute -top-4 right-0 sm:top-8 sm:-right-6 w-24 sm:w-28 h-24 sm:h-28 select-none pointer-events-none">
+      <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_4px_8px_rgba(185,28,28,0.35)]">
+        <defs>
+          <path id="seal-arc-top" d="M 50,50 m -34,0 a 34,34 0 1,1 68,0" />
+          <path id="seal-arc-bot" d="M 50,50 m -34,0 a 34,34 0 1,0 68,0" />
+        </defs>
+        <circle cx="50" cy="50" r="45" fill="none" stroke="var(--seal)" strokeWidth="2" strokeDasharray="2 3" opacity="0.9" />
+        <circle cx="50" cy="50" r="38" fill="none" stroke="var(--seal)" strokeWidth="2.5" opacity="0.95" />
+        <text fill="var(--seal)" fontFamily="JetBrains Mono, monospace" fontSize="8.5" fontWeight="700" letterSpacing="1.3">
+          <textPath href="#seal-arc-top" startOffset="50%" textAnchor="middle">{text}</textPath>
+        </text>
+        <text fill="var(--seal)" fontFamily="JetBrains Mono, monospace" fontSize="6.5" letterSpacing="1.5">
+          <textPath href="#seal-arc-bot" startOffset="50%" textAnchor="middle">BE · FOD-FIN · v1</textPath>
+        </text>
+        <g transform="translate(50 50)">
+          <text textAnchor="middle" dominantBaseline="central" fill="var(--seal)" fontFamily="Fraunces, serif" fontStyle="italic" fontWeight="600" fontSize="14">
+            2026
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+}
+
+// ── Live receipt ─────────────────────────────────────────────────────────────
+function Receipt() {
+  return (
+    <div className="relative">
+      {/* Paper shadow */}
+      <div className="absolute -inset-6 bg-black/10 blur-3xl rounded-full" aria-hidden />
+      <motion.div
+        initial={{ opacity: 0, y: 32, rotate: 2 }}
+        animate={{ opacity: 1, y: 0, rotate: 1.5 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="relative"
+      >
+        <div className="receipt-edge receipt-edge-top bg-white border border-hair shadow-[0_30px_60px_-20px_rgba(0,0,0,0.25)] w-full max-w-[300px] sm:max-w-[360px] mx-auto">
+          <div className="px-6 pt-6 pb-8 font-mono text-[11px] text-ink-2">
+            <div className="flex items-center justify-between text-[10px] tracking-widest uppercase text-ink-2/60 border-b border-dashed border-hair pb-3">
+              <span>Dagontvangst</span>
+              <span>#0142</span>
+            </div>
+
+            <div className="pt-4 space-y-1.5">
+              <div className="flex justify-between"><span className="text-ink-2/60">Datum</span><span>30-07-2026</span></div>
+              <div className="flex justify-between"><span className="text-ink-2/60">Vestiging</span><span>Brasserie Gent</span></div>
+              <div className="flex justify-between"><span className="text-ink-2/60">Volgnr</span><span>#0142</span></div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-dashed border-hair space-y-1">
+              <div className="flex justify-between"><span>0 %  ·  vrijgesteld</span><span>€ 12,00</span></div>
+              <div className="flex justify-between"><span>6 %  ·  eten</span><span>€ 640,50</span></div>
+              <div className="flex justify-between"><span>12 % ·  bereid</span><span>€ 128,10</span></div>
+              <div className="flex justify-between"><span>21 % ·  drank</span><span>€ 459,90</span></div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-dashed border-hair">
+              <div className="flex justify-between text-[13px] font-semibold text-ink">
+                <span>BRUTO</span><span>€ 1.240,50</span>
+              </div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-dashed border-hair space-y-1">
+              <div className="flex justify-between"><span className="text-ink-2/60">Cash</span><span>€ 312,00</span></div>
+              <div className="flex justify-between"><span className="text-ink-2/60">Bancontact</span><span>€ 720,50</span></div>
+              <div className="flex justify-between"><span className="text-ink-2/60">Voucher</span><span>€ 208,00</span></div>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-dashed border-hair text-[10px] text-ink-2/60 leading-relaxed">
+              <div>prev  a3f9e02c…7c2e</div>
+              <div className="text-ink font-semibold">hash  4b1d0f8a…e8b1</div>
+              <div>sealed 30-07-2026 · 23:47</div>
+            </div>
           </div>
-          <div className="flex-1 min-w-0">
-            <div className="font-bold">{b.seq} · {b.date}</div>
-            <div className="font-mono text-xs text-indigo-200">{b.hash}</div>
-          </div>
-          {i < blocks.length - 1 && <Hash size={14} className="text-indigo-300 shrink-0" />}
-        </motion.div>
-      ))}
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}
-        className="flex items-center gap-2 text-indigo-200 text-xs px-4">
-        <Shield size={12} /> {footerText}
+        </div>
+        <Seal text="VERZEGELD · SEALED · SCELLÉ" />
       </motion.div>
     </div>
   );
 }
 
-// ── FAQ item ─────────────────────────────────────────────────────────────────
-function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
+// ── Marquee ticker of live receipts ──────────────────────────────────────────
+function Ticker() {
+  const items = [
+    { seq: '#0140', amt: '€ 987,10',   hash: 'e8b1…3a2f', time: '28-07 · 22:14' },
+    { seq: '#0141', amt: '€ 1.412,00', hash: '9c02…b7d1', time: '29-07 · 23:02' },
+    { seq: '#0142', amt: '€ 1.240,50', hash: '4b1d…e8b1', time: '30-07 · 23:47' },
+    { seq: '#0143', amt: '€ 1.098,00', hash: 'a3f9…7c2e', time: '31-07 · 22:58' },
+    { seq: '#0144', amt: '€ 1.560,20', hash: 'c412…8fa3', time: '01-08 · 23:11' },
+    { seq: '#0145', amt: '€ 892,40',   hash: '77e0…10bc', time: '02-08 · 22:40' },
+  ];
+  const row = [...items, ...items];
   return (
-    <div className="border-b last:border-0 py-4">
-      <button onClick={() => setOpen((o) => !o)} className="flex items-center justify-between w-full text-left gap-4">
-        <span className="font-medium text-sm">{q}</span>
-        {open ? <ChevronUp size={16} className="shrink-0 text-gray-400" /> : <ChevronDown size={16} className="shrink-0 text-gray-400" />}
-      </button>
-      {open && <p className="mt-3 text-sm text-gray-600 leading-relaxed">{a}</p>}
+    <div className="relative overflow-hidden border-y border-hair bg-white/50">
+      <div className="absolute inset-y-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-[var(--paper)] to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-10 sm:w-24 bg-gradient-to-l from-[var(--paper)] to-transparent z-10 pointer-events-none" />
+      <div className="flex gap-8 py-4 animate-marquee whitespace-nowrap font-mono text-[12px] text-ink-2">
+        {row.map((r, i) => (
+          <span key={i} className="flex items-center gap-3 shrink-0">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 blink" />
+            <span className="text-ink font-semibold">{r.seq}</span>
+            <span>·</span>
+            <span>{r.amt}</span>
+            <span>·</span>
+            <span className="text-ink-2/60">{r.hash}</span>
+            <span>·</span>
+            <span className="text-ink-2/50">{r.time}</span>
+            <span className="text-ink-2/30 pl-4">◆</span>
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
 
-// ── Main component ────────────────────────────────────────────────────────────
-export default function App() {
-  const { t } = useTranslation();
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => {
-    const fn = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', fn);
-    return () => window.removeEventListener('scroll', fn);
-  }, []);
+// ── Hash chain visualization (for feature bento) ─────────────────────────────
+function ChainViz() {
+  const blocks = [
+    { n: '#0140', h: 'e8b1…', d: '28-07' },
+    { n: '#0141', h: '9c02…', d: '29-07' },
+    { n: '#0142', h: '4b1d…', d: '30-07' },
+  ];
+  return (
+    <div className="relative">
+      <div className="space-y-3">
+        {blocks.map((b, i) => (
+          <motion.div
+            key={b.n}
+            initial={{ opacity: 0, x: -12 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 + i * 0.15 }}
+            className="relative flex items-center gap-3"
+          >
+            <div className="font-mono text-[10px] text-white/40 w-14 shrink-0">{b.d}</div>
+            <div className="flex-1 rounded-lg bg-white/[0.06] border border-white/10 px-3 py-2.5 flex items-center justify-between font-mono">
+              <span className="text-white text-[13px] font-semibold">{b.n}</span>
+              <span className="text-white/60 text-[11px]">{b.h}</span>
+            </div>
+            {i < blocks.length - 1 && (
+              <div className="absolute left-[70px] top-full h-3 w-px bg-gradient-to-b from-white/30 to-transparent" />
+            )}
+          </motion.div>
+        ))}
+      </div>
+      <div className="mt-4 flex items-center gap-2 font-mono text-[10px] text-emerald-400/90">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink" />
+        chain verified · SHA-256
+      </div>
+    </div>
+  );
+}
 
-  // Arrays come from JSON via returnObjects — always cast to the expected type.
-  const heroBadges     = t('landing.hero.badges',        { returnObjects: true }) as string[];
-  const problemItems   = t('landing.problem.items',      { returnObjects: true }) as { title: string; desc: string }[];
-  const howSteps       = t('landing.how.steps',          { returnObjects: true }) as { num: string; title: string; desc: string }[];
-  const featureItems   = t('landing.features.items',     { returnObjects: true }) as { title: string; desc: string }[];
-  const testimonials   = t('landing.testimonials.items', { returnObjects: true }) as { name: string; role: string; text: string }[];
-  const complianceItems = t('landing.compliance.items',  { returnObjects: true }) as string[];
-  const pricingFeatures = t('landing.pricing.features',  { returnObjects: true }) as string[];
-  const faqItems       = t('landing.faq.items',          { returnObjects: true }) as { q: string; a: string }[];
+// ── Step card with mini mockup ───────────────────────────────────────────────
+function StepMock({ i }: { i: number }) {
+  if (i === 0) {
+    return (
+      <div className="rounded-lg bg-white border border-hair p-4 space-y-2.5 font-mono text-[11px]">
+        <div className="text-ink-2/50 text-[9px] tracking-widest uppercase">Nieuwe vestiging</div>
+        <div className="border-b border-hair pb-2"><div className="text-ink-2/50 text-[9px]">Naam</div><div>Brasserie Gent</div></div>
+        <div className="border-b border-hair pb-2"><div className="text-ink-2/50 text-[9px]">BTW</div><div>BE 0123.456.789</div></div>
+        <div className="pt-1"><div className="text-ink-2/50 text-[9px]">Adres</div><div>Kortrijksesteenweg 12</div></div>
+      </div>
+    );
+  }
+  if (i === 1) {
+    return (
+      <div className="rounded-lg bg-white border border-hair p-4 space-y-1.5 font-mono text-[11px]">
+        <div className="flex justify-between text-ink-2/60 text-[9px] uppercase tracking-widest border-b border-hair pb-1.5"><span>BTW-lijn</span><span>bedrag</span></div>
+        <div className="flex justify-between"><span>6 %</span><span>€ 640,50</span></div>
+        <div className="flex justify-between"><span>12 %</span><span>€ 128,10</span></div>
+        <div className="flex justify-between"><span>21 %</span><span>€ 459,90</span></div>
+        <div className="flex justify-between font-semibold text-ink pt-1.5 border-t border-hair"><span>Bruto</span><span>€ 1.240,50</span></div>
+      </div>
+    );
+  }
+  return (
+    <div className="rounded-lg bg-ink text-white p-4 font-mono text-[11px] relative overflow-hidden">
+      <div className="text-white/50 text-[9px] uppercase tracking-widest mb-2">Sealed</div>
+      <div className="text-emerald-400">✓ chain OK</div>
+      <div className="mt-1.5 text-white/70">#0142 · 4b1d…e8b1</div>
+      <div className="mt-3 text-white/50 text-[10px]">30-07-2026 · 23:47</div>
+    </div>
+  );
+}
+
+// ── Router ───────────────────────────────────────────────────────────────────
+export default function App() {
+  const path = useRoute();
+  if (path.startsWith('/privacy'))      return <LegalPage kind="privacy" />;
+  if (path.startsWith('/voorwaarden') ||
+      path.startsWith('/terms') ||
+      path.startsWith('/conditions'))   return <LegalPage kind="terms" />;
+  if (path.startsWith('/contact'))      return <ContactPage />;
+  return <Landing />;
+}
+
+// ── Landing ──────────────────────────────────────────────────────────────────
+function Landing() {
+  const { t } = useTranslation();
+
+  const problemItems    = t('landing.problem.items',      { returnObjects: true }) as { title: string; desc: string }[];
+  const howSteps        = t('landing.how.steps',          { returnObjects: true }) as { num: string; title: string; desc: string }[];
+  const featureItems    = t('landing.features.items',     { returnObjects: true }) as { title: string; desc: string }[];
+  const testimonials    = t('landing.testimonials.items', { returnObjects: true }) as { name: string; role: string; text: string }[];
+  const complianceItems = t('landing.compliance.items',   { returnObjects: true }) as string[];
+  const pricingFeatures = t('landing.pricing.features',   { returnObjects: true }) as string[];
+  const faqItems        = t('landing.faq.items',          { returnObjects: true }) as { q: string; a: string }[];
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="bg-paper text-ink min-h-screen overflow-x-hidden">
 
-      {/* ── Header ── */}
-      <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-200 ${scrolled ? 'bg-white/95 backdrop-blur shadow-sm border-b' : ''}`}>
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center gap-6">
-          <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center font-bold text-sm">D</div>
-            <span className="font-bold text-gray-900">Dagontvangst</span>
-          </div>
-          <div className="flex-1" />
-          <LangSwitcher />
-          <a href={APP_URL} className="hidden sm:block text-sm text-gray-600 hover:text-gray-900 transition">{t('landing.header.sign_in')}</a>
-          <a href={`${APP_URL}/register`}
-            className="bg-indigo-600 text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-indigo-700 transition">
-            {t('landing.header.try_free')}
-          </a>
-        </div>
-      </header>
+      <Header />
 
-      {/* ── Hero ── */}
-      <section className="pt-32 pb-24 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50 overflow-hidden">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="flex flex-wrap gap-2 mb-6">
-              {heroBadges.map((b) => (
-                <span key={b} className="text-xs font-medium bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full">{b}</span>
-              ))}
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-5">
+      {/* ── HERO ──────────────────────────────────────────────────────────── */}
+      <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-10">
+        <div className="absolute inset-0 bg-paper-dots mask-radial opacity-70 pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-center">
+          <div>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
+              className="font-serif text-[36px] sm:text-[56px] lg:text-[72px] leading-[0.98] tracking-[-0.02em] font-semibold break-words hyphens-auto"
+              lang={i18n.language.slice(0, 2)}
+            >
               {t('landing.hero.title_line1')}<br />
-              <span className="text-indigo-600">{t('landing.hero.title_line2')}</span>
-            </h1>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">{t('landing.hero.subtitle')}</p>
-            <div className="flex flex-wrap gap-3 mb-8">
+              <span className="italic font-normal text-ink-2/80">{t('landing.hero.title_line2')}</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.15 }}
+              className="mt-8 text-[17px] sm:text-[19px] text-ink-2/80 leading-relaxed max-w-xl"
+            >
+              {t('landing.hero.subtitle')}
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-10 flex flex-wrap items-center gap-3"
+            >
               <a href={`${APP_URL}/register`}
-                className="flex items-center gap-2 bg-indigo-600 text-white font-semibold px-6 py-3 rounded-xl hover:bg-indigo-700 transition text-sm">
-                {t('landing.hero.cta_primary')} <ArrowRight size={16} />
+                className="group inline-flex items-center gap-2 bg-ink text-paper font-medium px-6 py-3.5 rounded-full hover:bg-ink-2 transition">
+                {t('landing.hero.cta_primary')}
+                <ArrowUpRight size={16} className="group-hover:rotate-45 transition duration-300" />
               </a>
               <a href="#features"
-                className="flex items-center gap-2 border text-gray-700 font-medium px-6 py-3 rounded-xl hover:bg-gray-50 transition text-sm">
+                className="inline-flex items-center gap-2 text-ink font-medium px-6 py-3.5 rounded-full border border-hair hover:bg-white transition">
                 {t('landing.hero.cta_secondary')}
               </a>
-            </div>
-            <div className="flex items-center gap-3 text-sm text-gray-500">
-              <div className="flex">
-                {[...Array(5)].map((_, i) => <Star key={i} size={14} className="text-yellow-400 fill-yellow-400" />)}
-              </div>
-              <span>{t('landing.hero.quote')}</span>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 32 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gradient-to-br from-indigo-600 to-indigo-800 rounded-3xl p-8 shadow-2xl">
-            <div className="text-white font-semibold text-sm mb-4 flex items-center gap-2">
-              <Shield size={16} /> {t('landing.hero.chain_title')}
-            </div>
-            <HashChainVisual footerText={t('landing.hero.chain_footer')} />
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
+              className="mt-10 flex items-center gap-3 text-sm text-ink-2/70 font-serif italic"
+            >
+              <span className="text-xl leading-none">”</span>
+              {t('landing.hero.quote')}
+            </motion.div>
+          </div>
+
+          <div className="flex justify-center lg:justify-end">
+            <Receipt />
+          </div>
         </div>
       </section>
 
-      {/* ── Problem ── */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-4xl mx-auto">
-          <Reveal>
-            <h2 className="text-3xl font-bold text-center mb-4">{t('landing.problem.title')}</h2>
-            <p className="text-gray-600 text-center mb-12">{t('landing.problem.subtitle')}</p>
-          </Reveal>
-          <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {problemItems.map(({ title, desc }) => (
-              <motion.div key={title} variants={fade} className="bg-white border rounded-2xl p-5">
-                <div className="w-8 h-8 rounded-lg bg-red-100 flex items-center justify-center mb-3">
-                  <span className="text-red-500 font-bold text-xs">✗</span>
+      {/* ── TICKER ────────────────────────────────────────────────────────── */}
+      <Ticker />
+
+      {/* ── STATEMENT (dark) ─────────────────────────────────────────────── */}
+      <section className="relative bg-ink text-paper py-24 sm:py-32 px-6 sm:px-10 overflow-hidden">
+        <div className="absolute inset-0 bg-ink-dots mask-radial opacity-60" />
+        <div className="relative max-w-5xl mx-auto text-center">
+          <div className="chip chip-dark mb-8">01 · {t('landing.chips.why')}</div>
+          <h2 className="font-serif text-[28px] sm:text-[44px] lg:text-[52px] leading-[1.05] tracking-tight font-normal">
+            {t('landing.problem.title')}
+          </h2>
+          <p className="mt-6 text-white/60 text-[15px] sm:text-[17px] max-w-2xl mx-auto leading-relaxed">
+            {t('landing.problem.subtitle')}
+          </p>
+
+          <div className="mt-12 sm:mt-16 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+            {problemItems.map(({ title, desc }, i) => (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="bg-ink p-6 sm:p-8 text-left"
+              >
+                <div className="font-mono text-[10px] text-white/40 mb-4 flex items-center gap-2">
+                  <span className="text-red-400">✕</span>
+                  {String(i + 1).padStart(2, '0')} · {t('landing.chips.risk')}
                 </div>
-                <h3 className="font-semibold mb-1 text-sm">{title}</h3>
-                <p className="text-sm text-gray-600">{desc}</p>
+                <h3 className="font-serif text-2xl mb-3">{title}</h3>
+                <p className="text-white/60 text-[15px] leading-relaxed">{desc}</p>
               </motion.div>
             ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── How it works ── */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <Reveal><h2 className="text-3xl font-bold text-center mb-12">{t('landing.how.title')}</h2></Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {howSteps.map(({ num, title, desc }) => (
-              <Reveal key={num}>
-                <div className="text-center">
-                  <div className="w-12 h-12 rounded-full bg-indigo-600 text-white font-bold text-lg flex items-center justify-center mx-auto mb-4">{num}</div>
-                  <h3 className="font-semibold mb-2">{title}</h3>
-                  <p className="text-sm text-gray-600">{desc}</p>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Features ── */}
-      <section id="features" className="py-20 px-6 bg-gray-50">
-        <div className="max-w-5xl mx-auto">
-          <Reveal><h2 className="text-3xl font-bold text-center mb-12">{t('landing.features.title')}</h2></Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {featureItems.map(({ title, desc }, i) => {
-              const Icon = FEATURE_ICONS[i] ?? Shield;
-              return (
-                <Reveal key={title} delay={i * 0.05}>
-                  <motion.div whileHover={{ y: -4 }} className="bg-white border rounded-2xl p-5 transition cursor-default">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center mb-4">
-                      <Icon size={20} className="text-indigo-600" />
-                    </div>
-                    <h3 className="font-semibold text-sm mb-1.5">{title}</h3>
-                    <p className="text-sm text-gray-600">{desc}</p>
-                  </motion.div>
-                </Reveal>
-              );
-            })}
+      {/* ── HOW IT WORKS ─────────────────────────────────────────────────── */}
+      <section className="relative py-24 sm:py-32 px-6 sm:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-20">
+            <div>
+              <div className="chip mb-5">02 · {t('landing.chips.workflow')}</div>
+              <h2 className="font-serif text-[32px] sm:text-[44px] lg:text-[52px] leading-[1.05] tracking-tight max-w-xl">
+                {t('landing.how.title')}
+              </h2>
+            </div>
+            <div className="font-mono text-xs text-ink-2/60 max-w-xs">
+              {t('landing.how.intro')}
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── Testimonials ── */}
-      <section className="py-20 px-6">
-        <div className="max-w-5xl mx-auto">
-          <Reveal><h2 className="text-3xl font-bold text-center mb-12">{t('landing.testimonials.title')}</h2></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map(({ name, role, text }, i) => (
-              <Reveal key={name} delay={i * 0.08}>
-                <div className="border rounded-2xl p-6 bg-white">
-                  <div className="flex mb-3">
-                    {[...Array(5)].map((_, j) => <Star key={j} size={14} className="text-yellow-400 fill-yellow-400" />)}
-                  </div>
-                  <p className="text-sm text-gray-700 mb-4 leading-relaxed">"{text}"</p>
-                  <div className="text-sm font-semibold">{name}</div>
-                  <div className="text-xs text-gray-500">{role}</div>
+            {howSteps.map(({ num, title, desc }, i) => (
+              <motion.div
+                key={num}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative border border-hair rounded-2xl p-6 bg-white/70 hover:bg-white transition"
+              >
+                <div className="flex items-baseline justify-between mb-6">
+                  <span className="font-serif text-[54px] leading-none text-ink-2/15 font-semibold">{num}</span>
+                  <span className="font-mono text-[10px] text-ink-2/50 uppercase tracking-widest">{t('landing.chips.step')} {i + 1}/3</span>
                 </div>
-              </Reveal>
+                <h3 className="font-serif text-xl mb-2">{title}</h3>
+                <p className="text-[14px] text-ink-2/75 leading-relaxed mb-5">{desc}</p>
+                <StepMock i={i} />
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Compliance ── */}
-      <section className="py-20 px-6 bg-indigo-50">
-        <div className="max-w-4xl mx-auto">
-          <Reveal>
-            <h2 className="text-3xl font-bold text-center mb-4">{t('landing.compliance.title')}</h2>
-            <p className="text-gray-600 text-center mb-10">{t('landing.compliance.subtitle')}</p>
-          </Reveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {complianceItems.map((item) => (
-              <Reveal key={item}>
-                <div className="flex items-center gap-3 bg-white rounded-xl px-4 py-3 border">
-                  <Check size={16} className="text-emerald-500 shrink-0" />
-                  <span className="text-sm">{item}</span>
-                </div>
-              </Reveal>
-            ))}
+      {/* ── FEATURES — bento ─────────────────────────────────────────────── */}
+      <section id="features" className="relative py-24 sm:py-32 px-6 sm:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
+            <div>
+              <div className="chip mb-5">03 · {t('landing.chips.features')}</div>
+              <h2 className="font-serif text-[32px] sm:text-[44px] lg:text-[52px] leading-[1.05] tracking-tight max-w-2xl">
+                {t('landing.features.title')}.<br />
+                <span className="italic font-normal text-ink-2/70">{t('landing.featuresExtra.accent')}</span>
+              </h2>
+            </div>
           </div>
-          <Reveal delay={0.1}>
-            <p className="text-center text-sm text-gray-500 mt-6">
-              <RotateCcw size={13} className="inline mr-1" />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[minmax(220px,auto)]">
+            {/* Big feature card — chain */}
+            <div className="sm:col-span-2 lg:col-span-2 lg:row-span-2 relative bg-ink text-paper rounded-3xl p-8 overflow-hidden grain">
+              <div className="absolute inset-0 bg-ink-dots opacity-40" />
+              <div className="relative flex flex-col h-full">
+                <div className="chip chip-dark mb-4">{t('landing.chips.sealed')}</div>
+                <h3 className="font-serif text-3xl sm:text-4xl leading-tight max-w-sm">
+                  {featureItems[1]?.title ?? 'Hash-chain immutabiliteit'}
+                </h3>
+                <p className="mt-3 text-white/60 max-w-sm text-[15px] leading-relaxed">
+                  {featureItems[1]?.desc}
+                </p>
+                <div className="mt-auto pt-8">
+                  <ChainViz />
+                </div>
+              </div>
+            </div>
+
+            {/* Small feature cards */}
+            {featureItems
+              .map((item, idx) => ({ ...item, idx }))
+              .filter((f) => f.idx !== 1)
+              .map(({ title, desc, idx }) => {
+                const Icon = FEATURE_ICONS[idx] ?? Shield;
+                return (
+                  <motion.div
+                    key={title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.05 * idx }}
+                    className="relative border border-hair rounded-3xl p-6 bg-white/60 hover:bg-white hover:-translate-y-0.5 transition"
+                  >
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="w-10 h-10 rounded-xl bg-ink text-paper flex items-center justify-center">
+                        <Icon size={18} />
+                      </div>
+                      <span className="font-mono text-[10px] text-ink-2/40">/{String(idx + 1).padStart(2, '0')}</span>
+                    </div>
+                    <h3 className="font-serif text-lg leading-snug mb-1.5">{title}</h3>
+                    <p className="text-[13.5px] text-ink-2/70 leading-relaxed">{desc}</p>
+                  </motion.div>
+                );
+              })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── COMPLIANCE — split ───────────────────────────────────────────── */}
+      <section className="relative py-24 sm:py-32 px-6 sm:px-10 bg-white/50 border-y border-hair">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20">
+          <div className="lg:sticky lg:top-24 self-start">
+            <div className="chip mb-5">04 · {t('landing.chips.compliance')}</div>
+            <h2 className="font-serif text-[32px] sm:text-[44px] lg:text-[48px] leading-[1.05] tracking-tight">
+              {t('landing.compliance.title')}
+            </h2>
+            <p className="mt-6 text-ink-2/75 text-[16px] leading-relaxed max-w-md">
+              {t('landing.compliance.subtitle')}
+            </p>
+            <p className="mt-8 text-sm text-ink-2/60 font-serif italic max-w-md">
               {t('landing.compliance.bonus')}
             </p>
-          </Reveal>
-        </div>
-      </section>
+          </div>
 
-      {/* ── Pricing ── */}
-      <section className="py-20 px-6">
-        <div className="max-w-md mx-auto text-center">
-          <Reveal>
-            <h2 className="text-3xl font-bold mb-4">{t('landing.pricing.title')}</h2>
-            <p className="text-gray-600 mb-8">{t('landing.pricing.subtitle')}</p>
-            <div className="border-2 border-indigo-600 rounded-3xl p-8 bg-white shadow-xl">
-              <div className="flex items-baseline justify-center gap-1 mb-2">
-                <span className="text-5xl font-extrabold text-indigo-600">{t('landing.pricing.price')}</span>
-                <span className="text-gray-500 text-sm">{t('landing.pricing.period')}</span>
+          <div className="relative">
+            <div className="hidden md:block absolute -top-10 right-2 z-10 pointer-events-none">
+              <div className="relative w-28 h-28">
+                <div className="animate-stamp absolute inset-0">
+                  <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_4px_8px_rgba(185,28,28,0.35)]">
+                    <defs>
+                      <path id="cmp-arc-top" d="M 50,50 m -34,0 a 34,34 0 1,1 68,0" />
+                      <path id="cmp-arc-bot" d="M 50,50 m -34,0 a 34,34 0 1,0 68,0" />
+                    </defs>
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="var(--seal)" strokeWidth="2" strokeDasharray="2 3" opacity="0.9" />
+                    <circle cx="50" cy="50" r="38" fill="none" stroke="var(--seal)" strokeWidth="2.5" opacity="0.95" />
+                    <text fill="var(--seal)" fontFamily="JetBrains Mono, monospace" fontSize="8.5" fontWeight="700" letterSpacing="1.3">
+                      <textPath href="#cmp-arc-top" startOffset="50%" textAnchor="middle">FOD · SPF · FPS</textPath>
+                    </text>
+                    <text fill="var(--seal)" fontFamily="JetBrains Mono, monospace" fontSize="6.5" letterSpacing="1.5">
+                      <textPath href="#cmp-arc-bot" startOffset="50%" textAnchor="middle">CONFORM · 2026</textPath>
+                    </text>
+                    <g transform="translate(50 50) rotate(-8)">
+                      <text textAnchor="middle" dominantBaseline="central" fill="var(--seal)" fontFamily="Fraunces, serif" fontStyle="italic" fontWeight="600" fontSize="13">
+                        conform
+                      </text>
+                    </g>
+                  </svg>
+                </div>
               </div>
-              <p className="text-gray-500 text-sm mb-6">{t('landing.pricing.trial_note')}</p>
-              <ul className="space-y-2 text-sm text-left mb-8">
-                {pricingFeatures.map((f) => (
-                  <li key={f} className="flex items-center gap-2">
-                    <Check size={15} className="text-emerald-500 shrink-0" /> {f}
-                  </li>
-                ))}
-              </ul>
-              <a href={`${APP_URL}/register`}
-                className="block w-full bg-indigo-600 text-white font-bold py-3.5 rounded-xl hover:bg-indigo-700 transition text-sm">
-                {t('landing.pricing.cta')}
-              </a>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── FAQ ── */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-2xl mx-auto">
-          <Reveal><h2 className="text-3xl font-bold text-center mb-10">{t('landing.faq.title')}</h2></Reveal>
-          <div className="bg-white border rounded-2xl px-6 divide-y">
-            {faqItems.map(({ q, a }) => <FaqItem key={q} q={q} a={a} />)}
+            <ul className="divide-y divide-hair border border-hair rounded-2xl bg-white overflow-hidden">
+              {complianceItems.map((item, i) => (
+                <motion.li
+                  key={item}
+                  initial={{ opacity: 0, x: -8 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="flex items-start gap-5 px-6 py-5"
+                >
+                  <span className="font-mono text-[10px] text-ink-2/40 mt-1 shrink-0 w-6">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="flex-1 text-[15px] leading-relaxed">{item}</span>
+                  <span className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center shrink-0">
+                    <Check size={14} className="text-white" strokeWidth={3} />
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="py-24 px-6 bg-gradient-to-br from-indigo-600 to-indigo-800 text-white text-center">
-        <Reveal>
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">{t('landing.cta.title')}</h2>
-          <p className="text-indigo-200 mb-8 text-lg">{t('landing.cta.subtitle')}</p>
+      {/* ── TESTIMONIALS ─────────────────────────────────────────────────── */}
+      <section className="relative py-24 sm:py-32 px-6 sm:px-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between gap-6 mb-12 md:mb-14">
+            <div>
+              <div className="chip mb-5">05 · {t('landing.chips.reviews')}</div>
+              <h2 className="font-serif text-[32px] sm:text-[44px] lg:text-[52px] leading-[1.05] tracking-tight max-w-2xl">
+                {t('landing.testimonialsExtra.heading')}<br />
+                <span className="italic font-normal text-ink-2/70">{t('landing.testimonialsExtra.accent')}</span>
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {testimonials.map(({ name, role, text }, i) => (
+              <motion.div
+                key={name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className={`relative bg-white border border-hair rounded-2xl p-7 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.15)] ${
+                  i === 0 ? 'md:rotate-[-1.2deg]' : i === 2 ? 'md:rotate-[1.5deg]' : 'md:-translate-y-3'
+                }`}
+              >
+                <div className="font-serif text-4xl leading-none text-ink-2/25 select-none">“</div>
+                <p className="mt-2 font-serif italic text-[17px] leading-snug text-ink-2">{text}</p>
+                <div className="mt-6 pt-4 border-t border-dashed border-hair flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-ink text-paper font-serif italic font-semibold flex items-center justify-center">
+                    {name.charAt(0)}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="font-serif text-[15px] font-semibold leading-tight">{name}</div>
+                    <div className="font-mono text-[10px] text-ink-2/60 uppercase tracking-wider mt-0.5">{role}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRICING + FAQ side by side ───────────────────────────────────── */}
+      <section className="relative py-24 sm:py-32 px-6 sm:px-10 bg-white/60 border-y border-hair">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-20">
+
+          {/* Pricing */}
+          <div>
+            <div className="chip mb-5">06 · {t('landing.chips.pricing')}</div>
+            <h2 className="font-serif text-[32px] sm:text-[40px] lg:text-[46px] leading-[1.05] tracking-tight mb-3">
+              {t('landing.pricing.title')}
+            </h2>
+            <p className="text-ink-2/70 mb-8">{t('landing.pricing.subtitle')}</p>
+
+            <div className="relative bg-ink text-paper rounded-3xl p-8 overflow-hidden grain">
+              <div className="absolute inset-0 bg-ink-dots opacity-30" />
+              <div className="relative">
+                <div className="flex items-baseline gap-2 mb-2">
+                  <span className="font-serif text-6xl sm:text-7xl font-semibold tracking-tight">{t('landing.pricing.price')}</span>
+                  <span className="text-white/50 font-mono text-xs uppercase tracking-widest">{t('landing.pricing.period')}</span>
+                </div>
+                <div className="font-mono text-[11px] text-white/50 mb-8">{t('landing.pricing.trial_note')}</div>
+
+                <ul className="space-y-2.5 mb-8">
+                  {pricingFeatures.map((f) => (
+                    <li key={f} className="flex items-center gap-3 text-[14px] text-white/90">
+                      <span className="w-4 h-4 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+                        <Check size={11} className="text-emerald-400" strokeWidth={3} />
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a href={`${APP_URL}/register`}
+                  className="group flex items-center justify-center gap-2 bg-paper text-ink font-medium py-3.5 rounded-full hover:bg-white transition w-full">
+                  {t('landing.pricing.cta')}
+                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* FAQ */}
+          <div>
+            <div className="chip mb-5">07 · {t('landing.chips.faq')}</div>
+            <h2 className="font-serif text-[32px] sm:text-[40px] lg:text-[46px] leading-[1.05] tracking-tight mb-8">
+              {t('landing.faq.title')}
+            </h2>
+            <div>
+              {faqItems.map(({ q, a }, i) => <FaqItem key={q} q={q} a={a} idx={i} />)}
+              <div className="border-t border-hair" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ─────────────────────────────────────────────────────────── */}
+      <section className="relative bg-ink text-paper py-28 sm:py-40 px-6 sm:px-10 overflow-hidden grain">
+        <div className="absolute inset-0 bg-ink-dots mask-radial opacity-60" />
+        <div className="relative max-w-4xl mx-auto text-center">
+          <div className="chip chip-dark mb-8 mx-auto">{t('landing.chips.ready')}</div>
+          <h2 className="font-serif text-[36px] sm:text-[60px] lg:text-[80px] leading-[0.98] tracking-tight font-normal">
+            {t('landing.cta.title_lead')}<br />
+            <span className="italic text-white/60">{t('landing.cta.title_accent')}</span>
+          </h2>
+          <p className="mt-8 text-white/60 text-[15px] sm:text-[17px] max-w-xl mx-auto px-4">{t('landing.cta.subtitle')}</p>
           <a href={`${APP_URL}/register`}
-            className="inline-flex items-center gap-2 bg-white text-indigo-700 font-bold px-8 py-4 rounded-xl hover:bg-indigo-50 transition text-sm">
-            {t('landing.cta.button')} <ArrowRight size={16} />
+            className="group mt-10 inline-flex items-center gap-2 bg-paper text-ink font-medium px-8 py-4 rounded-full hover:bg-white transition">
+            {t('landing.cta.button')}
+            <ArrowUpRight size={16} className="group-hover:rotate-45 transition duration-300" />
           </a>
-        </Reveal>
-      </section>
-
-      {/* ── Footer ── */}
-      <footer className="py-10 px-6 border-t">
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded bg-indigo-600 text-white flex items-center justify-center font-bold text-xs">D</div>
-            <span className="text-sm font-semibold">Dagontvangst</span>
-          </div>
-          <p className="text-xs text-gray-400">{t('landing.footer.made_in')}</p>
-          <div className="flex gap-4 text-xs text-gray-500">
-            <a href="#" className="hover:text-gray-800 transition">{t('landing.footer.privacy')}</a>
-            <a href="#" className="hover:text-gray-800 transition">{t('landing.footer.terms')}</a>
-            <a href="mailto:info@dagontvangst.be" className="hover:text-gray-800 transition">{t('landing.footer.contact')}</a>
+          <div className="mt-14 flex items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] text-white/40 uppercase tracking-widest flex-wrap px-4">
+            {(t('landing.cta.trust', { returnObjects: true }) as string[]).map((c) => (
+              <span key={c}>· {c}</span>
+            ))}
           </div>
         </div>
-      </footer>
+      </section>
+
+      <Footer />
     </div>
   );
 }

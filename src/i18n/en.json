@@ -310,8 +310,30 @@
         { "title": "Missing audit trail",        "desc": "Without proof of integrity, your lawyer has nothing to work with." }
       ]
     },
+    "chips": {
+      "why": "Why",
+      "workflow": "Workflow",
+      "features": "Features",
+      "compliance": "Compliance",
+      "reviews": "Reviews",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "ready": "Ready",
+      "risk": "risk",
+      "sealed": "Sealed",
+      "step": "step",
+      "live": "live · v1.0"
+    },
+    "featuresExtra": {
+      "accent": "Nothing you don't."
+    },
+    "testimonialsExtra": {
+      "heading": "Owners who finally",
+      "accent": "sleep at night."
+    },
     "how": {
       "title": "How it works",
+      "intro": "From registration to sealed chain — in three steps, no accounting background required.",
       "steps": [
         { "num": "01", "title": "Register your business", "desc": "Create an account, add your location with VAT number and address. Done in 2 minutes." },
         { "num": "02", "title": "Close each day",         "desc": "Enter VAT lines and payment methods. Cash reconciliation and hash are calculated automatically." },
@@ -377,14 +399,113 @@
     },
     "cta": {
       "title": "Ready to get started?",
+      "title_lead": "Ready to get started",
+      "title_accent": "— today.",
       "subtitle": "14 days free, no credit card, cancel anytime.",
-      "button": "Try it free now"
+      "button": "Try it free now",
+      "trust": ["FOD-compliant", "EU data", "PWA offline", "14 days free"]
     },
     "footer": {
       "made_in": "Made in Belgium for Belgian hospitality",
       "privacy": "Privacy",
       "terms": "Terms",
       "contact": "Contact"
+    }
+  },
+  "legal": {
+    "back": "Back to home",
+    "last_updated": "Last updated",
+    "identity_title": "Company",
+    "chip": {
+      "privacy": "Privacy policy",
+      "terms": "Terms of service"
+    },
+    "company": {
+      "name": "Dagontvangst BV",
+      "vat": "BE0778.412.905",
+      "kbo": "0778.412.905",
+      "rpr": "RPR Ghent",
+      "address": "Kortrijksesteenweg 12, 9000 Ghent, Belgium",
+      "email": "info@dagontvangst.be"
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "subtitle": "How we process personal data under the GDPR and the Belgian data protection framework.",
+      "sections": [
+        { "h": "Data controller",
+          "b": "Dagontvangst BV is the controller of your personal data. Contact: info@dagontvangst.be." },
+        { "h": "Data we process",
+          "b": "• Account data: name, email address, password (hashed), language preference.\n• Business data: trade name, VAT number, address of your location(s).\n• Usage data: created daily closures, VAT splits, hash manifest, timestamps, in-app actions.\n• Payment data: handled by our payment provider — we only receive billing metadata, never card details.\n• Technical data: IP address, browser type, session tokens (essential for security)." },
+        { "h": "Purposes and legal basis",
+          "b": "• Contract performance (art. 6.1.b GDPR): managing your account, storing your daily receipts book and generating FOD-compliant exports.\n• Legal obligation (art. 6.1.c GDPR): tax retention (7 years) and Belgian accounting regulations.\n• Legitimate interest (art. 6.1.f GDPR): fraud prevention, service security, feature improvement.\n• Consent (art. 6.1.a GDPR): where legally required, e.g. for non-essential communications." },
+        { "h": "Retention periods",
+          "b": "Accounting data (closures, VAT lines, hash chain): 7 years after the close of the fiscal year, per Belgian tax law.\nAccount data: as long as your account is active, and up to 12 months after cancellation for administrative wrap-up.\nLogs and technical data: maximum 12 months." },
+        { "h": "Recipients and processors",
+          "b": "• Hosting: EU-based cloud provider (data stays within the EEA).\n• Payment provider: for subscription handling.\n• Accountant: only if you explicitly grant access.\n• Authorities: on legally motivated request (e.g. FOD Finance).\nWe never sell your data to third parties." },
+        { "h": "Transfers outside the EU",
+          "b": "We process your data within the EEA. Any exceptional transfer to a third country will only occur based on an adequacy decision or standard contractual clauses." },
+        { "h": "Security",
+          "b": "We apply technical and organisational measures: TLS encryption, password hashing, role-based access control, cryptographic hash chain of closures, and regular backups. Incidents are reported to the Belgian DPA within 72 hours where required." },
+        { "h": "Your rights",
+          "b": "You have the right at any time to access, rectify, erase, restrict, object to or port your data. Contact us at info@dagontvangst.be. You can also file a complaint with the Belgian Data Protection Authority (Rue de la Presse 35, 1000 Brussels — dataprotectionauthority.be)." },
+        { "h": "Cookies",
+          "b": "We only use functional and essential cookies (session, language preference, CSRF token). No tracking or advertising cookies. No third-party analytics are loaded on the landing page without your consent." },
+        { "h": "Changes to this policy",
+          "b": "We may update this privacy policy. The current version is always available at dagontvangst.be/privacy with the date of last update." }
+      ]
+    },
+    "terms": {
+      "title": "Terms of service",
+      "subtitle": "The rights and obligations that apply to your use of Dagontvangst.",
+      "sections": [
+        { "h": "Definitions",
+          "b": "‘Dagontvangst’, ‘we’, ‘us’: Dagontvangst BV.\n‘Service’: the online platform for a digital daily receipts book, including the app, PWA and API.\n‘Customer’, ‘you’: the hospitality business or natural person using the Service." },
+        { "h": "Subject",
+          "b": "Dagontvangst provides a cloud-based daily receipts book that meets the requirements of Belgian tax law for hospitality. The Service is delivered ‘as a service’, in the state in which it is, with reasonable availability." },
+        { "h": "Registration and account",
+          "b": "You must provide accurate and up-to-date information. You are responsible for keeping your credentials confidential and for all activity performed under your account. You confirm that you are authorised to represent the business for which you create an account." },
+        { "h": "Trial period and price",
+          "b": "New customers receive a 14-day free trial without credit card. Afterwards, the rate is € 9 per month per location (excl. VAT), unless otherwise agreed in writing. Prices may be indexed annually; changes are communicated at least 30 days in advance." },
+        { "h": "Duration and cancellation",
+          "b": "The agreement is entered into for an indefinite term and can be cancelled monthly with one month's notice, taking effect at the end of the current month. Upon cancellation, your data remains available for export for 12 months." },
+        { "h": "Customer obligations",
+          "b": "You remain solely responsible for the correct entry of fiscal data and compliance with tax law. Dagontvangst facilitates compliance but does not replace accounting advice. Misuse, reverse engineering or resale of the Service is prohibited." },
+        { "h": "Liability",
+          "b": "Except in cases of wilful misconduct or gross negligence, our liability is limited to the amount of subscription fees paid in the 12 months preceding the incident. We are not liable for indirect damages, loss of revenue or tax penalties resulting from incorrect input by the customer." },
+        { "h": "Availability and force majeure",
+          "b": "We aim for 99.5% uptime on a monthly basis. We are not liable for interruptions caused by force majeure, including outages at hosting partners, legislative changes or other external causes." },
+        { "h": "Intellectual property",
+          "b": "All rights in the software, code, interface, brand and documentation belong to Dagontvangst BV. You receive a non-exclusive, non-transferable right of use for the duration of your subscription." },
+        { "h": "Data ownership",
+          "b": "All data you enter remains your property. You can download an export in JSON, CSV or PDF at any time, including the hash manifest of the chain." },
+        { "h": "Changes",
+          "b": "We may amend these terms. Material changes will be announced at least 30 days in advance. Continued use constitutes acceptance." },
+        { "h": "Governing law and jurisdiction",
+          "b": "This agreement is governed exclusively by Belgian law. Any disputes fall under the exclusive jurisdiction of the courts of the judicial district of Ghent, Ghent division, without prejudice to mandatory consumer protection rules." }
+      ]
+    }
+  },
+  "contact": {
+    "chip": "Contact",
+    "title": "Get in touch",
+    "subtitle": "A question about the service, a demo, or a tax matter? We usually reply within one business day.",
+    "direct": "or email directly:",
+    "hours": "Mon–Fri · 09:00–17:00 CET",
+    "form": {
+      "name": "Name",
+      "email": "Email address",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending…",
+      "success_title": "Thank you!",
+      "success": "We received your message and will get back to you as soon as possible.",
+      "error": "Something went wrong sending your message. Please try again or email us directly."
+    },
+    "info": {
+      "email_h": "Email",
+      "office_h": "Address",
+      "vat_h": "VAT"
     }
   }
 }

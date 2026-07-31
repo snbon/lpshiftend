@@ -310,8 +310,30 @@
         { "title": "Piste d'audit manquante",     "desc": "Sans preuve d'intégrité, votre avocat est démuni." }
       ]
     },
+    "chips": {
+      "why": "Pourquoi",
+      "workflow": "Workflow",
+      "features": "Fonctionnalités",
+      "compliance": "Conformité",
+      "reviews": "Avis",
+      "pricing": "Tarif",
+      "faq": "FAQ",
+      "ready": "Prêt",
+      "risk": "risque",
+      "sealed": "Scellé",
+      "step": "étape",
+      "live": "live · v1.0"
+    },
+    "featuresExtra": {
+      "accent": "Rien de superflu."
+    },
+    "testimonialsExtra": {
+      "heading": "Des exploitants qui enfin",
+      "accent": "dorment tranquilles."
+    },
     "how": {
       "title": "Comment ça marche",
+      "intro": "De l'inscription à la chaîne scellée — en trois étapes accessibles sans expérience comptable.",
       "steps": [
         { "num": "01", "title": "Enregistrez votre établissement", "desc": "Créez un compte, ajoutez votre établissement avec numéro de TVA et adresse. Prêt en 2 minutes." },
         { "num": "02", "title": "Clôturez chaque jour",             "desc": "Saisissez les lignes TVA et les moyens de paiement. Le rapprochement caisse et le hash sont calculés automatiquement." },
@@ -377,14 +399,113 @@
     },
     "cta": {
       "title": "Prêt à commencer ?",
+      "title_lead": "Prêt à commencer",
+      "title_accent": "— dès aujourd'hui.",
       "subtitle": "14 jours gratuits, sans carte de crédit, résiliable à tout moment.",
-      "button": "Essayez maintenant gratuitement"
+      "button": "Essayez maintenant gratuitement",
+      "trust": ["Conforme SPF", "Données EU", "PWA hors ligne", "14 jours gratuits"]
     },
     "footer": {
       "made_in": "Fait en Belgique pour l'horeca belge",
       "privacy": "Confidentialité",
       "terms": "Conditions",
       "contact": "Contact"
+    }
+  },
+  "legal": {
+    "back": "Retour à l'accueil",
+    "last_updated": "Dernière mise à jour",
+    "identity_title": "Entreprise",
+    "chip": {
+      "privacy": "Politique de confidentialité",
+      "terms": "Conditions générales"
+    },
+    "company": {
+      "name": "Dagontvangst BV",
+      "vat": "BE0778.412.905",
+      "kbo": "0778.412.905",
+      "rpr": "RPM Gand",
+      "address": "Kortrijksesteenweg 12, 9000 Gand, Belgique",
+      "email": "info@dagontvangst.be"
+    },
+    "privacy": {
+      "title": "Politique de confidentialité",
+      "subtitle": "Comment nous traitons les données personnelles conformément au RGPD et à la loi belge sur la protection des données.",
+      "sections": [
+        { "h": "Responsable du traitement",
+          "b": "Dagontvangst BV est responsable du traitement de vos données personnelles. Contact : info@dagontvangst.be." },
+        { "h": "Données traitées",
+          "b": "• Données de compte : nom, adresse e-mail, mot de passe (haché), langue préférée.\n• Données de l'entreprise : dénomination commerciale, numéro de TVA, adresse de votre/vos établissement(s).\n• Données d'utilisation : clôtures journalières créées, ventilations TVA, manifeste de hachage, horodatages, actions dans l'application.\n• Données de paiement : traitées par notre prestataire de paiement — nous ne recevons que les métadonnées de facturation, jamais les données de carte.\n• Données techniques : adresse IP, type de navigateur, jetons de session (essentiels à la sécurité)." },
+        { "h": "Finalités et base légale",
+          "b": "• Exécution du contrat (art. 6.1.b RGPD) : gestion de votre compte, stockage de votre journal des recettes et génération d'exports conformes au SPF.\n• Obligation légale (art. 6.1.c RGPD) : conservation fiscale (7 ans) et réglementation comptable belge.\n• Intérêt légitime (art. 6.1.f RGPD) : prévention de la fraude, sécurité du service, amélioration des fonctionnalités.\n• Consentement (art. 6.1.a RGPD) : lorsque légalement requis, notamment pour des communications non essentielles." },
+        { "h": "Durées de conservation",
+          "b": "Données comptables (clôtures, lignes TVA, chaîne de hachage) : 7 ans après clôture de l'exercice, conformément à la législation fiscale belge.\nDonnées de compte : tant que votre compte est actif, et jusqu'à 12 mois après résiliation pour le traitement administratif.\nJournaux et données techniques : maximum 12 mois." },
+        { "h": "Destinataires et sous-traitants",
+          "b": "• Hébergement : prestataire cloud basé dans l'UE (données conservées dans l'EEE).\n• Prestataire de paiement : pour la gestion des abonnements.\n• Comptable : uniquement si vous lui accordez explicitement un accès.\n• Autorités : sur demande légalement motivée (ex. SPF Finances).\nNous ne vendons jamais de données à des tiers." },
+        { "h": "Transfert hors UE",
+          "b": "Vos données sont traitées au sein de l'EEE. Tout transfert exceptionnel vers un pays tiers s'effectuera uniquement sur base d'une décision d'adéquation ou de clauses contractuelles types." },
+        { "h": "Sécurité",
+          "b": "Nous appliquons des mesures techniques et organisationnelles : chiffrement TLS, hachage des mots de passe, contrôle d'accès basé sur les rôles, chaîne de hachage cryptographique des clôtures, sauvegardes régulières. Les incidents sont notifiés à l'APD dans les 72 heures si requis." },
+        { "h": "Vos droits",
+          "b": "Vous disposez à tout moment du droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Contactez-nous à info@dagontvangst.be. Vous pouvez également introduire une réclamation auprès de l'Autorité de protection des données (Rue de la Presse 35, 1000 Bruxelles — autoriteprotectiondonnees.be)." },
+        { "h": "Cookies",
+          "b": "Nous utilisons uniquement des cookies fonctionnels et essentiels (session, préférence de langue, jeton CSRF). Aucun cookie de tracking ou publicitaire. Aucun outil d'analyse tiers n'est chargé sur la page d'accueil sans votre consentement." },
+        { "h": "Modifications de la politique",
+          "b": "Nous pouvons adapter la présente politique. La version en vigueur est toujours disponible sur dagontvangst.be/privacy avec la date de dernière mise à jour." }
+      ]
+    },
+    "terms": {
+      "title": "Conditions générales",
+      "subtitle": "Les droits et obligations applicables à l'utilisation de Dagontvangst.",
+      "sections": [
+        { "h": "Définitions",
+          "b": "‘Dagontvangst’, ‘nous’ : Dagontvangst BV.\n‘Service’ : la plateforme en ligne de journal des recettes journalières numérique, y compris l'application, la PWA et l'API.\n‘Client’, ‘vous’ : l'entreprise horeca ou la personne physique qui utilise le Service." },
+        { "h": "Objet",
+          "b": "Dagontvangst propose un journal des recettes journalières basé sur le cloud, conforme aux exigences de la législation fiscale belge pour l'horeca. Le Service est fourni ‘as a service’, en l'état, avec une disponibilité raisonnable." },
+        { "h": "Inscription et compte",
+          "b": "Vous devez fournir des données exactes et à jour. Vous êtes responsable de la confidentialité de vos identifiants et de toutes les actions effectuées via votre compte. Vous confirmez être habilité à représenter l'entreprise pour laquelle vous créez un compte." },
+        { "h": "Période d'essai et tarif",
+          "b": "Les nouveaux clients bénéficient d'une période d'essai gratuite de 14 jours sans carte de crédit. Ensuite, le tarif est de 9 € par mois par établissement (hors TVA), sauf accord écrit contraire. Les prix peuvent être indexés annuellement ; toute modification est communiquée au moins 30 jours à l'avance." },
+        { "h": "Durée et résiliation",
+          "b": "Le contrat est conclu pour une durée indéterminée et est résiliable mensuellement moyennant un préavis d'un mois, pour la fin du mois en cours. Vos données restent disponibles pour export pendant 12 mois après résiliation." },
+        { "h": "Obligations du client",
+          "b": "Vous restez responsable de la saisie correcte des données fiscales et du respect de la législation fiscale. Dagontvangst facilite la conformité mais ne remplace pas les conseils comptables. L'abus, la rétro-ingénierie ou la revente du Service sont interdits." },
+        { "h": "Responsabilité",
+          "b": "Sauf dol ou faute grave, notre responsabilité est limitée au montant des redevances d'abonnement des 12 mois précédant le fait générateur du dommage. Nous ne sommes pas responsables des dommages indirects, du manque à gagner ou d'amendes fiscales résultant d'une saisie erronée par le client." },
+        { "h": "Disponibilité et force majeure",
+          "b": "Nous visons une disponibilité de 99,5 % sur base mensuelle. Nous ne sommes pas responsables des interruptions dues à un cas de force majeure, y compris pannes chez nos hébergeurs, évolutions législatives ou autres causes externes." },
+        { "h": "Propriété intellectuelle",
+          "b": "Tous les droits sur le logiciel, le code, l'interface, la marque et la documentation appartiennent à Dagontvangst BV. Vous obtenez un droit d'usage non exclusif et non transférable pour la durée de votre abonnement." },
+        { "h": "Propriété des données",
+          "b": "Toutes les données que vous saisissez restent votre propriété. Vous pouvez à tout moment télécharger un export au format JSON, CSV ou PDF, y compris le manifeste de hachage de la chaîne." },
+        { "h": "Modifications",
+          "b": "Nous pouvons adapter les présentes conditions. Toute modification substantielle sera annoncée au moins 30 jours à l'avance. L'utilisation continue vaut acceptation." },
+        { "h": "Droit applicable et juridiction",
+          "b": "Le présent contrat est soumis exclusivement au droit belge. Tout litige relève de la compétence exclusive des tribunaux de l'arrondissement judiciaire de Gand, division Gand, sans préjudice des règles impératives de protection des consommateurs." }
+      ]
+    }
+  },
+  "contact": {
+    "chip": "Contact",
+    "title": "Contactez-nous",
+    "subtitle": "Question sur le service, une démo, ou un point fiscal ? Nous répondons généralement dans le jour ouvrable.",
+    "direct": "ou directement :",
+    "hours": "Lun–ven · 09h00–17h00 CET",
+    "form": {
+      "name": "Nom",
+      "email": "Adresse e-mail",
+      "subject": "Objet",
+      "message": "Message",
+      "send": "Envoyer le message",
+      "sending": "Envoi…",
+      "success_title": "Merci !",
+      "success": "Nous avons bien reçu votre message et vous répondrons dans les plus brefs délais.",
+      "error": "Un problème est survenu lors de l'envoi. Merci de réessayer ou de nous écrire directement."
+    },
+    "info": {
+      "email_h": "E-mail",
+      "office_h": "Adresse",
+      "vat_h": "TVA"
     }
   }
 }

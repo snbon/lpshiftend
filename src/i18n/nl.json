@@ -310,14 +310,6 @@
         { "title": "Auditspoor ontbreekt", "desc": "Zonder bewijs van integriteit staat je advocaat met lege handen." }
       ]
     },
-    "how": {
-      "title": "Hoe het werkt",
-      "steps": [
-        { "num": "01", "title": "Registreer je zaak",       "desc": "Maak een account aan, voeg je vestiging toe met BTW-nummer en adres. Klaar in 2 minuten." },
-        { "num": "02", "title": "Sluit elke dag af",         "desc": "Voer de BTW-lijnen en betaalmethoden in. De kassa-afstemming en hash worden automatisch berekend." },
-        { "num": "03", "title": "Verzegeld & verifieerbaar", "desc": "De afsluiting is onwijzigbaar in de ketting opgeslagen. Download een FOD-bundel wanneer nodig." }
-      ]
-    },
     "features": {
       "title": "Alles wat je nodig hebt",
       "items": [
@@ -375,16 +367,145 @@
         { "q": "Werkt het ook als ik meerdere zaken heb?",      "a": "Ja. Eén account ondersteunt meerdere vestigingen. Elk met hun eigen gesloten ketting, rollen en statistieken." }
       ]
     },
+    "chips": {
+      "why": "Waarom",
+      "workflow": "Workflow",
+      "features": "Features",
+      "compliance": "Compliance",
+      "reviews": "Reviews",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "ready": "Klaar",
+      "risk": "risico",
+      "sealed": "Verzegeld",
+      "step": "stap",
+      "live": "live · v1.0"
+    },
+    "how": {
+      "title": "Hoe het werkt",
+      "intro": "Van registratie tot verzegelde ketting — in drie stappen die geen boekhoudkundige ervaring vergen.",
+      "steps": [
+        { "num": "01", "title": "Registreer je zaak",       "desc": "Maak een account aan, voeg je vestiging toe met BTW-nummer en adres. Klaar in 2 minuten." },
+        { "num": "02", "title": "Sluit elke dag af",         "desc": "Voer de BTW-lijnen en betaalmethoden in. De kassa-afstemming en hash worden automatisch berekend." },
+        { "num": "03", "title": "Verzegeld & verifieerbaar", "desc": "De afsluiting is onwijzigbaar in de ketting opgeslagen. Download een FOD-bundel wanneer nodig." }
+      ]
+    },
+    "featuresExtra": {
+      "accent": "Niets wat je niet nodig hebt."
+    },
+    "testimonialsExtra": {
+      "heading": "Uitbaters die eindelijk",
+      "accent": "rustig slapen."
+    },
     "cta": {
       "title": "Klaar om te starten?",
+      "title_lead": "Klaar om te starten",
+      "title_accent": "— vandaag nog.",
       "subtitle": "14 dagen gratis, geen kredietkaart, opzegbaar op elk moment.",
-      "button": "Probeer nu gratis"
+      "button": "Probeer nu gratis",
+      "trust": ["FOD-conform", "EU-data", "PWA offline", "14 dagen gratis"]
     },
     "footer": {
       "made_in": "Gemaakt in België voor Belgische horeca",
       "privacy": "Privacy",
       "terms": "Voorwaarden",
       "contact": "Contact"
+    }
+  },
+  "legal": {
+    "back": "Terug naar home",
+    "last_updated": "Laatst bijgewerkt",
+    "identity_title": "Onderneming",
+    "chip": {
+      "privacy": "Privacybeleid",
+      "terms": "Algemene voorwaarden"
+    },
+    "company": {
+      "name": "Dagontvangst BV",
+      "vat": "BE0778.412.905",
+      "kbo": "0778.412.905",
+      "rpr": "RPR Gent",
+      "address": "Kortrijksesteenweg 12, 9000 Gent, België",
+      "email": "info@dagontvangst.be"
+    },
+    "privacy": {
+      "title": "Privacybeleid",
+      "subtitle": "Hoe wij persoonsgegevens verwerken volgens de AVG/GDPR en de Belgische kaderwet gegevensbescherming.",
+      "sections": [
+        { "h": "Verwerkingsverantwoordelijke",
+          "b": "Dagontvangst BV is verantwoordelijk voor de verwerking van je persoonsgegevens. Contact: info@dagontvangst.be." },
+        { "h": "Welke gegevens wij verwerken",
+          "b": "• Accountgegevens: naam, e-mailadres, wachtwoord (gehasht), taalvoorkeur.\n• Bedrijfsgegevens: handelsnaam, BTW-nummer, adres van je vestiging(en).\n• Gebruiksgegevens: aangemaakte dagafsluitingen, BTW-uitsplitsingen, hash-manifest, tijdstempels, gebruikersacties in de app.\n• Betalingsgegevens: verwerkt door onze betaalprovider — wij ontvangen alleen factuurmetadata, geen kaartgegevens.\n• Technische gegevens: IP-adres, browsertype, sessie-tokens (essentieel voor beveiliging)." },
+        { "h": "Doeleinden en rechtsgrond",
+          "b": "• Dienstverlening en uitvoering van de overeenkomst (art. 6.1.b AVG): het beheren van je account, het opslaan van je dagontvangstenboek en het genereren van FOD-conforme exports.\n• Wettelijke verplichting (art. 6.1.c AVG): fiscale bewaarplicht (7 jaar) en Belgische boekhoudkundige regelgeving.\n• Gerechtvaardigd belang (art. 6.1.f AVG): fraudepreventie, beveiliging van de dienst en verbetering van functionaliteit.\n• Toestemming (art. 6.1.a AVG): waar wettelijk vereist, bijvoorbeeld voor niet-essentiële communicatie." },
+        { "h": "Bewaartermijnen",
+          "b": "Boekhoudkundige data (afsluitingen, BTW-lijnen, hash-chain): 7 jaar na afsluiting van het boekjaar, conform de Belgische fiscale wetgeving.\nAccountgegevens: zolang je account actief is, en tot 12 maanden na opzegging voor administratieve afwikkeling.\nLogs en technische gegevens: maximaal 12 maanden." },
+        { "h": "Ontvangers en verwerkers",
+          "b": "• Hosting: EU-gebaseerde cloudprovider (data blijft binnen de EER).\n• Betaalprovider: voor abonnementsafhandeling.\n• Boekhouder: enkel indien je hem/haar expliciet toegang geeft.\n• Autoriteiten: op wettelijk gemotiveerd verzoek (bv. FOD Financiën).\nWij verkopen géén gegevens aan derden." },
+        { "h": "Doorgifte buiten de EU",
+          "b": "Wij verwerken je gegevens binnen de EER. Indien uitzonderlijk doorgifte naar een derde land nodig is, gebeurt dit uitsluitend op basis van adequaatheidsbesluiten of standaard contractuele clausules." },
+        { "h": "Beveiliging",
+          "b": "Wij passen technische en organisatorische maatregelen toe: TLS-versleuteling, wachtwoord-hashing, toegangscontrole met rollen, cryptografische hash-chain van afsluitingen, en regelmatige back-ups. Incidenten worden binnen 72 uur gemeld aan de GBA indien vereist." },
+        { "h": "Je rechten",
+          "b": "Je hebt op elk moment het recht om je gegevens in te kijken, te corrigeren, te laten verwijderen, de verwerking te beperken, bezwaar te maken of over te dragen. Neem contact op via info@dagontvangst.be. Je kan ook klacht indienen bij de Gegevensbeschermingsautoriteit (Drukpersstraat 35, 1000 Brussel — gegevensbeschermingsautoriteit.be)." },
+        { "h": "Cookies",
+          "b": "Wij gebruiken uitsluitend functionele en essentiële cookies (sessie, taalvoorkeur, CSRF-token). Er zijn geen tracking- of advertentie-cookies. Voor de landingspagina worden geen third-party analytics geladen zonder je toestemming." },
+        { "h": "Wijzigingen aan dit beleid",
+          "b": "Wij kunnen dit privacybeleid aanpassen. De actuele versie is steeds beschikbaar op dagontvangst.be/privacy met de datum van de laatste wijziging." }
+      ]
+    },
+    "terms": {
+      "title": "Algemene voorwaarden",
+      "subtitle": "De rechten en plichten die van toepassing zijn op het gebruik van Dagontvangst.",
+      "sections": [
+        { "h": "Definities",
+          "b": "‘Dagontvangst’, ‘wij’, ‘ons’: Dagontvangst BV.\n‘Dienst’: het online platform voor digitaal dagontvangstenboek, inclusief app, PWA en API.\n‘Klant’, ‘je’: de horeca-onderneming of natuurlijke persoon die de Dienst gebruikt." },
+        { "h": "Voorwerp",
+          "b": "Dagontvangst biedt een cloudgebaseerd dagontvangstenboek dat voldoet aan de vereisten van de Belgische fiscale wetgeving voor horeca. De Dienst wordt aangeboden ‘as a service’, in de staat waarin die zich bevindt, met redelijke beschikbaarheid." },
+        { "h": "Registratie en account",
+          "b": "Je moet correcte en actuele gegevens verstrekken. Je bent verantwoordelijk voor het geheim houden van je toegangsgegevens en voor alle handelingen die met je account worden verricht. Je bevestigt dat je bevoegd bent om de onderneming te vertegenwoordigen waarvoor je een account aanmaakt." },
+        { "h": "Proefperiode en prijs",
+          "b": "Nieuwe klanten krijgen een gratis proefperiode van 14 dagen zonder kredietkaart. Nadien geldt het tarief van € 9 per maand per vestiging (excl. BTW), tenzij een ander tarief schriftelijk werd overeengekomen. Prijzen kunnen jaarlijks worden geïndexeerd; wijzigingen worden minstens 30 dagen op voorhand gecommuniceerd." },
+        { "h": "Duur en opzegging",
+          "b": "De overeenkomst wordt aangegaan voor onbepaalde duur en is maandelijks opzegbaar met een opzegtermijn van één maand, tegen het einde van de lopende maand. Bij opzegging blijft je data 12 maanden beschikbaar voor export." },
+        { "h": "Verplichtingen van de klant",
+          "b": "Je bent zelf eindverantwoordelijk voor de correcte invoer van fiscale gegevens en de naleving van de fiscale wetgeving. Dagontvangst faciliteert conformiteit maar vervangt geen boekhoudkundig advies. Misbruik, reverse engineering of doorverkoop van de Dienst is verboden." },
+        { "h": "Aansprakelijkheid",
+          "b": "Behoudens opzet of grove fout is onze aansprakelijkheid beperkt tot het bedrag van de abonnementskosten van de 12 maanden voorafgaand aan het schadegeval. Wij zijn niet aansprakelijk voor indirecte schade, gemiste omzet of fiscale boetes voortvloeiend uit onjuiste input door de klant." },
+        { "h": "Beschikbaarheid en overmacht",
+          "b": "Wij streven naar een uptime van 99,5% op maandbasis. Wij zijn niet aansprakelijk voor onderbrekingen door overmacht, waaronder storingen bij hostingpartners, wettelijke wijzigingen of andere externe oorzaken." },
+        { "h": "Intellectueel eigendom",
+          "b": "Alle rechten op de software, code, interface, merk en documentatie berusten bij Dagontvangst BV. Je krijgt een niet-exclusief, niet-overdraagbaar gebruiksrecht voor de duur van je abonnement." },
+        { "h": "Data-eigendom",
+          "b": "Alle door jou ingevoerde data blijft jouw eigendom. Je kan op elk moment een export in JSON, CSV of PDF downloaden, inclusief het hash-manifest van de ketting." },
+        { "h": "Wijzigingen",
+          "b": "Wij kunnen deze voorwaarden aanpassen. Materiële wijzigingen worden minstens 30 dagen op voorhand aangekondigd. Voortgezet gebruik geldt als aanvaarding." },
+        { "h": "Toepasselijk recht en bevoegde rechtbank",
+          "b": "Op deze overeenkomst is uitsluitend het Belgisch recht van toepassing. Bij geschillen zijn uitsluitend de rechtbanken van het gerechtelijk arrondissement Gent, afdeling Gent, bevoegd, onverminderd dwingende consumentenbeschermingsregels." }
+      ]
+    }
+  },
+  "contact": {
+    "chip": "Contact",
+    "title": "Neem contact op",
+    "subtitle": "Vraag over de dienst, een demo, of een fiscale kwestie? We antwoorden meestal binnen 1 werkdag.",
+    "direct": "of direct:",
+    "hours": "Ma–vr · 09:00–17:00 CET",
+    "form": {
+      "name": "Naam",
+      "email": "E-mailadres",
+      "subject": "Onderwerp",
+      "message": "Bericht",
+      "send": "Verstuur bericht",
+      "sending": "Versturen…",
+      "success_title": "Bedankt!",
+      "success": "We hebben je bericht ontvangen en nemen zo snel mogelijk contact met je op.",
+      "error": "Er ging iets mis bij het versturen. Probeer opnieuw of stuur ons rechtstreeks een e-mail."
+    },
+    "info": {
+      "email_h": "E-mail",
+      "office_h": "Adres",
+      "vat_h": "BTW"
     }
   }
 }
