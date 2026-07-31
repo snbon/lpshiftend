@@ -1,0 +1,31 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA fallback (React Router-less flat page still gets clean 404 semantics)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Send app deep-links to the SPA subdomain. dagontvangst.be is marketing;
+# app.dagontvangst.be is the authenticated product.
+[[redirects]]
+  from = "/app"
+  to = "https://app.dagontvangst.be/"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/app/*"
+  to = "https://app.dagontvangst.be/:splat"
+  status = 302
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
