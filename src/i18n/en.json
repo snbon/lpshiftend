@@ -287,7 +287,8 @@
   "landing": {
     "header": {
       "sign_in": "Sign in",
-      "try_free": "Try for free"
+      "try_free": "Try for free",
+      "live_soon": "Live in August"
     },
     "hero": {
       "badges": ["FOD-compliant", "Hash-chain", "PWA offline", "EU data"],

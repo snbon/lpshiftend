@@ -287,7 +287,8 @@
   "landing": {
     "header": {
       "sign_in": "Se connecter",
-      "try_free": "Essai gratuit"
+      "try_free": "Essai gratuit",
+      "live_soon": "En ligne en août"
     },
     "hero": {
       "badges": ["Conforme SPF", "Hash-chain", "PWA hors ligne", "Données UE"],

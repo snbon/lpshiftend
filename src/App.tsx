@@ -12,7 +12,7 @@ import { Footer } from './components/Footer';
 import { LegalPage } from './pages/Legal';
 import { ContactPage } from './pages/Contact';
 
-const APP_URL = (import.meta.env.VITE_APP_URL as string) ?? 'https://app.dagontvangst.be';
+// APP_URL removed while CTAs are disabled ("Live in August"). Restore when re-enabling.
 const FEATURE_ICONS = [Shield, Link2, Wifi, MapPin, FileDown, MessageCircle];
 
 // ── FAQ item ─────────────────────────────────────────────────────────────────
@@ -276,11 +276,14 @@ function Landing() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-10 flex flex-wrap items-center gap-3"
             >
-              <a href={`${APP_URL}/register`}
-                className="group inline-flex items-center gap-2 bg-ink text-paper font-medium px-6 py-3.5 rounded-full hover:bg-ink-2 transition">
-                {t('landing.hero.cta_primary')}
-                <ArrowUpRight size={16} className="group-hover:rotate-45 transition duration-300" />
-              </a>
+              <button
+                type="button"
+                disabled
+                className="inline-flex items-center gap-2 bg-ink text-paper font-medium px-6 py-3.5 rounded-full cursor-not-allowed"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink" />
+                {t('landing.header.live_soon')}
+              </button>
               <a href="#features"
                 className="inline-flex items-center gap-2 text-ink font-medium px-6 py-3.5 rounded-full border border-hair hover:bg-white transition">
                 {t('landing.hero.cta_secondary')}
@@ -576,11 +579,14 @@ function Landing() {
                   ))}
                 </ul>
 
-                <a href={`${APP_URL}/register`}
-                  className="group flex items-center justify-center gap-2 bg-paper text-ink font-medium py-3.5 rounded-full hover:bg-white transition w-full">
-                  {t('landing.pricing.cta')}
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition" />
-                </a>
+                <button
+                  type="button"
+                  disabled
+                  className="flex items-center justify-center gap-2 bg-paper text-ink font-medium py-3.5 rounded-full w-full cursor-not-allowed"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 blink" />
+                  {t('landing.header.live_soon')}
+                </button>
               </div>
             </div>
           </div>
@@ -609,11 +615,14 @@ function Landing() {
             <span className="italic text-white/60">{t('landing.cta.title_accent')}</span>
           </h2>
           <p className="mt-8 text-white/60 text-[15px] sm:text-[17px] max-w-xl mx-auto px-4">{t('landing.cta.subtitle')}</p>
-          <a href={`${APP_URL}/register`}
-            className="group mt-10 inline-flex items-center gap-2 bg-paper text-ink font-medium px-8 py-4 rounded-full hover:bg-white transition">
-            {t('landing.cta.button')}
-            <ArrowUpRight size={16} className="group-hover:rotate-45 transition duration-300" />
-          </a>
+          <button
+            type="button"
+            disabled
+            className="mt-10 inline-flex items-center gap-2 bg-paper text-ink font-medium px-8 py-4 rounded-full cursor-not-allowed"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 blink" />
+            {t('landing.header.live_soon')}
+          </button>
           <div className="mt-14 flex items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] text-white/40 uppercase tracking-widest flex-wrap px-4">
             {(t('landing.cta.trust', { returnObjects: true }) as string[]).map((c) => (
               <span key={c}>· {c}</span>
