@@ -104,14 +104,26 @@ src/
 └─ lib/router.tsx             pathname-based useRoute + <Link> + navigate()
 ```
 
-Routes are pathname-based (Netlify SPA fallback in `netlify.toml`):
+Routes are **pathname-based with a language prefix** (Netlify SPA fallback
+in `netlify.toml` keeps deep links working):
 
-| Path                                       | Renders                    |
-| ------------------------------------------ | -------------------------- |
-| `/`                                        | `<Landing />`              |
-| `/privacy`                                 | `<LegalPage kind="privacy" />` |
-| `/voorwaarden` · `/terms` · `/conditions`  | `<LegalPage kind="terms" />`   |
-| `/contact`                                 | `<ContactPage />`          |
+| Path                                                 | Renders                          |
+| ---------------------------------------------------- | -------------------------------- |
+| `/{nl,fr,en}/`                                       | `<Landing />`                    |
+| `/{nl,fr,en}/privacy` · `/fr/confidentialite`        | `<LegalPage kind="privacy" />`   |
+| `/nl/voorwaarden` · `/fr/conditions` · `/en/terms`   | `<LegalPage kind="terms" />`     |
+| `/{nl,fr,en}/contact`                                | `<ContactPage />`                |
+| `/` (or any path missing a lang prefix)              | client redirects to `/{detected-lang}/…` |
+
+- The URL is the source of truth for language. `parsePath()` in
+  `src/lib/router.tsx` extracts the leading `nl|fr|en` segment; `<Link>`
+  auto-prefixes it. `<LangSwitcher>` swaps the prefix with `replaceState` so
+  the shareable URL always encodes the visitor's language.
+- `App.tsx` also keeps `i18n.changeLanguage()` and `<html lang>` in sync when
+  the URL prefix changes.
+- Slugs after the prefix are matched loosely so a Dutch visitor pasting
+  `/en/voorwaarden` still lands on Terms. Add more aliases in `App.tsx`
+  if needed.
 
 ---
 

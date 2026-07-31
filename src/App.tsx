@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import i18n from './i18n';
@@ -6,7 +6,7 @@ import {
   Shield, Link2, Wifi, MapPin, FileDown, MessageCircle,
   Check, ChevronDown, ChevronUp, ArrowUpRight, ArrowRight,
 } from 'lucide-react';
-import { useRoute } from './lib/router';
+import { useRoute, navigate, LANGS, Lang, DEFAULT_LANG } from './lib/router';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { LegalPage } from './pages/Legal';
@@ -225,12 +225,33 @@ function StepMock({ i }: { i: number }) {
 
 // ── Router ───────────────────────────────────────────────────────────────────
 export default function App() {
-  const path = useRoute();
-  if (path.startsWith('/privacy'))      return <LegalPage kind="privacy" />;
-  if (path.startsWith('/voorwaarden') ||
-      path.startsWith('/terms') ||
-      path.startsWith('/conditions'))   return <LegalPage kind="terms" />;
-  if (path.startsWith('/contact'))      return <ContactPage />;
+  const { path, lang, sub } = useRoute();
+
+  // Bare "/" (or unknown language) → redirect to /{detected-lang}/
+  useEffect(() => {
+    const parts = path.split('/').filter(Boolean);
+    const first = parts[0];
+    const isLangPrefixed = first && (LANGS as readonly string[]).includes(first);
+    if (!isLangPrefixed) {
+      const detected = (i18n.language?.slice(0, 2) as Lang) ?? DEFAULT_LANG;
+      const target = (LANGS as readonly string[]).includes(detected) ? detected : DEFAULT_LANG;
+      const rest = path === '/' ? '' : path;
+      navigate(`/${target}${rest}`, true);
+    }
+  }, [path]);
+
+  // Keep i18n in sync with URL language
+  useEffect(() => {
+    if (i18n.language?.slice(0, 2) !== lang) i18n.changeLanguage(lang);
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  if (sub.startsWith('/privacy') || sub.startsWith('/confidentialite'))
+    return <LegalPage kind="privacy" />;
+  if (sub.startsWith('/voorwaarden') || sub.startsWith('/terms') || sub.startsWith('/conditions'))
+    return <LegalPage kind="terms" />;
+  if (sub.startsWith('/contact'))
+    return <ContactPage />;
   return <Landing />;
 }
 
@@ -254,11 +275,11 @@ function Landing() {
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-10">
         <div className="absolute inset-0 bg-paper-dots mask-radial opacity-70 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-12 lg:gap-14 items-center">
           <div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-              className="font-serif text-[36px] sm:text-[56px] lg:text-[72px] leading-[0.98] tracking-[-0.02em] font-semibold break-words hyphens-auto"
+              className="font-serif text-[34px] sm:text-[48px] lg:text-[56px] xl:text-[62px] leading-[1.02] tracking-[-0.02em] font-semibold hyphens-none [word-break:normal]"
               lang={i18n.language.slice(0, 2)}
             >
               {t('landing.hero.title_line1')}<br />
