@@ -12,7 +12,7 @@ import { Footer } from './components/Footer';
 import { LegalPage } from './pages/Legal';
 import { ContactPage } from './pages/Contact';
 
-// APP_URL removed while CTAs are disabled ("Live in August"). Restore when re-enabling.
+import { APP_URL } from './lib/config';
 const FEATURE_ICONS = [Shield, Link2, Wifi, MapPin, FileDown, MessageCircle];
 
 // ── FAQ item ─────────────────────────────────────────────────────────────────
@@ -272,8 +272,23 @@ function Landing() {
 
       <Header />
 
+      {/* Beta notice. Stated before anything is claimed below it: visitors are
+          being asked to trust this with a legally required register, so "try it
+          alongside your current book" belongs above the pitch, not buried in
+          the pricing section. */}
+      {/* mt-16 clears the fixed 64px header, which otherwise sits on top of
+          this and hides it entirely. */}
+      <div className="relative mt-16 bg-ink text-paper/90 px-6 sm:px-10 py-3">
+        <div className="max-w-7xl mx-auto flex items-start gap-3 text-[13px] leading-relaxed">
+          <span className="mt-0.5 shrink-0 font-mono text-[10px] uppercase tracking-widest bg-paper/15 rounded-full px-2 py-0.5">
+            {t('landing.beta_banner.label')}
+          </span>
+          <p className="text-paper/80">{t('landing.beta_banner.text')}</p>
+        </div>
+      </div>
+
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-10">
+      <section className="relative pt-12 sm:pt-20 pb-16 sm:pb-24 px-6 sm:px-10">
         <div className="absolute inset-0 bg-paper-dots mask-radial opacity-70 pointer-events-none" />
         <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-12 lg:gap-14 items-center">
           <div>
@@ -297,14 +312,13 @@ function Landing() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-10 flex flex-wrap items-center gap-3"
             >
-              <button
-                type="button"
-                disabled
-                className="inline-flex items-center gap-2 bg-ink text-paper font-medium px-6 py-3.5 rounded-full cursor-not-allowed"
+              <a
+                href={`${APP_URL}/register`}
+                className="inline-flex items-center gap-2 bg-ink text-paper font-medium px-6 py-3.5 rounded-full hover:bg-ink-2 transition"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink" />
-                {t('landing.header.live_soon')}
-              </button>
+                {t('landing.header.try_now')}
+              </a>
               <a href="#features"
                 className="inline-flex items-center gap-2 text-ink font-medium px-6 py-3.5 rounded-full border border-hair hover:bg-white transition">
                 {t('landing.hero.cta_secondary')}
@@ -600,14 +614,13 @@ function Landing() {
                   ))}
                 </ul>
 
-                <button
-                  type="button"
-                  disabled
-                  className="flex items-center justify-center gap-2 bg-paper text-ink font-medium py-3.5 rounded-full w-full cursor-not-allowed"
+                <a
+                  href={`${APP_URL}/register`}
+                  className="flex items-center justify-center gap-2 bg-paper text-ink font-medium py-3.5 rounded-full w-full hover:opacity-90 transition"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 blink" />
-                  {t('landing.header.live_soon')}
-                </button>
+                  {t('landing.header.try_now')}
+                </a>
               </div>
             </div>
           </div>
@@ -636,14 +649,13 @@ function Landing() {
             <span className="italic text-white/60">{t('landing.cta.title_accent')}</span>
           </h2>
           <p className="mt-8 text-white/60 text-[15px] sm:text-[17px] max-w-xl mx-auto px-4">{t('landing.cta.subtitle')}</p>
-          <button
-            type="button"
-            disabled
-            className="mt-10 inline-flex items-center gap-2 bg-paper text-ink font-medium px-8 py-4 rounded-full cursor-not-allowed"
+          <a
+            href={`${APP_URL}/register`}
+            className="mt-10 inline-flex items-center gap-2 bg-paper text-ink font-medium px-8 py-4 rounded-full hover:opacity-90 transition"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 blink" />
-            {t('landing.header.live_soon')}
-          </button>
+            {t('landing.header.try_now')}
+          </a>
           <div className="mt-14 flex items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] text-white/40 uppercase tracking-widest flex-wrap px-4">
             {(t('landing.cta.trust', { returnObjects: true }) as string[]).map((c) => (
               <span key={c}>· {c}</span>

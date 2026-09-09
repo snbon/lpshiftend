@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { APP_URL } from '../lib/config';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { LangSwitcher } from './LangSwitcher';
 import { Link } from '../lib/router';
@@ -36,16 +37,16 @@ export function Header({ solid = false }: { solid?: boolean }) {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-6">
             <LangSwitcher />
-            <span className="text-sm text-ink-2/50 cursor-not-allowed select-none" aria-disabled="true">{t('landing.header.sign_in')}</span>
-            <button
-              type="button"
-              disabled
-              className="flex items-center gap-2 bg-ink text-paper text-sm font-medium px-4 py-2 rounded-full whitespace-nowrap cursor-not-allowed"
-              title="Coming August"
+            <a href={`${APP_URL}/login`} className="text-sm text-ink-2 hover:text-ink transition">
+              {t('landing.header.sign_in')}
+            </a>
+            <a
+              href={`${APP_URL}/register`}
+              className="flex items-center gap-2 bg-ink text-paper text-sm font-medium px-4 py-2 rounded-full whitespace-nowrap hover:bg-ink-2 transition"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink" />
-              {t('landing.header.live_soon')}
-            </button>
+              {t('landing.header.try_now')}
+            </a>
           </div>
 
           {/* Mobile burger */}
@@ -68,24 +69,27 @@ export function Header({ solid = false }: { solid?: boolean }) {
         <div className="absolute inset-0 bg-paper-dots mask-radial opacity-60 pointer-events-none" />
         <div className="relative h-full pt-24 pb-10 px-6 flex flex-col">
           <nav className="flex-1 flex flex-col gap-1">
-            <div className="flex items-center justify-between py-4 border-b border-hair font-serif text-2xl text-ink-2/50 cursor-not-allowed select-none">
+            <a
+              href={`${APP_URL}/login`}
+              onClick={close}
+              className="flex items-center justify-between py-4 border-b border-hair font-serif text-2xl hover:text-ink-2 transition"
+            >
               <span>{t('landing.header.sign_in')}</span>
-              <span className="font-mono text-[10px] uppercase tracking-widest text-ink-2/60">soon</span>
-            </div>
+            </a>
             <MobileLink to="/contact" onClick={close}>
               {t('landing.footer.contact')}
             </MobileLink>
           </nav>
 
           <div className="mt-8 space-y-6">
-            <button
-              type="button"
-              disabled
-              className="flex items-center justify-center gap-2 bg-ink text-paper font-medium px-6 py-4 rounded-full text-[15px] w-full cursor-not-allowed"
+            <a
+              href={`${APP_URL}/register`}
+              onClick={close}
+              className="flex items-center justify-center gap-2 bg-ink text-paper font-medium px-6 py-4 rounded-full text-[15px] w-full hover:bg-ink-2 transition"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink" />
-              {t('landing.header.live_soon')}
-            </button>
+              {t('landing.header.try_now')}
+            </a>
             <div className="flex items-center justify-between border-t border-hair pt-6">
               <span className="font-mono text-[10px] uppercase tracking-widest text-ink-2/50">
                 {t('landing.footer.made_in')}

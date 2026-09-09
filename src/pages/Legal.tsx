@@ -48,8 +48,8 @@ export function LegalPage({ kind }: { kind: 'privacy' | 'terms' }) {
           <div className="mt-16 pt-8 border-t border-hair">
             <div className="chip mb-4">{t('legal.identity_title')}</div>
             <div className="bg-white border border-hair rounded-2xl p-6 font-mono text-[13px] text-ink-2/85 space-y-1.5 leading-relaxed">
-              <div><span className="text-ink-2/50 w-24 inline-block">Company</span> {company.name}</div>
-              <div><span className="text-ink-2/50 w-24 inline-block">Email</span> <a href={`mailto:${company.email}`} className="text-ink hover:underline">{company.email}</a></div>
+              <div><span className="text-ink-2/50 w-24 inline-block">{t('legal.company_label')}</span> {company.name}</div>
+              <div><span className="text-ink-2/50 w-24 inline-block">{t('legal.email_label')}</span> <a href={`mailto:${company.email}`} className="text-ink hover:underline">{company.email}</a></div>
             </div>
           </div>
         </div>

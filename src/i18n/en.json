@@ -288,10 +288,16 @@
     "header": {
       "sign_in": "Sign in",
       "try_free": "Try for free",
-      "live_soon": "Live in August"
+      "live_soon": "Live in August",
+      "try_now": "Try now"
     },
     "hero": {
-      "badges": ["FOD-compliant", "Hash-chain", "PWA offline", "EU data"],
+      "badges": [
+        "FOD-compliant",
+        "Hash-chain",
+        "PWA offline",
+        "EU data"
+      ],
       "title_line1": "Digital daily receipts book",
       "title_line2": "for Belgian hospitality",
       "subtitle": "Seal each day with one click. Immutable, hash-chained, and always ready for a FOD audit.",
@@ -305,10 +311,22 @@
       "title": "Paper registers are a ticking time bomb",
       "subtitle": "Every mistake, every crossing-out, every missing day can trigger a fine during a FOD audit.",
       "items": [
-        { "title": "Manual errors",              "desc": "Miscalculation in the VAT split? Caught too late, corrected too late." },
-        { "title": "Excel is not immutable",     "desc": "Spreadsheets can always be modified. Inspectors know this too." },
-        { "title": "Forgotten VAT split",        "desc": "Every rate (0/6/12/21%) must be tracked separately. Every day." },
-        { "title": "Missing audit trail",        "desc": "Without proof of integrity, your lawyer has nothing to work with." }
+        {
+          "title": "Manual errors",
+          "desc": "Miscalculation in the VAT split? Caught too late, corrected too late."
+        },
+        {
+          "title": "Excel is not immutable",
+          "desc": "Spreadsheets can always be modified. Inspectors know this too."
+        },
+        {
+          "title": "Forgotten VAT split",
+          "desc": "Every rate (0/6/12/21%) must be tracked separately. Every day."
+        },
+        {
+          "title": "Missing audit trail",
+          "desc": "Without proof of integrity, your lawyer has nothing to work with."
+        }
       ]
     },
     "chips": {
@@ -336,28 +354,70 @@
       "title": "How it works",
       "intro": "From registration to sealed chain — in three steps, no accounting background required.",
       "steps": [
-        { "num": "01", "title": "Register your business", "desc": "Create an account, add your location with VAT number and address. Done in 2 minutes." },
-        { "num": "02", "title": "Close each day",         "desc": "Enter VAT lines and payment methods. Cash reconciliation and hash are calculated automatically." },
-        { "num": "03", "title": "Sealed & verifiable",    "desc": "The closure is stored immutably in the chain. Download a FOD bundle whenever needed." }
+        {
+          "num": "01",
+          "title": "Register your business",
+          "desc": "Create an account, add your location with VAT number and address. Done in 2 minutes."
+        },
+        {
+          "num": "02",
+          "title": "Close each day",
+          "desc": "Enter VAT lines and payment methods. Cash reconciliation and hash are calculated automatically."
+        },
+        {
+          "num": "03",
+          "title": "Sealed & verifiable",
+          "desc": "The closure is stored immutably in the chain. Download a FOD bundle whenever needed."
+        }
       ]
     },
     "features": {
       "title": "Everything you need",
       "items": [
-        { "title": "FOD-compliant",             "desc": "Meets Belgian regulations for daily receipts books." },
-        { "title": "Hash-chain immutability",   "desc": "Every closure is cryptographically chained. Tampering is impossible." },
-        { "title": "Offline PWA",               "desc": "Works even without internet. Syncs automatically on reconnect." },
-        { "title": "Multi-location",            "desc": "Manage all your locations from one account with role-based access." },
-        { "title": "Export PDF/CSV/JSON",       "desc": "Download an inspector-ready bundle at any moment." },
-        { "title": "WhatsApp notifications",    "desc": "Get confirmations and reminders via WhatsApp." }
+        {
+          "title": "FOD-compliant",
+          "desc": "Meets Belgian regulations for daily receipts books."
+        },
+        {
+          "title": "Hash-chain immutability",
+          "desc": "Every closure is cryptographically chained. Tampering is impossible."
+        },
+        {
+          "title": "Offline PWA",
+          "desc": "Works even without internet. Syncs automatically on reconnect."
+        },
+        {
+          "title": "Multi-location",
+          "desc": "Manage all your locations from one account with role-based access."
+        },
+        {
+          "title": "Export PDF/CSV/JSON",
+          "desc": "Download an inspector-ready bundle at any moment."
+        },
+        {
+          "title": "WhatsApp notifications",
+          "desc": "Get confirmations and reminders via WhatsApp."
+        }
       ]
     },
     "testimonials": {
       "title": "What customers say",
       "items": [
-        { "name": "Sofie D.", "role": "Owner, Brasserie Ghent",       "text": "Finally no more paper registers. The chain gives me peace of mind during a VAT audit." },
-        { "name": "Karim B.", "role": "Manager, Restaurant Brussels", "text": "Onboarding in 5 minutes. The FOD export works perfectly — our accountant is happy." },
-        { "name": "Elke V.",  "role": "Owner, Café Antwerp",          "text": "The PWA works even when the wifi drops. My staff never forgets to close anymore." }
+        {
+          "name": "Sofie D.",
+          "role": "Owner, Brasserie Ghent",
+          "text": "Finally no more paper registers. The chain gives me peace of mind during a VAT audit."
+        },
+        {
+          "name": "Karim B.",
+          "role": "Manager, Restaurant Brussels",
+          "text": "Onboarding in 5 minutes. The FOD export works perfectly — our accountant is happy."
+        },
+        {
+          "name": "Elke V.",
+          "role": "Owner, Café Antwerp",
+          "text": "The PWA works even when the wifi drops. My staff never forgets to close anymore."
+        }
       ]
     },
     "compliance": {
@@ -374,11 +434,11 @@
       "bonus": "Bonus: the hash chain makes any change detectable — even in case of a database breach."
     },
     "pricing": {
-      "title": "Simple pricing",
-      "subtitle": "No hidden fees. No installation.",
-      "price": "€9",
-      "period": "/ month / location",
-      "trial_note": "14 days free, no credit card required",
+      "title": "Beta phase",
+      "subtitle": "Free to use during the beta. No credit card.",
+      "price": "Beta",
+      "period": "free during the beta phase",
+      "trial_note": "Do not replace your current daily receipts book yet — use Dagontvangst alongside it for now.",
       "features": [
         "Unlimited closures",
         "Unlimited users",
@@ -387,15 +447,27 @@
         "FOD inspector access",
         "Hash-chain guarantee"
       ],
-      "cta": "Start 14 days free"
+      "cta": "Try now"
     },
     "faq": {
       "title": "Frequently asked questions",
       "items": [
-        { "q": "Is a digital daily receipts book mandatory?",   "a": "Yes, for Belgian hospitality businesses not using a certified POS system, a manual or digital daily receipts book is mandatory. Dagontvangst automates the required formatting." },
-        { "q": "How does a FOD audit work?",                    "a": "The inspector requests an export of closures for a given period. With Dagontvangst you download a JSON or PDF bundle with the hash manifest — proof of integrity that the FOD accepts." },
-        { "q": "What if I made a mistake?",                     "a": "Corrections are append-only: the original stays intact and a new corrective closure is added to the chain referencing the original. This meets the immutability requirement." },
-        { "q": "Does it work with multiple businesses?",        "a": "Yes. One account supports multiple locations. Each with their own sealed chain, roles, and analytics." }
+        {
+          "q": "Is a digital daily receipts book mandatory?",
+          "a": "Yes, for Belgian hospitality businesses not using a certified POS system, a manual or digital daily receipts book is mandatory. Dagontvangst automates the required formatting."
+        },
+        {
+          "q": "How does a FOD audit work?",
+          "a": "The inspector requests an export of closures for a given period. With Dagontvangst you download a JSON or PDF bundle with the hash manifest — proof of integrity that the FOD accepts."
+        },
+        {
+          "q": "What if I made a mistake?",
+          "a": "Corrections are append-only: the original stays intact and a new corrective closure is added to the chain referencing the original. This meets the immutability requirement."
+        },
+        {
+          "q": "Does it work with multiple businesses?",
+          "a": "Yes. One account supports multiple locations. Each with their own sealed chain, roles, and analytics."
+        }
       ]
     },
     "cta": {
@@ -404,13 +476,22 @@
       "title_accent": "— today.",
       "subtitle": "14 days free, no credit card, cancel anytime.",
       "button": "Try it free now",
-      "trust": ["FOD-compliant", "EU data", "PWA offline", "14 days free"]
+      "trust": [
+        "FOD-compliant",
+        "EU data",
+        "PWA offline",
+        "14 days free"
+      ]
     },
     "footer": {
       "made_in": "Made in Belgium for Belgian hospitality",
       "privacy": "Privacy",
       "terms": "Terms",
       "contact": "Contact"
+    },
+    "beta_banner": {
+      "label": "Beta phase",
+      "text": "Dagontvangst is in beta. You can try the full product for free, but it does not replace your current daily receipts book yet — use it alongside for now."
     }
   },
   "legal": {
@@ -433,58 +514,116 @@
       "title": "Privacy policy",
       "subtitle": "How we process personal data under the GDPR and the Belgian data protection framework.",
       "sections": [
-        { "h": "Data controller",
-          "b": "Dagontvangst BV is the controller of your personal data. Contact: info@dagontvangst.be." },
-        { "h": "Data we process",
-          "b": "• Account data: name, email address, password (hashed), language preference.\n• Business data: trade name, VAT number, address of your location(s).\n• Usage data: created daily closures, VAT splits, hash manifest, timestamps, in-app actions.\n• Payment data: handled by our payment provider — we only receive billing metadata, never card details.\n• Technical data: IP address, browser type, session tokens (essential for security)." },
-        { "h": "Purposes and legal basis",
-          "b": "• Contract performance (art. 6.1.b GDPR): managing your account, storing your daily receipts book and generating FOD-compliant exports.\n• Legal obligation (art. 6.1.c GDPR): tax retention (7 years) and Belgian accounting regulations.\n• Legitimate interest (art. 6.1.f GDPR): fraud prevention, service security, feature improvement.\n• Consent (art. 6.1.a GDPR): where legally required, e.g. for non-essential communications." },
-        { "h": "Retention periods",
-          "b": "Accounting data (closures, VAT lines, hash chain): 7 years after the close of the fiscal year, per Belgian tax law.\nAccount data: as long as your account is active, and up to 12 months after cancellation for administrative wrap-up.\nLogs and technical data: maximum 12 months." },
-        { "h": "Recipients and processors",
-          "b": "• Hosting: EU-based cloud provider (data stays within the EEA).\n• Payment provider: for subscription handling.\n• Accountant: only if you explicitly grant access.\n• Authorities: on legally motivated request (e.g. FOD Finance).\nWe never sell your data to third parties." },
-        { "h": "Transfers outside the EU",
-          "b": "We process your data within the EEA. Any exceptional transfer to a third country will only occur based on an adequacy decision or standard contractual clauses." },
-        { "h": "Security",
-          "b": "We apply technical and organisational measures: TLS encryption, password hashing, role-based access control, cryptographic hash chain of closures, and regular backups. Incidents are reported to the Belgian DPA within 72 hours where required." },
-        { "h": "Your rights",
-          "b": "You have the right at any time to access, rectify, erase, restrict, object to or port your data. Contact us at info@dagontvangst.be. You can also file a complaint with the Belgian Data Protection Authority (Rue de la Presse 35, 1000 Brussels — dataprotectionauthority.be)." },
-        { "h": "Cookies",
-          "b": "We only use functional and essential cookies (session, language preference, CSRF token). No tracking or advertising cookies. No third-party analytics are loaded on the landing page without your consent." },
-        { "h": "Changes to this policy",
-          "b": "We may update this privacy policy. The current version is always available at dagontvangst.be/privacy with the date of last update." }
+        {
+          "h": "Data controller",
+          "b": "Dagontvangst BV is the controller of your personal data. Contact: info@dagontvangst.be."
+        },
+        {
+          "h": "Data we process",
+          "b": "• Account data: name, email address, password (hashed), language preference.\n• Business data: trade name, VAT number, address of your location(s).\n• Usage data: created daily closures, VAT splits, hash manifest, timestamps, in-app actions.\n• Payment data: handled by our payment provider — we only receive billing metadata, never card details.\n• Technical data: IP address, browser type, session tokens (essential for security)."
+        },
+        {
+          "h": "Purposes and legal basis",
+          "b": "• Contract performance (art. 6.1.b GDPR): managing your account, storing your daily receipts book and generating FOD-compliant exports.\n• Legal obligation (art. 6.1.c GDPR): tax retention (7 years) and Belgian accounting regulations.\n• Legitimate interest (art. 6.1.f GDPR): fraud prevention, service security, feature improvement.\n• Consent (art. 6.1.a GDPR): where legally required, e.g. for non-essential communications."
+        },
+        {
+          "h": "Retention periods",
+          "b": "Accounting data (closures, VAT lines, hash chain): 7 years after the close of the fiscal year, per Belgian tax law.\nAccount data: as long as your account is active, and up to 12 months after cancellation for administrative wrap-up.\nLogs and technical data: maximum 12 months."
+        },
+        {
+          "h": "Email reminders",
+          "b": "If your daily closure is still open as midnight approaches, we send a reminder to your account's email address. You choose how far in advance — or switch reminders off entirely — in Settings.\nFor this we store your preferred lead times and, per reminder sent, a record of the location, date and time, so that you are not notified repeatedly for the same day. These records are deleted after 12 months.\nOnly owners and managers receive these emails, since only they can seal a day."
+        },
+        {
+          "h": "Data held on your own device",
+          "b": "The app keeps some things locally in your browser: a draft of the closure you are working on, your language and theme preference, and — if you are briefly offline — a closure still waiting to be sealed.\nThis data stays on your device until it is sent or cleared and is not shared with third parties. You can remove it by clearing the site data in your browser."
+        },
+        {
+          "h": "Recipients and processors",
+          "b": "• Hosting: EU-based cloud provider (data stays within the EEA).\n• Payment provider: for subscription handling.\n• Accountant: only if you explicitly grant access.\n• Authorities: on legally motivated request (e.g. FOD Finance).\nWe never sell your data to third parties."
+        },
+        {
+          "h": "Transfers outside the EU",
+          "b": "We process your data within the EEA. Any exceptional transfer to a third country will only occur based on an adequacy decision or standard contractual clauses."
+        },
+        {
+          "h": "Security",
+          "b": "We apply technical and organisational measures: TLS encryption, password hashing, role-based access control, cryptographic hash chain of closures, and regular backups. Incidents are reported to the Belgian DPA within 72 hours where required."
+        },
+        {
+          "h": "Your rights",
+          "b": "You have the right at any time to access, rectify, erase, restrict, object to or port your data. Contact us at info@dagontvangst.be. You can also file a complaint with the Belgian Data Protection Authority (Rue de la Presse 35, 1000 Brussels — dataprotectionauthority.be)."
+        },
+        {
+          "h": "Cookies",
+          "b": "We only use functional and essential cookies (session, language preference, CSRF token). No tracking or advertising cookies. No third-party analytics are loaded on the landing page without your consent."
+        },
+        {
+          "h": "Changes to this policy",
+          "b": "We may update this privacy policy. The current version is always available at dagontvangst.be/privacy with the date of last update."
+        }
       ]
     },
     "terms": {
       "title": "Terms of service",
       "subtitle": "The rights and obligations that apply to your use of Dagontvangst.",
       "sections": [
-        { "h": "Definitions",
-          "b": "‘Dagontvangst’, ‘we’, ‘us’: Dagontvangst BV.\n‘Service’: the online platform for a digital daily receipts book, including the app, PWA and API.\n‘Customer’, ‘you’: the hospitality business or natural person using the Service." },
-        { "h": "Subject",
-          "b": "Dagontvangst provides a cloud-based daily receipts book that meets the requirements of Belgian tax law for hospitality. The Service is delivered ‘as a service’, in the state in which it is, with reasonable availability." },
-        { "h": "Registration and account",
-          "b": "You must provide accurate and up-to-date information. You are responsible for keeping your credentials confidential and for all activity performed under your account. You confirm that you are authorised to represent the business for which you create an account." },
-        { "h": "Trial period and price",
-          "b": "New customers receive a 14-day free trial without credit card. Afterwards, the rate is € 9 per month per location (excl. VAT), unless otherwise agreed in writing. Prices may be indexed annually; changes are communicated at least 30 days in advance." },
-        { "h": "Duration and cancellation",
-          "b": "The agreement is entered into for an indefinite term and can be cancelled monthly with one month's notice, taking effect at the end of the current month. Upon cancellation, your data remains available for export for 12 months." },
-        { "h": "Customer obligations",
-          "b": "You remain solely responsible for the correct entry of fiscal data and compliance with tax law. Dagontvangst facilitates compliance but does not replace accounting advice. Misuse, reverse engineering or resale of the Service is prohibited." },
-        { "h": "Liability",
-          "b": "Except in cases of wilful misconduct or gross negligence, our liability is limited to the amount of subscription fees paid in the 12 months preceding the incident. We are not liable for indirect damages, loss of revenue or tax penalties resulting from incorrect input by the customer." },
-        { "h": "Availability and force majeure",
-          "b": "We aim for 99.5% uptime on a monthly basis. We are not liable for interruptions caused by force majeure, including outages at hosting partners, legislative changes or other external causes." },
-        { "h": "Intellectual property",
-          "b": "All rights in the software, code, interface, brand and documentation belong to Dagontvangst BV. You receive a non-exclusive, non-transferable right of use for the duration of your subscription." },
-        { "h": "Data ownership",
-          "b": "All data you enter remains your property. You can download an export in JSON, CSV or PDF at any time, including the hash manifest of the chain." },
-        { "h": "Changes",
-          "b": "We may amend these terms. Material changes will be announced at least 30 days in advance. Continued use constitutes acceptance." },
-        { "h": "Governing law and jurisdiction",
-          "b": "This agreement is governed exclusively by Belgian law. Any disputes fall under the exclusive jurisdiction of the courts of the judicial district of Ghent, Ghent division, without prejudice to mandatory consumer protection rules." }
+        {
+          "h": "Definitions",
+          "b": "‘Dagontvangst’, ‘we’, ‘us’: Dagontvangst BV.\n‘Service’: the online platform for a digital daily receipts book, including the app, PWA and API.\n‘Customer’, ‘you’: the hospitality business or natural person using the Service."
+        },
+        {
+          "h": "Subject",
+          "b": "Dagontvangst provides a cloud-based daily receipts book that meets the requirements of Belgian tax law for hospitality. The Service is delivered ‘as a service’, in the state in which it is, with reasonable availability."
+        },
+        {
+          "h": "Beta phase",
+          "b": "Dagontvangst is in a beta phase. During this phase the full product is available at no cost and no subscription fees are charged.\nThe beta phase is intended for evaluating the product. During this phase Dagontvangst does not replace your existing daily receipts book: you remain responsible for maintaining your legally required records. We recommend using Dagontvangst alongside your current method for now.\nYou are informed of this explicitly at sign-up and asked to confirm it. We record the time and the version of the notice you accepted.\nDuring the beta phase we give no warranty that the product is sufficient as your sole legal record."
+        },
+        {
+          "h": "Registration and account",
+          "b": "You must provide accurate and up-to-date information. You are responsible for keeping your credentials confidential and for all activity performed under your account. You confirm that you are authorised to represent the business for which you create an account."
+        },
+        {
+          "h": "Trial period and price",
+          "b": "New customers receive a 14-day free trial without credit card. Afterwards, the rate is € 9 per month per location (excl. VAT), unless otherwise agreed in writing. Prices may be indexed annually; changes are communicated at least 30 days in advance."
+        },
+        {
+          "h": "Duration and cancellation",
+          "b": "The agreement is entered into for an indefinite term and can be cancelled monthly with one month's notice, taking effect at the end of the current month. Upon cancellation, your data remains available for export for 12 months."
+        },
+        {
+          "h": "Customer obligations",
+          "b": "You remain solely responsible for the correct entry of fiscal data and compliance with tax law. Dagontvangst facilitates compliance but does not replace accounting advice. Misuse, reverse engineering or resale of the Service is prohibited."
+        },
+        {
+          "h": "Liability",
+          "b": "Except in cases of wilful misconduct or gross negligence, our liability is limited to the amount of subscription fees paid in the 12 months preceding the incident. We are not liable for indirect damages, loss of revenue or tax penalties resulting from incorrect input by the customer."
+        },
+        {
+          "h": "Availability and force majeure",
+          "b": "We aim for 99.5% uptime on a monthly basis. We are not liable for interruptions caused by force majeure, including outages at hosting partners, legislative changes or other external causes."
+        },
+        {
+          "h": "Intellectual property",
+          "b": "All rights in the software, code, interface, brand and documentation belong to Dagontvangst BV. You receive a non-exclusive, non-transferable right of use for the duration of your subscription."
+        },
+        {
+          "h": "Data ownership",
+          "b": "All data you enter remains your property. You can download an export in JSON, CSV or PDF at any time, including the hash manifest of the chain."
+        },
+        {
+          "h": "Changes",
+          "b": "We may amend these terms. Material changes will be announced at least 30 days in advance. Continued use constitutes acceptance."
+        },
+        {
+          "h": "Governing law and jurisdiction",
+          "b": "This agreement is governed exclusively by Belgian law. Any disputes fall under the exclusive jurisdiction of the courts of the judicial district of Ghent, Ghent division, without prejudice to mandatory consumer protection rules."
+        }
       ]
-    }
+    },
+    "company_label": "Company",
+    "email_label": "Email"
   },
   "contact": {
     "chip": "Contact",

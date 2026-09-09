@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/i18n.ts","./src/main.tsx","./src/vite-env.d.ts"],"version":"5.7.3"}
+{"root":["./src/app.tsx","./src/i18n.ts","./src/main.tsx","./src/vite-env.d.ts","./src/components/footer.tsx","./src/components/header.tsx","./src/components/langswitcher.tsx","./src/lib/config.ts","./src/lib/router.tsx","./src/pages/contact.tsx","./src/pages/legal.tsx"],"version":"5.7.3"}
