@@ -87,7 +87,7 @@
     "kpi_vat": "30d VAT",
     "kpi_closures": "closures",
     "kpi_vat_owed": "owed",
-    "payment_mix": "Payment mix — 30 days",
+    "payment_mix": "Payment mix (30 days)",
     "no_data": "No data yet",
     "recent": "Recent closures",
     "see_all": "See all",
@@ -148,8 +148,8 @@
       "closing": "Closing cash (counted)",
       "expected": "Expected closing cash",
       "drops": "Cash drops",
-      "tips_cash": "Tips — cash",
-      "tips_card": "Tips — card",
+      "tips_cash": "Tips (cash)",
+      "tips_card": "Tips (card)",
       "tips_hint": "Not included in payment methods above",
       "variance": "Cash variance"
     },
@@ -194,7 +194,7 @@
     "status_none": "No active subscription",
     "status_active": "Active",
     "status_trial": "Trial",
-    "status_cancelled": "Cancelled — active until",
+    "status_cancelled": "Cancelled, active until",
     "trial_ends": "Trial ends on",
     "price": "€9 / month / location",
     "features": [
@@ -303,9 +303,9 @@
       "subtitle": "Seal each day with one click. Immutable, hash-chained, and always ready for a FOD audit.",
       "cta_primary": "Start your free trial",
       "cta_secondary": "Learn more",
-      "quote": "\"Finally peace of mind during a VAT audit.\" — Sofie D., Ghent",
+      "quote": "\"Finally peace of mind during a VAT audit.\" (Sofie D., Ghent)",
       "chain_title": "Live daily closure",
-      "chain_footer": "Chain verified — 3 closures"
+      "chain_footer": "Chain verified (3 closures)"
     },
     "problem": {
       "title": "Paper registers are a ticking time bomb",
@@ -352,7 +352,7 @@
     },
     "how": {
       "title": "How it works",
-      "intro": "From registration to sealed chain — in three steps, no accounting background required.",
+      "intro": "From registration to sealed chain, in three steps, no accounting background required.",
       "steps": [
         {
           "num": "01",
@@ -411,7 +411,7 @@
         {
           "name": "Karim B.",
           "role": "Manager, Restaurant Brussels",
-          "text": "Onboarding in 5 minutes. The FOD export works perfectly — our accountant is happy."
+          "text": "Onboarding in 5 minutes. The FOD export works perfectly and our accountant is happy."
         },
         {
           "name": "Elke V.",
@@ -431,14 +431,14 @@
         "7-year retention built in",
         "Export in FOD-readable format"
       ],
-      "bonus": "Bonus: the hash chain makes any change detectable — even in case of a database breach."
+      "bonus": "Bonus: the hash chain makes any change detectable, even in case of a database breach."
     },
     "pricing": {
       "title": "Beta phase",
       "subtitle": "Free to use during the beta. No credit card.",
       "price": "Beta",
       "period": "free during the beta phase",
-      "trial_note": "Do not replace your current daily receipts book yet — use Dagontvangst alongside it for now.",
+      "trial_note": "Do not replace your current daily receipts book yet. Use Dagontvangst alongside it for now.",
       "features": [
         "Unlimited closures",
         "Unlimited users",
@@ -458,7 +458,7 @@
         },
         {
           "q": "How does a FOD audit work?",
-          "a": "The inspector requests an export of closures for a given period. With Dagontvangst you download a JSON or PDF bundle with the hash manifest — proof of integrity that the FOD accepts."
+          "a": "The inspector requests an export of closures for a given period. With Dagontvangst you download a JSON or PDF bundle with the hash manifest, the proof of integrity that the FOD accepts."
         },
         {
           "q": "What if I made a mistake?",
@@ -473,7 +473,7 @@
     "cta": {
       "title": "Ready to get started?",
       "title_lead": "Ready to get started",
-      "title_accent": "— today.",
+      "title_accent": "today.",
       "subtitle": "14 days free, no credit card, cancel anytime.",
       "button": "Try it free now",
       "trust": [
@@ -491,7 +491,7 @@
     },
     "beta_banner": {
       "label": "Beta phase",
-      "text": "Dagontvangst is in beta. You can try the full product for free, but it does not replace your current daily receipts book yet — use it alongside for now."
+      "text": "Dagontvangst is in beta. You can try the full product for free, but it does not replace your current daily receipts book yet. Use it alongside for now."
     }
   },
   "legal": {
@@ -520,7 +520,7 @@
         },
         {
           "h": "Data we process",
-          "b": "• Account data: name, email address, password (hashed), language preference.\n• Business data: trade name, VAT number, address of your location(s).\n• Usage data: created daily closures, VAT splits, hash manifest, timestamps, in-app actions.\n• Payment data: handled by our payment provider — we only receive billing metadata, never card details.\n• Technical data: IP address, browser type, session tokens (essential for security)."
+          "b": "• Account data: name, email address, password (hashed), language preference.\n• Business data: trade name, VAT number, address of your location(s).\n• Usage data: created daily closures, VAT splits, hash manifest, timestamps, in-app actions.\n• Payment data: handled by our payment provider, we only receive billing metadata, never card details.\n• Technical data: IP address, browser type, session tokens (essential for security)."
         },
         {
           "h": "Purposes and legal basis",
@@ -532,11 +532,11 @@
         },
         {
           "h": "Email reminders",
-          "b": "If your daily closure is still open as midnight approaches, we send a reminder to your account's email address. You choose how far in advance — or switch reminders off entirely — in Settings.\nFor this we store your preferred lead times and, per reminder sent, a record of the location, date and time, so that you are not notified repeatedly for the same day. These records are deleted after 12 months.\nOnly owners and managers receive these emails, since only they can seal a day."
+          "b": "If your daily closure is still open as midnight approaches, we send a reminder to your account's email address. You choose how far in advance, or switch reminders off entirely, in Settings.\nFor this we store your preferred lead times and, per reminder sent, a record of the location, date and time, so that you are not notified repeatedly for the same day. These records are deleted after 12 months.\nOnly owners and managers receive these emails, since only they can seal a day."
         },
         {
           "h": "Data held on your own device",
-          "b": "The app keeps some things locally in your browser: a draft of the closure you are working on, your language and theme preference, and — if you are briefly offline — a closure still waiting to be sealed.\nThis data stays on your device until it is sent or cleared and is not shared with third parties. You can remove it by clearing the site data in your browser."
+          "b": "The app keeps some things locally in your browser: a draft of the closure you are working on, your language and theme preference, and, if you are briefly offline, a closure still waiting to be sealed.\nThis data stays on your device until it is sent or cleared and is not shared with third parties. You can remove it by clearing the site data in your browser."
         },
         {
           "h": "Recipients and processors",
@@ -552,7 +552,7 @@
         },
         {
           "h": "Your rights",
-          "b": "You have the right at any time to access, rectify, erase, restrict, object to or port your data. Contact us at info@dagontvangst.be. You can also file a complaint with the Belgian Data Protection Authority (Rue de la Presse 35, 1000 Brussels — dataprotectionauthority.be)."
+          "b": "You have the right at any time to access, rectify, erase, restrict, object to or port your data. Contact us at info@dagontvangst.be. You can also file a complaint with the Belgian Data Protection Authority (Rue de la Presse 35, 1000 Brussels, dataprotectionauthority.be)."
         },
         {
           "h": "Cookies",
