@@ -87,7 +87,7 @@
     "kpi_vat": "30d BTW",
     "kpi_closures": "afsluitingen",
     "kpi_vat_owed": "verschuldigd",
-    "payment_mix": "Betaalmix — 30 dagen",
+    "payment_mix": "Betaalmix (30 dagen)",
     "no_data": "Nog geen data",
     "recent": "Recente afsluitingen",
     "see_all": "Alles bekijken",
@@ -148,8 +148,8 @@
       "closing": "Eindkas (geteld)",
       "expected": "Verwachte eindkas",
       "drops": "Kasafnames",
-      "tips_cash": "Fooi — contant",
-      "tips_card": "Fooi — kaart",
+      "tips_cash": "Fooi (contant)",
+      "tips_card": "Fooi (kaart)",
       "tips_hint": "Niet inbegrepen in bovenstaande betaalmethoden",
       "variance": "Kasverschil"
     },
@@ -194,7 +194,7 @@
     "status_none": "Geen actief abonnement",
     "status_active": "Actief",
     "status_trial": "Proefperiode",
-    "status_cancelled": "Opgezegd — actief tot",
+    "status_cancelled": "Opgezegd, actief tot",
     "trial_ends": "Proefperiode eindigt op",
     "price": "€9 / maand / vestiging",
     "features": [
@@ -303,9 +303,9 @@
       "subtitle": "Verzegel elke dag met één klik. Onwijzigbaar, hash-geketend en altijd klaar voor een FOD-controle.",
       "cta_primary": "Start je gratis proefperiode",
       "cta_secondary": "Meer info",
-      "quote": "\"Eindelijk gemoedsrust bij een BTW-controle.\" — Sofie D., Gent",
+      "quote": "\"Eindelijk gemoedsrust bij een BTW-controle.\" (Sofie D., Gent)",
       "chain_title": "Live dagafsluiting",
-      "chain_footer": "Ketting geverifieerd — 3 afsluitingen"
+      "chain_footer": "Ketting geverifieerd (3 afsluitingen)"
     },
     "problem": {
       "title": "Papieren registers zijn een tikkende tijdbom",
@@ -369,7 +369,7 @@
         {
           "name": "Karim B.",
           "role": "Manager, Restaurant Brussel",
-          "text": "Onboarding in 5 minuten. De FOD-export werkt perfect — onze accountant is blij."
+          "text": "Onboarding in 5 minuten. De FOD-export werkt perfect en onze accountant is blij."
         },
         {
           "name": "Elke V.",
@@ -389,14 +389,14 @@
         "7 jaar bewaarplicht ingebouwd",
         "Export in FOD-leesbaar formaat"
       ],
-      "bonus": "Bonus: hash-chain maakt elke wijziging detecteerbaar — zelfs bij een database-inbraak."
+      "bonus": "Bonus: hash-chain maakt elke wijziging detecteerbaar, zelfs bij een database-inbraak."
     },
     "pricing": {
       "title": "Bètafase",
       "subtitle": "Tijdens de bèta gratis te gebruiken. Geen kredietkaart.",
       "price": "Bèta",
       "period": "gratis tijdens de bètafase",
-      "trial_note": "Vervang je huidige dagontvangstenboek nog niet — gebruik Dagontvangst er voorlopig naast.",
+      "trial_note": "Vervang je huidige dagontvangstenboek nog niet. Gebruik Dagontvangst er voorlopig naast.",
       "features": [
         "Onbeperkt afsluitingen",
         "Onbeperkt gebruikers",
@@ -416,7 +416,7 @@
         },
         {
           "q": "Hoe verloopt een FOD-controle?",
-          "a": "De inspecteur vraagt een export van de afsluitingen voor een bepaalde periode. Met Dagontvangst download je een JSON- of PDF-bundel met de hash-manifest — bewijs van integriteit dat de FOD accepteert."
+          "a": "De inspecteur vraagt een export van de afsluitingen voor een bepaalde periode. Met Dagontvangst download je een JSON- of PDF-bundel met de hash-manifest, het bewijs van integriteit dat de FOD accepteert."
         },
         {
           "q": "Wat als ik een fout heb gemaakt?",
@@ -444,7 +444,7 @@
     },
     "how": {
       "title": "Hoe het werkt",
-      "intro": "Van registratie tot verzegelde ketting — in drie stappen die geen boekhoudkundige ervaring vergen.",
+      "intro": "Van registratie tot verzegelde ketting, in drie stappen die geen boekhoudkundige ervaring vergen.",
       "steps": [
         {
           "num": "01",
@@ -473,7 +473,7 @@
     "cta": {
       "title": "Klaar om te starten?",
       "title_lead": "Klaar om te starten",
-      "title_accent": "— vandaag nog.",
+      "title_accent": "vandaag nog.",
       "subtitle": "14 dagen gratis, geen kredietkaart, opzegbaar op elk moment.",
       "button": "Probeer nu gratis",
       "trust": [
@@ -491,7 +491,7 @@
     },
     "beta_banner": {
       "label": "Bètafase",
-      "text": "Dagontvangst is in bèta. Je kunt het volledige product gratis uitproberen, maar het vervangt je huidige dagontvangstenboek nog niet — gebruik het er voorlopig naast."
+      "text": "Dagontvangst is in bèta. Je kunt het volledige product gratis uitproberen, maar het vervangt je huidige dagontvangstenboek nog niet. Gebruik het er voorlopig naast."
     }
   },
   "legal": {
@@ -520,7 +520,7 @@
         },
         {
           "h": "Welke gegevens wij verwerken",
-          "b": "• Accountgegevens: naam, e-mailadres, wachtwoord (gehasht), taalvoorkeur.\n• Bedrijfsgegevens: handelsnaam, BTW-nummer, adres van je vestiging(en).\n• Gebruiksgegevens: aangemaakte dagafsluitingen, BTW-uitsplitsingen, hash-manifest, tijdstempels, gebruikersacties in de app.\n• Betalingsgegevens: verwerkt door onze betaalprovider — wij ontvangen alleen factuurmetadata, geen kaartgegevens.\n• Technische gegevens: IP-adres, browsertype, sessie-tokens (essentieel voor beveiliging)."
+          "b": "• Accountgegevens: naam, e-mailadres, wachtwoord (gehasht), taalvoorkeur.\n• Bedrijfsgegevens: handelsnaam, BTW-nummer, adres van je vestiging(en).\n• Gebruiksgegevens: aangemaakte dagafsluitingen, BTW-uitsplitsingen, hash-manifest, tijdstempels, gebruikersacties in de app.\n• Betalingsgegevens: verwerkt door onze betaalprovider, wij ontvangen alleen factuurmetadata, geen kaartgegevens.\n• Technische gegevens: IP-adres, browsertype, sessie-tokens (essentieel voor beveiliging)."
         },
         {
           "h": "Doeleinden en rechtsgrond",
@@ -536,7 +536,7 @@
         },
         {
           "h": "Gegevens op je eigen toestel",
-          "b": "De app bewaart een aantal zaken lokaal in je browser: een concept van de dagafsluiting waaraan je werkt, je taal- en themavoorkeur, en — als je even geen internetverbinding hebt — de afsluiting die nog verzegeld moet worden.\nDeze gegevens blijven op je toestel tot ze verzonden of gewist zijn en worden niet met derden gedeeld. Je kunt ze verwijderen door de sitegegevens in je browser te wissen."
+          "b": "De app bewaart een aantal zaken lokaal in je browser: een concept van de dagafsluiting waaraan je werkt, je taal- en themavoorkeur, en, als je even geen internetverbinding hebt, de afsluiting die nog verzegeld moet worden.\nDeze gegevens blijven op je toestel tot ze verzonden of gewist zijn en worden niet met derden gedeeld. Je kunt ze verwijderen door de sitegegevens in je browser te wissen."
         },
         {
           "h": "Ontvangers en verwerkers",
@@ -552,7 +552,7 @@
         },
         {
           "h": "Je rechten",
-          "b": "Je hebt op elk moment het recht om je gegevens in te kijken, te corrigeren, te laten verwijderen, de verwerking te beperken, bezwaar te maken of over te dragen. Neem contact op via info@dagontvangst.be. Je kan ook klacht indienen bij de Gegevensbeschermingsautoriteit (Drukpersstraat 35, 1000 Brussel — gegevensbeschermingsautoriteit.be)."
+          "b": "Je hebt op elk moment het recht om je gegevens in te kijken, te corrigeren, te laten verwijderen, de verwerking te beperken, bezwaar te maken of over te dragen. Neem contact op via info@dagontvangst.be. Je kan ook klacht indienen bij de Gegevensbeschermingsautoriteit (Drukpersstraat 35, 1000 Brussel, gegevensbeschermingsautoriteit.be)."
         },
         {
           "h": "Cookies",
