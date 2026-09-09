@@ -278,14 +278,7 @@ function Landing() {
           the pricing section. */}
       {/* mt-16 clears the fixed 64px header, which otherwise sits on top of
           this and hides it entirely. */}
-      <div className="relative mt-16 bg-ink text-paper/90 px-6 sm:px-10 py-3">
-        <div className="max-w-7xl mx-auto flex items-start gap-3 text-[13px] leading-relaxed">
-          <span className="mt-0.5 shrink-0 font-mono text-[10px] uppercase tracking-widest bg-paper/15 rounded-full px-2 py-0.5">
-            {t('landing.beta_banner.label')}
-          </span>
-          <p className="text-paper/80">{t('landing.beta_banner.text')}</p>
-        </div>
-      </div>
+   
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative pt-12 sm:pt-20 pb-16 sm:pb-24 px-6 sm:px-10">
