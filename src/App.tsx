@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import i18n from './i18n';
@@ -6,13 +6,13 @@ import {
   Shield, Link2, Wifi, MapPin, FileDown, MessageCircle,
   Check, ChevronDown, ChevronUp, ArrowUpRight, ArrowRight,
 } from 'lucide-react';
-import { useRoute } from './lib/router';
+import { useRoute, navigate, LANGS, Lang, DEFAULT_LANG } from './lib/router';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { LegalPage } from './pages/Legal';
 import { ContactPage } from './pages/Contact';
 
-const APP_URL = (import.meta.env.VITE_APP_URL as string) ?? 'https://app.dagontvangst.be';
+import { APP_URL } from './lib/config';
 const FEATURE_ICONS = [Shield, Link2, Wifi, MapPin, FileDown, MessageCircle];
 
 // ── FAQ item ─────────────────────────────────────────────────────────────────
@@ -225,12 +225,33 @@ function StepMock({ i }: { i: number }) {
 
 // ── Router ───────────────────────────────────────────────────────────────────
 export default function App() {
-  const path = useRoute();
-  if (path.startsWith('/privacy'))      return <LegalPage kind="privacy" />;
-  if (path.startsWith('/voorwaarden') ||
-      path.startsWith('/terms') ||
-      path.startsWith('/conditions'))   return <LegalPage kind="terms" />;
-  if (path.startsWith('/contact'))      return <ContactPage />;
+  const { path, lang, sub } = useRoute();
+
+  // Bare "/" (or unknown language) → redirect to /{detected-lang}/
+  useEffect(() => {
+    const parts = path.split('/').filter(Boolean);
+    const first = parts[0];
+    const isLangPrefixed = first && (LANGS as readonly string[]).includes(first);
+    if (!isLangPrefixed) {
+      const detected = (i18n.language?.slice(0, 2) as Lang) ?? DEFAULT_LANG;
+      const target = (LANGS as readonly string[]).includes(detected) ? detected : DEFAULT_LANG;
+      const rest = path === '/' ? '' : path;
+      navigate(`/${target}${rest}`, true);
+    }
+  }, [path]);
+
+  // Keep i18n in sync with URL language
+  useEffect(() => {
+    if (i18n.language?.slice(0, 2) !== lang) i18n.changeLanguage(lang);
+    document.documentElement.lang = lang;
+  }, [lang]);
+
+  if (sub.startsWith('/privacy') || sub.startsWith('/confidentialite'))
+    return <LegalPage kind="privacy" />;
+  if (sub.startsWith('/voorwaarden') || sub.startsWith('/terms') || sub.startsWith('/conditions'))
+    return <LegalPage kind="terms" />;
+  if (sub.startsWith('/contact'))
+    return <ContactPage />;
   return <Landing />;
 }
 
@@ -251,14 +272,29 @@ function Landing() {
 
       <Header />
 
+      {/* Beta notice. Stated before anything is claimed below it: visitors are
+          being asked to trust this with a legally required register, so "try it
+          alongside your current book" belongs above the pitch, not buried in
+          the pricing section. */}
+      {/* mt-16 clears the fixed 64px header, which otherwise sits on top of
+          this and hides it entirely. */}
+      <div className="relative mt-16 bg-ink text-paper/90 px-6 sm:px-10 py-3">
+        <div className="max-w-7xl mx-auto flex items-start gap-3 text-[13px] leading-relaxed">
+          <span className="mt-0.5 shrink-0 font-mono text-[10px] uppercase tracking-widest bg-paper/15 rounded-full px-2 py-0.5">
+            {t('landing.beta_banner.label')}
+          </span>
+          <p className="text-paper/80">{t('landing.beta_banner.text')}</p>
+        </div>
+      </div>
+
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
-      <section className="relative pt-32 sm:pt-40 pb-16 sm:pb-24 px-6 sm:px-10">
+      <section className="relative pt-12 sm:pt-20 pb-16 sm:pb-24 px-6 sm:px-10">
         <div className="absolute inset-0 bg-paper-dots mask-radial opacity-70 pointer-events-none" />
-        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="relative max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.35fr_1fr] gap-12 lg:gap-14 items-center">
           <div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
-              className="font-serif text-[36px] sm:text-[56px] lg:text-[72px] leading-[0.98] tracking-[-0.02em] font-semibold break-words hyphens-auto"
+              className="font-serif text-[34px] sm:text-[48px] lg:text-[56px] xl:text-[62px] leading-[1.02] tracking-[-0.02em] font-semibold hyphens-none [word-break:normal]"
               lang={i18n.language.slice(0, 2)}
             >
               {t('landing.hero.title_line1')}<br />
@@ -276,10 +312,12 @@ function Landing() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-10 flex flex-wrap items-center gap-3"
             >
-              <a href={`${APP_URL}/register`}
-                className="group inline-flex items-center gap-2 bg-ink text-paper font-medium px-6 py-3.5 rounded-full hover:bg-ink-2 transition">
-                {t('landing.hero.cta_primary')}
-                <ArrowUpRight size={16} className="group-hover:rotate-45 transition duration-300" />
+              <a
+                href={`${APP_URL}/register`}
+                className="inline-flex items-center gap-2 bg-ink text-paper font-medium px-6 py-3.5 rounded-full hover:bg-ink-2 transition"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink" />
+                {t('landing.header.try_now')}
               </a>
               <a href="#features"
                 className="inline-flex items-center gap-2 text-ink font-medium px-6 py-3.5 rounded-full border border-hair hover:bg-white transition">
@@ -576,10 +614,12 @@ function Landing() {
                   ))}
                 </ul>
 
-                <a href={`${APP_URL}/register`}
-                  className="group flex items-center justify-center gap-2 bg-paper text-ink font-medium py-3.5 rounded-full hover:bg-white transition w-full">
-                  {t('landing.pricing.cta')}
-                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition" />
+                <a
+                  href={`${APP_URL}/register`}
+                  className="flex items-center justify-center gap-2 bg-paper text-ink font-medium py-3.5 rounded-full w-full hover:opacity-90 transition"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 blink" />
+                  {t('landing.header.try_now')}
                 </a>
               </div>
             </div>
@@ -609,10 +649,12 @@ function Landing() {
             <span className="italic text-white/60">{t('landing.cta.title_accent')}</span>
           </h2>
           <p className="mt-8 text-white/60 text-[15px] sm:text-[17px] max-w-xl mx-auto px-4">{t('landing.cta.subtitle')}</p>
-          <a href={`${APP_URL}/register`}
-            className="group mt-10 inline-flex items-center gap-2 bg-paper text-ink font-medium px-8 py-4 rounded-full hover:bg-white transition">
-            {t('landing.cta.button')}
-            <ArrowUpRight size={16} className="group-hover:rotate-45 transition duration-300" />
+          <a
+            href={`${APP_URL}/register`}
+            className="mt-10 inline-flex items-center gap-2 bg-paper text-ink font-medium px-8 py-4 rounded-full hover:opacity-90 transition"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 blink" />
+            {t('landing.header.try_now')}
           </a>
           <div className="mt-14 flex items-center justify-center gap-x-6 gap-y-2 font-mono text-[10px] text-white/40 uppercase tracking-widest flex-wrap px-4">
             {(t('landing.cta.trust', { returnObjects: true }) as string[]).map((c) => (

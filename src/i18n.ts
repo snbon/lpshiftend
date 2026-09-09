@@ -13,7 +13,11 @@ i18n
     fallbackLng: 'nl',
     supportedLngs: ['nl', 'fr', 'en'],
     interpolation: { escapeValue: false },
-    detection: { order: ['localStorage', 'navigator'], caches: ['localStorage'] },
+    detection: {
+      order: ['path', 'localStorage', 'navigator'],
+      lookupFromPathIndex: 0,
+      caches: ['localStorage'],
+    },
   });
 
 export default i18n;

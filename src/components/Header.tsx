@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { APP_URL } from '../lib/config';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { LangSwitcher } from './LangSwitcher';
 import { Link } from '../lib/router';
-
-const APP_URL = (import.meta.env.VITE_APP_URL as string) ?? 'https://app.dagontvangst.be';
 
 export function Header({ solid = false }: { solid?: boolean }) {
   const { t } = useTranslation();
@@ -30,7 +29,7 @@ export function Header({ solid = false }: { solid?: boolean }) {
       <header className={`fixed top-0 inset-x-0 z-50 transition-all ${showBg ? 'bg-paper/90 backdrop-blur-md border-b border-hair' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-10 h-16 flex items-center gap-3 sm:gap-6">
           <Link to="/" onClick={close} className="flex items-center gap-2 shrink-0">
-            <div className="w-7 h-7 rounded-sm bg-ink text-paper flex items-center justify-center font-serif italic font-semibold">D</div>
+            <img src="/favicon.svg" alt="" width={28} height={28} className="rounded-md" />
             <span className="font-serif text-[17px] font-semibold tracking-tight">Dagontvangst</span>
           </Link>
           <div className="flex-1" />
@@ -38,11 +37,15 @@ export function Header({ solid = false }: { solid?: boolean }) {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-6">
             <LangSwitcher />
-            <a href={APP_URL} className="text-sm text-ink-2/80 hover:text-ink transition">{t('landing.header.sign_in')}</a>
-            <a href={`${APP_URL}/register`}
-              className="group flex items-center gap-1.5 bg-ink text-paper text-sm font-medium px-4 py-2 rounded-full hover:bg-ink-2 transition whitespace-nowrap">
-              {t('landing.header.try_free')}
-              <ArrowUpRight size={14} className="group-hover:rotate-45 transition duration-300" />
+            <a href={`${APP_URL}/login`} className="text-sm text-ink-2 hover:text-ink transition">
+              {t('landing.header.sign_in')}
+            </a>
+            <a
+              href={`${APP_URL}/register`}
+              className="flex items-center gap-2 bg-ink text-paper text-sm font-medium px-4 py-2 rounded-full whitespace-nowrap hover:bg-ink-2 transition"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink" />
+              {t('landing.header.try_now')}
             </a>
           </div>
 
@@ -66,9 +69,13 @@ export function Header({ solid = false }: { solid?: boolean }) {
         <div className="absolute inset-0 bg-paper-dots mask-radial opacity-60 pointer-events-none" />
         <div className="relative h-full pt-24 pb-10 px-6 flex flex-col">
           <nav className="flex-1 flex flex-col gap-1">
-            <MobileLink href={APP_URL} onClick={close}>
-              {t('landing.header.sign_in')}
-            </MobileLink>
+            <a
+              href={`${APP_URL}/login`}
+              onClick={close}
+              className="flex items-center justify-between py-4 border-b border-hair font-serif text-2xl hover:text-ink-2 transition"
+            >
+              <span>{t('landing.header.sign_in')}</span>
+            </a>
             <MobileLink to="/contact" onClick={close}>
               {t('landing.footer.contact')}
             </MobileLink>
@@ -78,10 +85,10 @@ export function Header({ solid = false }: { solid?: boolean }) {
             <a
               href={`${APP_URL}/register`}
               onClick={close}
-              className="group flex items-center justify-center gap-2 bg-ink text-paper font-medium px-6 py-4 rounded-full hover:bg-ink-2 transition text-[15px] w-full"
+              className="flex items-center justify-center gap-2 bg-ink text-paper font-medium px-6 py-4 rounded-full text-[15px] w-full hover:bg-ink-2 transition"
             >
-              {t('landing.header.try_free')}
-              <ArrowUpRight size={16} className="group-hover:rotate-45 transition duration-300" />
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 blink" />
+              {t('landing.header.try_now')}
             </a>
             <div className="flex items-center justify-between border-t border-hair pt-6">
               <span className="font-mono text-[10px] uppercase tracking-widest text-ink-2/50">

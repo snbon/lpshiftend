@@ -104,14 +104,26 @@ src/
 └─ lib/router.tsx             pathname-based useRoute + <Link> + navigate()
 ```
 
-Routes are pathname-based (Netlify SPA fallback in `netlify.toml`):
+Routes are **pathname-based with a language prefix** (Netlify SPA fallback
+in `netlify.toml` keeps deep links working):
 
-| Path                                       | Renders                    |
-| ------------------------------------------ | -------------------------- |
-| `/`                                        | `<Landing />`              |
-| `/privacy`                                 | `<LegalPage kind="privacy" />` |
-| `/voorwaarden` · `/terms` · `/conditions`  | `<LegalPage kind="terms" />`   |
-| `/contact`                                 | `<ContactPage />`          |
+| Path                                                 | Renders                          |
+| ---------------------------------------------------- | -------------------------------- |
+| `/{nl,fr,en}/`                                       | `<Landing />`                    |
+| `/{nl,fr,en}/privacy` · `/fr/confidentialite`        | `<LegalPage kind="privacy" />`   |
+| `/nl/voorwaarden` · `/fr/conditions` · `/en/terms`   | `<LegalPage kind="terms" />`     |
+| `/{nl,fr,en}/contact`                                | `<ContactPage />`                |
+| `/` (or any path missing a lang prefix)              | client redirects to `/{detected-lang}/…` |
+
+- The URL is the source of truth for language. `parsePath()` in
+  `src/lib/router.tsx` extracts the leading `nl|fr|en` segment; `<Link>`
+  auto-prefixes it. `<LangSwitcher>` swaps the prefix with `replaceState` so
+  the shareable URL always encodes the visitor's language.
+- `App.tsx` also keeps `i18n.changeLanguage()` and `<html lang>` in sync when
+  the URL prefix changes.
+- Slugs after the prefix are matched loosely so a Dutch visitor pasting
+  `/en/voorwaarden` still lands on Terms. Add more aliases in `App.tsx`
+  if needed.
 
 ---
 
@@ -149,6 +161,29 @@ Roughly in order of importance.
       starting point, not vetted legal text.
 - [ ] Set the correct `last_updated` date in `src/pages/Legal.tsx` (currently
       hardcoded `2026-01-15`). Consider moving to a build-time constant.
+
+### Re-enable CTAs at launch (currently disabled — "Live in August")
+
+All primary CTAs are intentionally disabled buttons showing **"Live in August"**
+with a blinking green dot, since the product app isn't public yet. To re-enable:
+
+- [ ] Restore `const APP_URL = (import.meta.env.VITE_APP_URL as string) ?? 'https://app.dagontvangst.be';`
+      at the top of `src/App.tsx` (removed while disabled to avoid an unused-var
+      lint error).
+- [ ] In `src/App.tsx` — swap the three `<button disabled>` "Live in August"
+      elements back to `<a href={`${APP_URL}/register`}>` with the original
+      classes (`bg-ink text-paper … hover:bg-ink-2`, `bg-paper text-ink … hover:bg-white`,
+      and the CTA-section variant). The i18n key for the label is
+      `landing.hero.cta_primary` / `landing.pricing.cta` / `landing.cta.button`.
+- [ ] In `src/components/Header.tsx` — restore the desktop and mobile
+      "Sign in" links (`<a href={APP_URL}>{t('landing.header.sign_in')}</a>`)
+      and swap the disabled desktop pill + mobile drawer button back to the
+      original `<a href={`${APP_URL}/register`}>{t('landing.header.try_free')}</a>`
+      with `ArrowUpRight` icon.
+- [ ] The `landing.header.live_soon` i18n keys (nl/fr/en) can stay — useful for
+      any future "coming soon" banner. Or delete if you want.
+- [ ] Remove the "APP_URL removed while CTAs are disabled" comment in
+      `src/App.tsx`.
 
 ### Contact form
 

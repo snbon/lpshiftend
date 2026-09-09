@@ -1,13 +1,18 @@
-import { useState } from 'react';
 import i18n from '../i18n';
+import { LANGS, Lang, useRoute, navigate } from '../lib/router';
 
 export function LangSwitcher({ dark = false }: { dark?: boolean }) {
-  const [lang, setLang] = useState(i18n.language.slice(0, 2) as 'nl' | 'fr' | 'en');
-  function pick(l: 'nl' | 'fr' | 'en') { setLang(l); i18n.changeLanguage(l); }
-  const langs: ('nl' | 'fr' | 'en')[] = ['nl', 'fr', 'en'];
+  const { lang, sub } = useRoute();
+
+  function pick(l: Lang) {
+    if (l === lang) return;
+    i18n.changeLanguage(l);
+    navigate(`/${l}${sub === '/' ? '/' : sub}`, true);
+  }
+
   return (
     <div className={`flex items-center gap-0.5 font-mono text-[11px] ${dark ? 'text-white/60' : 'text-ink-2'}`}>
-      {langs.map((l, i) => (
+      {LANGS.map((l, i) => (
         <span key={l} className="flex items-center">
           <button
             onClick={() => pick(l)}
@@ -19,7 +24,7 @@ export function LangSwitcher({ dark = false }: { dark?: boolean }) {
           >
             {l}
           </button>
-          {i < langs.length - 1 && <span className="opacity-30">/</span>}
+          {i < LANGS.length - 1 && <span className="opacity-30">/</span>}
         </span>
       ))}
     </div>

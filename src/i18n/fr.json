@@ -287,10 +287,17 @@
   "landing": {
     "header": {
       "sign_in": "Se connecter",
-      "try_free": "Essai gratuit"
+      "try_free": "Essai gratuit",
+      "live_soon": "En ligne en août",
+      "try_now": "Essayer"
     },
     "hero": {
-      "badges": ["Conforme SPF", "Hash-chain", "PWA hors ligne", "Données UE"],
+      "badges": [
+        "Conforme SPF",
+        "Hash-chain",
+        "PWA hors ligne",
+        "Données UE"
+      ],
       "title_line1": "Journal des recettes journalières numérique",
       "title_line2": "pour l'horeca belge",
       "subtitle": "Scellez chaque journée en un clic. Immuable, chaîne de hachage, toujours prêt pour un contrôle SPF.",
@@ -304,10 +311,22 @@
       "title": "Les registres papier sont une bombe à retardement",
       "subtitle": "Chaque erreur, chaque rature, chaque journée manquante peut entraîner une amende lors d'un contrôle SPF.",
       "items": [
-        { "title": "Erreurs manuelles",           "desc": "Erreur de calcul dans la ventilation TVA ? Découvert trop tard, corrigé trop tard." },
-        { "title": "Excel n'est pas immuable",    "desc": "Les feuilles de calcul peuvent toujours être modifiées. L'inspecteur le sait aussi." },
-        { "title": "Ventilation TVA oubliée",     "desc": "Chaque taux (0/6/12/21%) doit être suivi séparément. Chaque jour." },
-        { "title": "Piste d'audit manquante",     "desc": "Sans preuve d'intégrité, votre avocat est démuni." }
+        {
+          "title": "Erreurs manuelles",
+          "desc": "Erreur de calcul dans la ventilation TVA ? Découvert trop tard, corrigé trop tard."
+        },
+        {
+          "title": "Excel n'est pas immuable",
+          "desc": "Les feuilles de calcul peuvent toujours être modifiées. L'inspecteur le sait aussi."
+        },
+        {
+          "title": "Ventilation TVA oubliée",
+          "desc": "Chaque taux (0/6/12/21%) doit être suivi séparément. Chaque jour."
+        },
+        {
+          "title": "Piste d'audit manquante",
+          "desc": "Sans preuve d'intégrité, votre avocat est démuni."
+        }
       ]
     },
     "chips": {
@@ -335,28 +354,70 @@
       "title": "Comment ça marche",
       "intro": "De l'inscription à la chaîne scellée — en trois étapes accessibles sans expérience comptable.",
       "steps": [
-        { "num": "01", "title": "Enregistrez votre établissement", "desc": "Créez un compte, ajoutez votre établissement avec numéro de TVA et adresse. Prêt en 2 minutes." },
-        { "num": "02", "title": "Clôturez chaque jour",             "desc": "Saisissez les lignes TVA et les moyens de paiement. Le rapprochement caisse et le hash sont calculés automatiquement." },
-        { "num": "03", "title": "Scellé et vérifiable",             "desc": "La clôture est stockée immuable dans la chaîne. Téléchargez un paquet SPF à tout moment." }
+        {
+          "num": "01",
+          "title": "Enregistrez votre établissement",
+          "desc": "Créez un compte, ajoutez votre établissement avec numéro de TVA et adresse. Prêt en 2 minutes."
+        },
+        {
+          "num": "02",
+          "title": "Clôturez chaque jour",
+          "desc": "Saisissez les lignes TVA et les moyens de paiement. Le rapprochement caisse et le hash sont calculés automatiquement."
+        },
+        {
+          "num": "03",
+          "title": "Scellé et vérifiable",
+          "desc": "La clôture est stockée immuable dans la chaîne. Téléchargez un paquet SPF à tout moment."
+        }
       ]
     },
     "features": {
       "title": "Tout ce dont vous avez besoin",
       "items": [
-        { "title": "Conforme SPF",                "desc": "Répond à la réglementation belge sur les journaux de recettes journalières." },
-        { "title": "Immuabilité par hash-chain",  "desc": "Chaque clôture est chaînée cryptographiquement. Toute manipulation est impossible." },
-        { "title": "PWA hors ligne",              "desc": "Fonctionne aussi sans internet. Synchronisation automatique à la reconnexion." },
-        { "title": "Multi-établissement",         "desc": "Gérez tous vos établissements depuis un seul compte avec accès par rôle." },
-        { "title": "Export PDF/CSV/JSON",         "desc": "Téléchargez à tout moment un paquet prêt pour l'inspecteur." },
-        { "title": "Notifications WhatsApp",      "desc": "Recevez confirmations et rappels via WhatsApp." }
+        {
+          "title": "Conforme SPF",
+          "desc": "Répond à la réglementation belge sur les journaux de recettes journalières."
+        },
+        {
+          "title": "Immuabilité par hash-chain",
+          "desc": "Chaque clôture est chaînée cryptographiquement. Toute manipulation est impossible."
+        },
+        {
+          "title": "PWA hors ligne",
+          "desc": "Fonctionne aussi sans internet. Synchronisation automatique à la reconnexion."
+        },
+        {
+          "title": "Multi-établissement",
+          "desc": "Gérez tous vos établissements depuis un seul compte avec accès par rôle."
+        },
+        {
+          "title": "Export PDF/CSV/JSON",
+          "desc": "Téléchargez à tout moment un paquet prêt pour l'inspecteur."
+        },
+        {
+          "title": "Notifications WhatsApp",
+          "desc": "Recevez confirmations et rappels via WhatsApp."
+        }
       ]
     },
     "testimonials": {
       "title": "Ce que disent nos clients",
       "items": [
-        { "name": "Sofie D.", "role": "Propriétaire, Brasserie Gand",   "text": "Enfin plus de registres papier. La chaîne me donne l'esprit tranquille lors d'un contrôle TVA." },
-        { "name": "Karim B.", "role": "Manager, Restaurant Bruxelles",  "text": "Configuration en 5 minutes. L'export SPF fonctionne parfaitement — notre comptable est ravi." },
-        { "name": "Elke V.",  "role": "Gérante, Café Anvers",           "text": "La PWA fonctionne même quand le wifi coupe. Mon personnel n'oublie plus jamais de clôturer." }
+        {
+          "name": "Sofie D.",
+          "role": "Propriétaire, Brasserie Gand",
+          "text": "Enfin plus de registres papier. La chaîne me donne l'esprit tranquille lors d'un contrôle TVA."
+        },
+        {
+          "name": "Karim B.",
+          "role": "Manager, Restaurant Bruxelles",
+          "text": "Configuration en 5 minutes. L'export SPF fonctionne parfaitement — notre comptable est ravi."
+        },
+        {
+          "name": "Elke V.",
+          "role": "Gérante, Café Anvers",
+          "text": "La PWA fonctionne même quand le wifi coupe. Mon personnel n'oublie plus jamais de clôturer."
+        }
       ]
     },
     "compliance": {
@@ -373,11 +434,11 @@
       "bonus": "Bonus : la hash-chain rend toute modification détectable — même en cas d'intrusion en base de données."
     },
     "pricing": {
-      "title": "Tarif simple",
-      "subtitle": "Pas de frais cachés. Aucune installation.",
-      "price": "€9",
-      "period": "/ mois / établissement",
-      "trial_note": "14 jours gratuits, sans carte de crédit",
+      "title": "Phase bêta",
+      "subtitle": "Gratuit pendant la bêta. Sans carte de crédit.",
+      "price": "Bêta",
+      "period": "gratuit pendant la phase bêta",
+      "trial_note": "Ne remplacez pas encore votre livre de recettes actuel — utilisez Dagontvangst en complément.",
       "features": [
         "Clôtures illimitées",
         "Utilisateurs illimités",
@@ -386,15 +447,27 @@
         "Accès inspecteur SPF",
         "Garantie hash-chain"
       ],
-      "cta": "Commencer 14 jours gratuits"
+      "cta": "Essayer"
     },
     "faq": {
       "title": "Questions fréquentes",
       "items": [
-        { "q": "Un journal de recettes numérique est-il obligatoire ?", "a": "Oui, pour les entreprises horeca belges qui n'utilisent pas de caisse enregistreuse certifiée, un journal des recettes manuel ou numérique est obligatoire. Dagontvangst automatise la mise en forme requise." },
-        { "q": "Comment se déroule un contrôle SPF ?",                  "a": "L'inspecteur demande un export des clôtures pour une période donnée. Avec Dagontvangst, vous téléchargez un paquet JSON ou PDF avec le manifeste de hachage — preuve d'intégrité acceptée par le SPF." },
-        { "q": "Que faire en cas d'erreur ?",                            "a": "Les corrections sont append-only : l'original reste intact et une nouvelle clôture corrective est ajoutée à la chaîne avec référence à l'original. Vous respectez ainsi l'exigence d'immuabilité." },
-        { "q": "Fonctionne-t-il si j'ai plusieurs établissements ?",     "a": "Oui. Un seul compte prend en charge plusieurs établissements. Chacun avec sa propre chaîne fermée, ses rôles et ses statistiques." }
+        {
+          "q": "Un journal de recettes numérique est-il obligatoire ?",
+          "a": "Oui, pour les entreprises horeca belges qui n'utilisent pas de caisse enregistreuse certifiée, un journal des recettes manuel ou numérique est obligatoire. Dagontvangst automatise la mise en forme requise."
+        },
+        {
+          "q": "Comment se déroule un contrôle SPF ?",
+          "a": "L'inspecteur demande un export des clôtures pour une période donnée. Avec Dagontvangst, vous téléchargez un paquet JSON ou PDF avec le manifeste de hachage — preuve d'intégrité acceptée par le SPF."
+        },
+        {
+          "q": "Que faire en cas d'erreur ?",
+          "a": "Les corrections sont append-only : l'original reste intact et une nouvelle clôture corrective est ajoutée à la chaîne avec référence à l'original. Vous respectez ainsi l'exigence d'immuabilité."
+        },
+        {
+          "q": "Fonctionne-t-il si j'ai plusieurs établissements ?",
+          "a": "Oui. Un seul compte prend en charge plusieurs établissements. Chacun avec sa propre chaîne fermée, ses rôles et ses statistiques."
+        }
       ]
     },
     "cta": {
@@ -403,13 +476,22 @@
       "title_accent": "— dès aujourd'hui.",
       "subtitle": "14 jours gratuits, sans carte de crédit, résiliable à tout moment.",
       "button": "Essayez maintenant gratuitement",
-      "trust": ["Conforme SPF", "Données EU", "PWA hors ligne", "14 jours gratuits"]
+      "trust": [
+        "Conforme SPF",
+        "Données EU",
+        "PWA hors ligne",
+        "14 jours gratuits"
+      ]
     },
     "footer": {
       "made_in": "Fait en Belgique pour l'horeca belge",
       "privacy": "Confidentialité",
       "terms": "Conditions",
       "contact": "Contact"
+    },
+    "beta_banner": {
+      "label": "Phase bêta",
+      "text": "Dagontvangst est en bêta. Vous pouvez essayer gratuitement l'ensemble du produit, mais il ne remplace pas encore votre livre de recettes journalières — utilisez-le en complément."
     }
   },
   "legal": {
@@ -432,58 +514,116 @@
       "title": "Politique de confidentialité",
       "subtitle": "Comment nous traitons les données personnelles conformément au RGPD et à la loi belge sur la protection des données.",
       "sections": [
-        { "h": "Responsable du traitement",
-          "b": "Dagontvangst BV est responsable du traitement de vos données personnelles. Contact : info@dagontvangst.be." },
-        { "h": "Données traitées",
-          "b": "• Données de compte : nom, adresse e-mail, mot de passe (haché), langue préférée.\n• Données de l'entreprise : dénomination commerciale, numéro de TVA, adresse de votre/vos établissement(s).\n• Données d'utilisation : clôtures journalières créées, ventilations TVA, manifeste de hachage, horodatages, actions dans l'application.\n• Données de paiement : traitées par notre prestataire de paiement — nous ne recevons que les métadonnées de facturation, jamais les données de carte.\n• Données techniques : adresse IP, type de navigateur, jetons de session (essentiels à la sécurité)." },
-        { "h": "Finalités et base légale",
-          "b": "• Exécution du contrat (art. 6.1.b RGPD) : gestion de votre compte, stockage de votre journal des recettes et génération d'exports conformes au SPF.\n• Obligation légale (art. 6.1.c RGPD) : conservation fiscale (7 ans) et réglementation comptable belge.\n• Intérêt légitime (art. 6.1.f RGPD) : prévention de la fraude, sécurité du service, amélioration des fonctionnalités.\n• Consentement (art. 6.1.a RGPD) : lorsque légalement requis, notamment pour des communications non essentielles." },
-        { "h": "Durées de conservation",
-          "b": "Données comptables (clôtures, lignes TVA, chaîne de hachage) : 7 ans après clôture de l'exercice, conformément à la législation fiscale belge.\nDonnées de compte : tant que votre compte est actif, et jusqu'à 12 mois après résiliation pour le traitement administratif.\nJournaux et données techniques : maximum 12 mois." },
-        { "h": "Destinataires et sous-traitants",
-          "b": "• Hébergement : prestataire cloud basé dans l'UE (données conservées dans l'EEE).\n• Prestataire de paiement : pour la gestion des abonnements.\n• Comptable : uniquement si vous lui accordez explicitement un accès.\n• Autorités : sur demande légalement motivée (ex. SPF Finances).\nNous ne vendons jamais de données à des tiers." },
-        { "h": "Transfert hors UE",
-          "b": "Vos données sont traitées au sein de l'EEE. Tout transfert exceptionnel vers un pays tiers s'effectuera uniquement sur base d'une décision d'adéquation ou de clauses contractuelles types." },
-        { "h": "Sécurité",
-          "b": "Nous appliquons des mesures techniques et organisationnelles : chiffrement TLS, hachage des mots de passe, contrôle d'accès basé sur les rôles, chaîne de hachage cryptographique des clôtures, sauvegardes régulières. Les incidents sont notifiés à l'APD dans les 72 heures si requis." },
-        { "h": "Vos droits",
-          "b": "Vous disposez à tout moment du droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Contactez-nous à info@dagontvangst.be. Vous pouvez également introduire une réclamation auprès de l'Autorité de protection des données (Rue de la Presse 35, 1000 Bruxelles — autoriteprotectiondonnees.be)." },
-        { "h": "Cookies",
-          "b": "Nous utilisons uniquement des cookies fonctionnels et essentiels (session, préférence de langue, jeton CSRF). Aucun cookie de tracking ou publicitaire. Aucun outil d'analyse tiers n'est chargé sur la page d'accueil sans votre consentement." },
-        { "h": "Modifications de la politique",
-          "b": "Nous pouvons adapter la présente politique. La version en vigueur est toujours disponible sur dagontvangst.be/privacy avec la date de dernière mise à jour." }
+        {
+          "h": "Responsable du traitement",
+          "b": "Dagontvangst BV est responsable du traitement de vos données personnelles. Contact : info@dagontvangst.be."
+        },
+        {
+          "h": "Données traitées",
+          "b": "• Données de compte : nom, adresse e-mail, mot de passe (haché), langue préférée.\n• Données de l'entreprise : dénomination commerciale, numéro de TVA, adresse de votre/vos établissement(s).\n• Données d'utilisation : clôtures journalières créées, ventilations TVA, manifeste de hachage, horodatages, actions dans l'application.\n• Données de paiement : traitées par notre prestataire de paiement — nous ne recevons que les métadonnées de facturation, jamais les données de carte.\n• Données techniques : adresse IP, type de navigateur, jetons de session (essentiels à la sécurité)."
+        },
+        {
+          "h": "Finalités et base légale",
+          "b": "• Exécution du contrat (art. 6.1.b RGPD) : gestion de votre compte, stockage de votre journal des recettes et génération d'exports conformes au SPF.\n• Obligation légale (art. 6.1.c RGPD) : conservation fiscale (7 ans) et réglementation comptable belge.\n• Intérêt légitime (art. 6.1.f RGPD) : prévention de la fraude, sécurité du service, amélioration des fonctionnalités.\n• Consentement (art. 6.1.a RGPD) : lorsque légalement requis, notamment pour des communications non essentielles."
+        },
+        {
+          "h": "Durées de conservation",
+          "b": "Données comptables (clôtures, lignes TVA, chaîne de hachage) : 7 ans après clôture de l'exercice, conformément à la législation fiscale belge.\nDonnées de compte : tant que votre compte est actif, et jusqu'à 12 mois après résiliation pour le traitement administratif.\nJournaux et données techniques : maximum 12 mois."
+        },
+        {
+          "h": "Rappels par e-mail",
+          "b": "Si votre clôture du jour est encore ouverte à l'approche de minuit, nous envoyons un rappel à l'adresse e-mail de votre compte. Vous choisissez le délai — ou désactivez complètement les rappels — dans les Paramètres.\nÀ cette fin, nous conservons vos délais préférés et, pour chaque rappel envoyé, un enregistrement de l'établissement, de la date et de l'heure, afin de ne pas vous notifier plusieurs fois pour la même journée. Ces enregistrements sont supprimés après 12 mois.\nSeuls les propriétaires et gérants reçoivent ces e-mails, car eux seuls peuvent clôturer une journée."
+        },
+        {
+          "h": "Données conservées sur votre appareil",
+          "b": "L'application conserve certains éléments localement dans votre navigateur : un brouillon de la clôture en cours, vos préférences de langue et de thème, et — si vous êtes momentanément hors ligne — une clôture en attente de scellement.\nCes données restent sur votre appareil jusqu'à leur envoi ou leur suppression et ne sont pas partagées avec des tiers. Vous pouvez les supprimer en effaçant les données du site dans votre navigateur."
+        },
+        {
+          "h": "Destinataires et sous-traitants",
+          "b": "• Hébergement : prestataire cloud basé dans l'UE (données conservées dans l'EEE).\n• Prestataire de paiement : pour la gestion des abonnements.\n• Comptable : uniquement si vous lui accordez explicitement un accès.\n• Autorités : sur demande légalement motivée (ex. SPF Finances).\nNous ne vendons jamais de données à des tiers."
+        },
+        {
+          "h": "Transfert hors UE",
+          "b": "Vos données sont traitées au sein de l'EEE. Tout transfert exceptionnel vers un pays tiers s'effectuera uniquement sur base d'une décision d'adéquation ou de clauses contractuelles types."
+        },
+        {
+          "h": "Sécurité",
+          "b": "Nous appliquons des mesures techniques et organisationnelles : chiffrement TLS, hachage des mots de passe, contrôle d'accès basé sur les rôles, chaîne de hachage cryptographique des clôtures, sauvegardes régulières. Les incidents sont notifiés à l'APD dans les 72 heures si requis."
+        },
+        {
+          "h": "Vos droits",
+          "b": "Vous disposez à tout moment du droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Contactez-nous à info@dagontvangst.be. Vous pouvez également introduire une réclamation auprès de l'Autorité de protection des données (Rue de la Presse 35, 1000 Bruxelles — autoriteprotectiondonnees.be)."
+        },
+        {
+          "h": "Cookies",
+          "b": "Nous utilisons uniquement des cookies fonctionnels et essentiels (session, préférence de langue, jeton CSRF). Aucun cookie de tracking ou publicitaire. Aucun outil d'analyse tiers n'est chargé sur la page d'accueil sans votre consentement."
+        },
+        {
+          "h": "Modifications de la politique",
+          "b": "Nous pouvons adapter la présente politique. La version en vigueur est toujours disponible sur dagontvangst.be/privacy avec la date de dernière mise à jour."
+        }
       ]
     },
     "terms": {
       "title": "Conditions générales",
       "subtitle": "Les droits et obligations applicables à l'utilisation de Dagontvangst.",
       "sections": [
-        { "h": "Définitions",
-          "b": "‘Dagontvangst’, ‘nous’ : Dagontvangst BV.\n‘Service’ : la plateforme en ligne de journal des recettes journalières numérique, y compris l'application, la PWA et l'API.\n‘Client’, ‘vous’ : l'entreprise horeca ou la personne physique qui utilise le Service." },
-        { "h": "Objet",
-          "b": "Dagontvangst propose un journal des recettes journalières basé sur le cloud, conforme aux exigences de la législation fiscale belge pour l'horeca. Le Service est fourni ‘as a service’, en l'état, avec une disponibilité raisonnable." },
-        { "h": "Inscription et compte",
-          "b": "Vous devez fournir des données exactes et à jour. Vous êtes responsable de la confidentialité de vos identifiants et de toutes les actions effectuées via votre compte. Vous confirmez être habilité à représenter l'entreprise pour laquelle vous créez un compte." },
-        { "h": "Période d'essai et tarif",
-          "b": "Les nouveaux clients bénéficient d'une période d'essai gratuite de 14 jours sans carte de crédit. Ensuite, le tarif est de 9 € par mois par établissement (hors TVA), sauf accord écrit contraire. Les prix peuvent être indexés annuellement ; toute modification est communiquée au moins 30 jours à l'avance." },
-        { "h": "Durée et résiliation",
-          "b": "Le contrat est conclu pour une durée indéterminée et est résiliable mensuellement moyennant un préavis d'un mois, pour la fin du mois en cours. Vos données restent disponibles pour export pendant 12 mois après résiliation." },
-        { "h": "Obligations du client",
-          "b": "Vous restez responsable de la saisie correcte des données fiscales et du respect de la législation fiscale. Dagontvangst facilite la conformité mais ne remplace pas les conseils comptables. L'abus, la rétro-ingénierie ou la revente du Service sont interdits." },
-        { "h": "Responsabilité",
-          "b": "Sauf dol ou faute grave, notre responsabilité est limitée au montant des redevances d'abonnement des 12 mois précédant le fait générateur du dommage. Nous ne sommes pas responsables des dommages indirects, du manque à gagner ou d'amendes fiscales résultant d'une saisie erronée par le client." },
-        { "h": "Disponibilité et force majeure",
-          "b": "Nous visons une disponibilité de 99,5 % sur base mensuelle. Nous ne sommes pas responsables des interruptions dues à un cas de force majeure, y compris pannes chez nos hébergeurs, évolutions législatives ou autres causes externes." },
-        { "h": "Propriété intellectuelle",
-          "b": "Tous les droits sur le logiciel, le code, l'interface, la marque et la documentation appartiennent à Dagontvangst BV. Vous obtenez un droit d'usage non exclusif et non transférable pour la durée de votre abonnement." },
-        { "h": "Propriété des données",
-          "b": "Toutes les données que vous saisissez restent votre propriété. Vous pouvez à tout moment télécharger un export au format JSON, CSV ou PDF, y compris le manifeste de hachage de la chaîne." },
-        { "h": "Modifications",
-          "b": "Nous pouvons adapter les présentes conditions. Toute modification substantielle sera annoncée au moins 30 jours à l'avance. L'utilisation continue vaut acceptation." },
-        { "h": "Droit applicable et juridiction",
-          "b": "Le présent contrat est soumis exclusivement au droit belge. Tout litige relève de la compétence exclusive des tribunaux de l'arrondissement judiciaire de Gand, division Gand, sans préjudice des règles impératives de protection des consommateurs." }
+        {
+          "h": "Définitions",
+          "b": "‘Dagontvangst’, ‘nous’ : Dagontvangst BV.\n‘Service’ : la plateforme en ligne de journal des recettes journalières numérique, y compris l'application, la PWA et l'API.\n‘Client’, ‘vous’ : l'entreprise horeca ou la personne physique qui utilise le Service."
+        },
+        {
+          "h": "Objet",
+          "b": "Dagontvangst propose un journal des recettes journalières basé sur le cloud, conforme aux exigences de la législation fiscale belge pour l'horeca. Le Service est fourni ‘as a service’, en l'état, avec une disponibilité raisonnable."
+        },
+        {
+          "h": "Phase bêta",
+          "b": "Dagontvangst se trouve en phase bêta. Pendant cette phase, l'ensemble du produit est disponible gratuitement et aucun frais d'abonnement n'est facturé.\nLa phase bêta sert à évaluer le produit. Pendant cette phase, Dagontvangst ne remplace pas votre livre de recettes journalières existant : vous restez responsable de la tenue de vos registres légalement obligatoires. Nous recommandons d'utiliser Dagontvangst en complément de votre méthode actuelle.\nVous en êtes informé explicitement lors de l'inscription et nous vous demandons de le confirmer. Nous enregistrons l'heure et la version de l'avis que vous avez accepté.\nPendant la phase bêta, nous ne garantissons pas que le produit suffise comme unique registre légal."
+        },
+        {
+          "h": "Inscription et compte",
+          "b": "Vous devez fournir des données exactes et à jour. Vous êtes responsable de la confidentialité de vos identifiants et de toutes les actions effectuées via votre compte. Vous confirmez être habilité à représenter l'entreprise pour laquelle vous créez un compte."
+        },
+        {
+          "h": "Période d'essai et tarif",
+          "b": "Les nouveaux clients bénéficient d'une période d'essai gratuite de 14 jours sans carte de crédit. Ensuite, le tarif est de 9 € par mois par établissement (hors TVA), sauf accord écrit contraire. Les prix peuvent être indexés annuellement ; toute modification est communiquée au moins 30 jours à l'avance."
+        },
+        {
+          "h": "Durée et résiliation",
+          "b": "Le contrat est conclu pour une durée indéterminée et est résiliable mensuellement moyennant un préavis d'un mois, pour la fin du mois en cours. Vos données restent disponibles pour export pendant 12 mois après résiliation."
+        },
+        {
+          "h": "Obligations du client",
+          "b": "Vous restez responsable de la saisie correcte des données fiscales et du respect de la législation fiscale. Dagontvangst facilite la conformité mais ne remplace pas les conseils comptables. L'abus, la rétro-ingénierie ou la revente du Service sont interdits."
+        },
+        {
+          "h": "Responsabilité",
+          "b": "Sauf dol ou faute grave, notre responsabilité est limitée au montant des redevances d'abonnement des 12 mois précédant le fait générateur du dommage. Nous ne sommes pas responsables des dommages indirects, du manque à gagner ou d'amendes fiscales résultant d'une saisie erronée par le client."
+        },
+        {
+          "h": "Disponibilité et force majeure",
+          "b": "Nous visons une disponibilité de 99,5 % sur base mensuelle. Nous ne sommes pas responsables des interruptions dues à un cas de force majeure, y compris pannes chez nos hébergeurs, évolutions législatives ou autres causes externes."
+        },
+        {
+          "h": "Propriété intellectuelle",
+          "b": "Tous les droits sur le logiciel, le code, l'interface, la marque et la documentation appartiennent à Dagontvangst BV. Vous obtenez un droit d'usage non exclusif et non transférable pour la durée de votre abonnement."
+        },
+        {
+          "h": "Propriété des données",
+          "b": "Toutes les données que vous saisissez restent votre propriété. Vous pouvez à tout moment télécharger un export au format JSON, CSV ou PDF, y compris le manifeste de hachage de la chaîne."
+        },
+        {
+          "h": "Modifications",
+          "b": "Nous pouvons adapter les présentes conditions. Toute modification substantielle sera annoncée au moins 30 jours à l'avance. L'utilisation continue vaut acceptation."
+        },
+        {
+          "h": "Droit applicable et juridiction",
+          "b": "Le présent contrat est soumis exclusivement au droit belge. Tout litige relève de la compétence exclusive des tribunaux de l'arrondissement judiciaire de Gand, division Gand, sans préjudice des règles impératives de protection des consommateurs."
+        }
       ]
-    }
+    },
+    "company_label": "Entreprise",
+    "email_label": "E-mail"
   },
   "contact": {
     "chip": "Contact",

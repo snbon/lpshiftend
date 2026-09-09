@@ -18,6 +18,14 @@
     font-family: 'Inter', system-ui, sans-serif;
     color: var(--ink);
     background: var(--paper);
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+  h1, h2, h3, h4, h5 {
+    hyphens: none;
+    -webkit-hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
   }
   ::selection { background: var(--ink); color: var(--paper); }
 }
