@@ -276,9 +276,19 @@ function Landing() {
           being asked to trust this with a legally required register, so "try it
           alongside your current book" belongs above the pitch, not buried in
           the pricing section. */}
-      {/* mt-16 clears the fixed 64px header, which otherwise sits on top of
-          this and hides it entirely. */}
-   
+      {/* A light strip continuing the header's paper rather than a dark slab:
+          this is a caveat to read, not a promotion to shout. Deliberately not
+          dismissible — "does not replace your current book" is the sort of
+          thing a user should still see on their fifth visit.
+          mt-16 clears the fixed 64px header, which otherwise covers it. */}
+      <div className="mt-16 border-b border-hair bg-paper">
+        <div className="max-w-7xl mx-auto flex items-start gap-3 px-6 sm:px-10 py-3 text-[13px] leading-relaxed">
+          <span className="mt-0.5 shrink-0 rounded-full bg-ink px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-paper">
+            {t('landing.beta_banner.label')}
+          </span>
+          <p className="text-ink-2/80">{t('landing.beta_banner.text')}</p>
+        </div>
+      </div>
 
       {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <section className="relative pt-12 sm:pt-20 pb-16 sm:pb-24 px-6 sm:px-10">

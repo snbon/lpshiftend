@@ -31,6 +31,11 @@ export function Header({ solid = false }: { solid?: boolean }) {
           <Link to="/" onClick={close} className="flex items-center gap-2 shrink-0">
             <img src="/favicon.svg" alt="" width={28} height={28} className="rounded-md" />
             <span className="font-serif text-[17px] font-semibold tracking-tight">Dagontvangst</span>
+            {/* Rides with the wordmark so the product's stage is stated on every
+                page, including the legal ones, without repeating the caveat. */}
+            <span className="rounded-full border border-hair bg-ink/5 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-widest text-ink-2/70">
+              {t('landing.header.beta')}
+            </span>
           </Link>
           <div className="flex-1" />
 
