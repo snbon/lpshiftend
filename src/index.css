@@ -3,9 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --paper: #faf7f2;
-  --ink: #0e0e10;
-  --ink-2: #2a2a2e;
+  /* Channel triplets so Tailwind can compose an alpha (text-ink-2/60), with the
+     composed colours kept alongside for the plain var(--ink) uses below. */
+  --paper-rgb: 250 247 242;
+  --ink-rgb: 14 14 16;
+  --ink-2-rgb: 42 42 46;
+
+  --paper: rgb(var(--paper-rgb));
+  --ink: rgb(var(--ink-rgb));
+  --ink-2: rgb(var(--ink-2-rgb));
   --accent: #ef4444;
   --seal: #b91c1c;
   --hair: rgba(14, 14, 16, 0.08);
@@ -33,14 +39,6 @@
 @layer utilities {
   .font-serif   { font-family: 'Fraunces', ui-serif, Georgia, serif; font-optical-sizing: auto; }
   .font-mono    { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace; }
-  .bg-paper     { background-color: var(--paper); }
-  .text-paper   { color: var(--paper); }
-  .text-ink     { color: var(--ink); }
-  .text-ink-2   { color: var(--ink-2); }
-  .bg-ink       { background-color: var(--ink); }
-  .bg-ink-2     { background-color: var(--ink-2); }
-  .hover\:bg-ink-2:hover  { background-color: var(--ink-2); }
-  .hover\:bg-paper:hover  { background-color: var(--paper); }
   .border-hair  { border-color: var(--hair); }
 
   /* Fine dot grid — paper aesthetic */
